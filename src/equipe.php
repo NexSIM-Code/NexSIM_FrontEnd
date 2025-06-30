@@ -4,7 +4,7 @@ $equipe = [
         'name' => 'Romary Lucas',
         'role' => 'CEO',
         'description' => 'Ingénieur mécatronique',
-        'image' => 'image/person/lucas.jpg'
+        'image' => 'image/person/lucas.png'
     ],
     [
         'name' => 'Ferlin Jules',
@@ -22,7 +22,7 @@ $equipe = [
         'name' => 'Lauri Fabrice',
         'role' => 'Développeur VR',
         'description' => 'Maitre de conférence Intelligence artificielle et réalité virtuelle à l\'Université de Technologie de Belfort-Montbéliard',
-        'image' => 'image/person/fabrice.jpg'
+        'image' => 'image/person/fabrice.png'
     ],
     [
         'name' => 'Buvat Jean-Sebastien',
