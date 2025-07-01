@@ -23,6 +23,33 @@
     </section>
 
     <section class="content-section">
+        <h2>À propos de nous</h2>
+        <p>Fondée en 2021 par une équipe d'ingénieurs et de professionnels de santé, Nexsim est née d'un constat simple
+            :
+            la formation médicale traditionnelle présente des limites importantes en termes d'accessibilité et de
+            réalisme.</p>
+
+        <p>Notre vision est de démocratiser l'accès à des outils de simulation médicale de haute qualité, permettant aux
+            établissements de santé et aux centres de formation de toutes tailles de bénéficier des avantages de la
+            simulation.</p>
+
+        <div class="about-highlights">
+            <div class="highlight-item">
+                <h3>Innovation</h3>
+                <p>Nous combinons expertise médicale et ingénierie de pointe pour créer des solutions uniques.</p>
+            </div>
+            <div class="highlight-item">
+                <h3>Accessibilité</h3>
+                <p>Nos produits sont conçus pour être abordables et faciles à déployer dans tous les environnements.</p>
+            </div>
+            <div class="highlight-item">
+                <h3>Pédagogie</h3>
+                <p>Chaque fonctionnalité est pensée pour maximiser l'apprentissage et le transfert de compétences.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
         <h2>Notre écosystème de simulation</h2>
         <p>Nos solutions couvrent tous les besoins de formation et démonstration pour la ventilation mécanique et le
             monitorage.</p>

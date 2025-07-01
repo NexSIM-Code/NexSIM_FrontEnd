@@ -16,10 +16,21 @@
 <div class="main-content">
     <section class="content-section">
         <h2>Qu’est-ce que Lusim ?</h2>
-        <p>Lusim est un simulateur hybride qui associe un module physique, un module VR et une application mobile pour
-            offrir une formation complète à la ventilation mécanique.</p>
-        <p>En moins de 5 minutes, déployez une séance de simulation transportable, réaliste et sécurisée pour former
-            infirmiers, médecins et étudiants en santé.</p>
+        <div class="product-showcase">
+            <div class="product-image">
+                <img src="image/lusim.png" data-dark-src="image/lusim.png" alt="Simulateur Lusim"
+                     class="product-main-image">
+            </div>
+            <div class="product-description">
+                <p>Lusim est un simulateur hybride qui associe un module physique, un module VR et une application
+                    mobile pour
+                    offrir une formation complète à la ventilation mécanique.</p>
+                <p>En moins de <strong>5</strong> minutes, déployez une séance de simulation transportable, réaliste et
+                    sécurisée pour former
+                    infirmiers, médecins et étudiants en santé.</p>
+                <a href="#" class="cta-button">Demander une démonstration</a>
+            </div>
+        </div>
     </section>
 
     <section class="content-section">

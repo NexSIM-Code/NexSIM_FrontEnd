@@ -12,16 +12,16 @@
 }
 
 .dark-mode {
-    --primary-color: #5ce1e6;     /* Turquoise */
-    --accent-color: #86eae9;      /* Turquoise très claire */
-    --bg-color: #1a2d3b;          /* Bleu nuit */
-    --text-color: #ffffff;        /* Turquoise très claire */
-    --section-bg: #1e4e61;        /* Autre bleu nuit */
-    --card-bg: #076487;           /* Bleu nuit claire */
-    --footer-bg: #1e4e61;         /* Bleu nuit */
-    --border-color: #3edad8;      /* Turquoise claire */
-    --modal-bg: #1e4e61;          /* Autre bleu nuit */
-    --nav-bg: #1e4e61;            /* Bleu nuit */
+    --primary-color: #5ce1e6; /* Turquoise */
+    --accent-color: #86eae9; /* Turquoise très claire */
+    --bg-color: #1a2d3b; /* Bleu nuit */
+    --text-color: #ffffff; /* Turquoise très claire */
+    --section-bg: #1e4e61; /* Autre bleu nuit */
+    --card-bg: #076487; /* Bleu nuit claire */
+    --footer-bg: #1e4e61; /* Bleu nuit */
+    --border-color: #3edad8; /* Turquoise claire */
+    --modal-bg: #1e4e61; /* Autre bleu nuit */
+    --nav-bg: #1e4e61; /* Bleu nuit */
 }
 
 
@@ -43,7 +43,7 @@ nav {
     align-items: center;
     padding: 1rem 2rem;
     background-color: var(--nav-bg);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
@@ -301,9 +301,15 @@ input:checked + .slider:before {
 
 /* Animation pour les boutons */
 @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 .pulse {
@@ -452,6 +458,157 @@ input:checked + .slider:before {
 
 .benefits-list li {
     margin-bottom: 8px;
+}
+
+/* Testimonials styling */
+.testimonials-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.testimonial-card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid var(--accent-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.testimonial-content {
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.testimonial-content p {
+    position: relative;
+    padding: 0 10px;
+}
+
+.testimonial-content p::before,
+.testimonial-content p::after {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    position: relative;
+    line-height: 0;
+}
+
+.testimonial-content p::before {
+    content: '\201C';
+    margin-right: 4px;
+}
+
+.testimonial-content p::after {
+    content: '\201D';
+    margin-left: 4px;
+}
+
+.testimonial-author {
+    text-align: right;
+    color: var(--primary-color);
+}
+
+.testimonial-author p {
+    margin-bottom: 0.3rem;
+}
+
+/* About Us section styling */
+.about-highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.highlight-item {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 1.2rem;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 3px solid var(--accent-color);
+    text-align: center;
+}
+
+.highlight-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+}
+
+.highlight-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+}
+
+.highlight-item p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Product page styling */
+.product-showcase {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 1.5rem 0;
+    align-items: center;
+}
+
+.product-image {
+    flex: 1;
+    min-width: 300px;
+}
+
+.product-main-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.product-main-image:hover {
+    transform: scale(1.02);
+}
+
+.product-description {
+    flex: 1;
+    min-width: 300px;
+}
+
+.modules {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.module-card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 1.2rem;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 3px solid var(--accent-color);
+}
+
+.module-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.module-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.8rem;
 }
 
 /* Team page styling */

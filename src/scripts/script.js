@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function () {
     // Menu hamburger responsive
     const navLinks = document.querySelector('.nav-links');

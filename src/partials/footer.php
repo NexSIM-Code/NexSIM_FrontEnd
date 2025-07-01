@@ -4,5 +4,5 @@
         <?php include 'footer/contact.php' ?>
     </div>
 
-    <p style="margin-top: 2rem;">&copy; 2025 Nexsim - Next Simulation. Tous droits réservés.</p>
+    <p style="margin-top: 2rem;">&copy; 2023 Nexsim - Next Simulation. Tous droits réservés.</p>
 </footer>
