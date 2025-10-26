@@ -3,10 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexsim - Solutions de simulation médicale innovantes</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="scripts/script.js"></script>
     <link rel="icon" href="image/favicon.png" type="image/png">
+    <?php
+      $seo = [
+        'title' => 'Lusim – Simulateur pulmonaire pour la formation à la ventilation mécanique',
+        'description' => "Lusim est un simulateur hybride (module physique, VR et mobile) pour former à la ventilation mécanique : cas cliniques, réglages de respirateurs et compréhension de la mécanique respiratoire.",
+        'path' => '/lusim.php'
+      ];
+      include 'partials/seo.php';
+    ?>
 </head>
 <body>
 <!-- Barre de navigation -->

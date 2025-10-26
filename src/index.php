@@ -3,10 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexsim - Solutions de simulation médicale innovantes</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="scripts/script.js"></script>
     <link rel="icon" href="image/favicon.png" type="image/png">
+    <?php
+      $seo = [
+        'title' => 'Nexsim - Solutions de simulation médicale innovantes',
+        'description' => "Spécialistes des solutions innovantes de simulation pour la formation du personnel soignant. Nexsim développe des technologies de pointe pour améliorer l'apprentissage et les compétences des professionnels de santé.",
+        'path' => '/'
+      ];
+      include 'partials/seo.php';
+    ?>
 </head>
 <body>
 <!-- Barre de navigation -->
