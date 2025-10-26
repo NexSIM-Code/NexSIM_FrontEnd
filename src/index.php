@@ -69,14 +69,14 @@
                 comportements pulmonaires dans diverses situations cliniques, permettant aux soignants de s'exercer en
                 toute sécurité.</p>
             <p>Idéal pour les écoles d'infirmiers, les facultés de médecine et les services de pneumologie.</p>
-            <a href="lusim.php"" class="cta-button">En savoir plus sur Lusim</a>
+            <a href="lusim.php" class="cta-button">En savoir plus sur Lusim</a>
         </div>
     </section>
 
     <section class="content-section">
         <h2>Pourquoi choisir Nexsim ?</h2>
         <p>Nos simulateurs médicaux offrent une expérience d'apprentissage sans risque pour les patients, permettant aux
-            professionnels de santé de:</p>
+            professionnels de santé de :</p>
         <ul style="margin-left: 20px; margin-bottom: 15px;">
             <li>Pratiquer des gestes techniques spécifiques</li>
             <li>Se familiariser avec des équipements complexes</li>
