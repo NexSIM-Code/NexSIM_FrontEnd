@@ -9,7 +9,7 @@
     <?php
       $seo = [
         'title' => 'Lusim – Simulateur pulmonaire pour la formation à la ventilation mécanique',
-        'description' => "Lusim est un simulateur hybride (module physique, VR et mobile) pour former à la ventilation mécanique : cas cliniques, réglages de respirateurs et compréhension de la mécanique respiratoire.",
+        'description' => "Lusim est un simulateur hybride (module physique, VR et mobile), véritable poumon pédagogique pour former à la ventilation mécanique : cas cliniques, réglages de respirateurs et compréhension de la mécanique respiratoire.",
         'path' => '/lusim.php'
       ];
       include 'partials/seo.php';
@@ -36,7 +36,7 @@
             <div class="product-description">
                 <p>Lusim est un simulateur hybride qui associe un module physique, un module VR et une application
                     mobile pour
-                    offrir une formation complète à la ventilation mécanique.</p>
+                    offrir une formation complète à la ventilation mécanique. Véritable poumon pédagogique, il facilite la compréhension et la pratique en toute sécurité.</p>
                 <p>En moins de <strong>5</strong> minutes, déployez une séance de simulation transportable, réaliste et
                     sécurisée pour former
                     infirmiers, médecins et étudiants en santé.</p>

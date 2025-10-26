@@ -15,7 +15,7 @@
 $defaults = [
     'site_name'   => 'Nexsim',
     'title'       => 'Nexsim - Solutions de simulation médicale innovantes',
-    'description' => "Nexsim conçoit des solutions de simulation médicale innovantes pour former le personnel soignant : simulateurs, VR et outils pédagogiques.",
+    'description' => "Nexsim conçoit des solutions de simulation médicale innovantes pour former le personnel soignant : simulateurs, VR et outils pédagogiques, un véritable poumon pédagogique pour la formation.",
     'image'       => 'image/logo.png', // fallback; we will choose a best-effort existing image
     'robots'      => 'index,follow',
     'type'        => 'website',

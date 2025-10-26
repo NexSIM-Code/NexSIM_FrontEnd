@@ -10,7 +10,7 @@
     <?php
       $seo = [
         'title' => 'Nexsim - Solutions de simulation médicale innovantes',
-        'description' => "Spécialistes des solutions innovantes de simulation pour la formation du personnel soignant. Nexsim développe des technologies de pointe pour améliorer l'apprentissage et les compétences des professionnels de santé.",
+        'description' => "Spécialistes des solutions innovantes de simulation pour la formation du personnel soignant. Véritable poumon pédagogique pour les établissements et centres de simulation, Nexsim développe des technologies de pointe pour améliorer l'apprentissage et les compétences des professionnels de santé.",
         'path' => '/'
       ];
       include 'partials/seo.php';
@@ -32,7 +32,7 @@
         <p>Spécialistes des solutions innovantes de simulation pour la formation du personnel soignant. Chez Nexsim,
             nous développons des technologies de pointe pour améliorer l'apprentissage et perfectionner les compétences
             des professionnels de santé.</p>
-        <p>Notre mission : révolutionner la formation médicale grâce à des simulateurs réalistes et accessibles.</p>
+        <p>Notre mission : révolutionner la formation médicale grâce à des simulateurs réalistes et accessibles, un véritable poumon pédagogique au service des apprenants.</p>
     </section>
 
     <section class="content-section">
