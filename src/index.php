@@ -3,24 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="qDKB2ei3_8JhsxrarHHWDW6jAzgNLag5ksAmdAWFFwE" />
+    <meta name="google-site-verification" content="qDKB2ei3_8JhsxrarHHWDW6jAzgNLag5ksAmdAWFFwE"/>
     <link rel="stylesheet" href="css/style.css">
     <script src="scripts/script.js"></script>
     <link rel="icon" href="image/favicon.png" type="image/png">
     <?php
-      $seo = [
-        'title' => 'Nexsim - Solutions de simulation médicale innovantes',
-        'description' => "Spécialistes des solutions innovantes de simulation pour la formation du personnel soignant. Véritable poumon pédagogique pour les établissements et centres de simulation, Nexsim développe des technologies de pointe pour améliorer l'apprentissage et les compétences des professionnels de santé.",
-        'path' => '/'
-      ];
-      include 'partials/seo.php';
+    $seo = [
+            'title' => 'Nexsim - Solutions de simulation médicale innovantes',
+            'description' => "Spécialistes des solutions innovantes de simulation pour la formation du personnel soignant. Véritable poumon pédagogique pour les établissements et centres de simulation, Nexsim développe des technologies de pointe pour améliorer l'apprentissage et les compétences des professionnels de santé.",
+            'path' => '/'
+    ];
+    include 'partials/seo.php';
     ?>
 </head>
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NPTDG3KP"
-                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 
 <!-- Barre de navigation -->
 <?php include 'partials/navbar.php'; ?>
@@ -32,7 +28,8 @@
         <p>Spécialistes des solutions innovantes de simulation pour la formation du personnel soignant. Chez Nexsim,
             nous développons des technologies de pointe pour améliorer l'apprentissage et perfectionner les compétences
             des professionnels de santé.</p>
-        <p>Notre mission : révolutionner la formation médicale grâce à des simulateurs réalistes et accessibles, un véritable poumon pédagogique au service des apprenants.</p>
+        <p>Notre mission : révolutionner la formation médicale grâce à des simulateurs réalistes et accessibles, un
+            véritable poumon pédagogique au service des apprenants.</p>
     </section>
 
     <section class="content-section">

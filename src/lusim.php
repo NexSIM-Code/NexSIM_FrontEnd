@@ -7,19 +7,15 @@
     <script src="scripts/script.js"></script>
     <link rel="icon" href="image/favicon.png" type="image/png">
     <?php
-      $seo = [
-        'title' => 'Lusim – Simulateur pulmonaire pour la formation à la ventilation mécanique',
-        'description' => "Lusim est un simulateur hybride (module physique, VR et mobile), véritable poumon pédagogique pour former à la ventilation mécanique : cas cliniques, réglages de respirateurs et compréhension de la mécanique respiratoire.",
-        'path' => '/lusim.php'
-      ];
-      include 'partials/seo.php';
+    $seo = [
+            'title' => 'Lusim – Simulateur pulmonaire pour la formation à la ventilation mécanique',
+            'description' => "Lusim est un simulateur hybride (module physique, VR et mobile), véritable poumon pédagogique pour former à la ventilation mécanique : cas cliniques, réglages de respirateurs et compréhension de la mécanique respiratoire.",
+            'path' => '/lusim.php'
+    ];
+    include 'partials/seo.php';
     ?>
 </head>
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NPTDG3KP"
-                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 
 <!-- Barre de navigation -->
 <?php include 'partials/navbar.php'; ?>
@@ -36,7 +32,8 @@
             <div class="product-description">
                 <p>Lusim est un simulateur hybride qui associe un module physique, un module VR et une application
                     mobile pour
-                    offrir une formation complète à la ventilation mécanique. Véritable poumon pédagogique, il facilite la compréhension et la pratique en toute sécurité.</p>
+                    offrir une formation complète à la ventilation mécanique. Véritable poumon pédagogique, il facilite
+                    la compréhension et la pratique en toute sécurité.</p>
                 <p>En moins de <strong>5</strong> minutes, déployez une séance de simulation transportable, réaliste et
                     sécurisée pour former
                     infirmiers, médecins et étudiants en santé.</p>

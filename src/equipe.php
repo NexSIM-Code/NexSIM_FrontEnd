@@ -1,35 +1,35 @@
 <?php
 $equipe = [
-    [
-        'name' => 'Romary Lucas',
-        'role' => 'CEO',
-        'description' => 'Ingénieur mécatronique',
-        'image' => 'image/person/lucas.png'
-    ],
-    [
-        'name' => 'Ferlin Jules',
-        'role' => 'CTO',
-        'description' => 'Ingénieur informatique',
-        'image' => 'image/person/jules.png'
-    ],
-    [
-        'name' => 'Faivre Laurent',
-        'role' => 'Vacataire formateur',
-        'description' => 'Infirmier coordonnateur, responsable du centre de simulation de l\'Hôpital Nord Franche-Comté',
-        'image' => 'image/person/laurent.png'
-    ],
-    [
-        'name' => 'Lauri Fabrice',
-        'role' => 'Développeur VR',
-        'description' => 'Maitre de conférence Intelligence artificielle et réalité virtuelle à l\'Université de Technologie de Belfort-Montbéliard',
-        'image' => 'image/person/fabrice.png'
-    ],
-    [
-        'name' => 'Buvat Jean-Sebastien',
-        'role' => 'Vacataire formateur',
-        'description' => 'Médecin anesthésiste-réanimateur',
-        'image' => 'image/person/jean-sebastien.png'
-    ]
+        [
+                'name' => 'Romary Lucas',
+                'role' => 'CEO',
+                'description' => 'Ingénieur mécatronique',
+                'image' => 'image/person/lucas.png'
+        ],
+        [
+                'name' => 'Ferlin Jules',
+                'role' => 'CTO',
+                'description' => 'Ingénieur informatique',
+                'image' => 'image/person/jules.png'
+        ],
+        [
+                'name' => 'Faivre Laurent',
+                'role' => 'Vacataire formateur',
+                'description' => 'Infirmier coordonnateur, responsable du centre de simulation de l\'Hôpital Nord Franche-Comté',
+                'image' => 'image/person/laurent.png'
+        ],
+        [
+                'name' => 'Lauri Fabrice',
+                'role' => 'Développeur VR',
+                'description' => 'Maitre de conférence Intelligence artificielle et réalité virtuelle à l\'Université de Technologie de Belfort-Montbéliard',
+                'image' => 'image/person/fabrice.png'
+        ],
+        [
+                'name' => 'Buvat Jean-Sebastien',
+                'role' => 'Vacataire formateur',
+                'description' => 'Médecin anesthésiste-réanimateur',
+                'image' => 'image/person/jean-sebastien.png'
+        ]
 ]
 ?>
 
@@ -42,19 +42,15 @@ $equipe = [
     <script src="scripts/script.js"></script>
     <link rel="icon" href="image/favicon.png" type="image/png">
     <?php
-      $seo = [
-        'title' => "L'équipe Nexsim – Experts en simulation médicale",
-        'description' => "Découvrez l'équipe pluridisciplinaire de Nexsim : ingénieurs, soignants et experts VR qui conçoivent des simulateurs médicaux innovants.",
-        'path' => '/equipe.php'
-      ];
-      include 'partials/seo.php';
+    $seo = [
+            'title' => "L'équipe Nexsim – Experts en simulation médicale",
+            'description' => "Découvrez l'équipe pluridisciplinaire de Nexsim : ingénieurs, soignants et experts VR qui conçoivent des simulateurs médicaux innovants.",
+            'path' => '/equipe.php'
+    ];
+    include 'partials/seo.php';
     ?>
 </head>
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NPTDG3KP"
-                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 
 <!-- Barre de navigation -->
 <?php include 'partials/navbar.php'; ?>
