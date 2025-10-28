@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <script src="scripts/script.js"></script>
-    <link rel="icon" href="image/favicon.png" type="image/png">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <title>Mentions légales | Nexsim</title>
     <?php
     $seo = [
