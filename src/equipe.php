@@ -41,6 +41,7 @@ $equipe = [
     <link rel="stylesheet" href="css/style.css">
     <script src="scripts/script.js"></script>
     <link rel="icon" href="image/favicon.png" type="image/png">
+    <title>L'équipe Nexsim – Experts en simulation médicale</title>
     <?php
     $seo = [
             'title' => "L'équipe Nexsim – Experts en simulation médicale",

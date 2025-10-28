@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="scripts/script.js"></script>
     <link rel="icon" href="image/favicon.png" type="image/png">
+    <title>Nexsim - Solutions de simulation médicale innovantes</title>
     <?php
     $seo = [
             'title' => 'Nexsim - Solutions de simulation médicale innovantes',

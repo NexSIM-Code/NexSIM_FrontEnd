@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="scripts/script.js"></script>
     <link rel="icon" href="image/favicon.png" type="image/png">
+    <title>Politique de confidentialité (RGPD) | Nexsim</title>
     <?php
     $seo = [
             'title' => 'Politique de confidentialité (RGPD) | Nexsim',
