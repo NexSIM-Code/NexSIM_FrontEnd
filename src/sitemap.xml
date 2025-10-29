@@ -2,37 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://nexsim.selutech.fr/</loc>
-        <lastmod>2025-10-26</lastmod>
+        <lastmod>2025-10-29</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
         <loc>https://nexsim.selutech.fr/lusim.php</loc>
-        <lastmod>2025-10-26</lastmod>
+        <lastmod>2025-10-29</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://nexsim.selutech.fr/equipe.php</loc>
-        <lastmod>2025-10-26</lastmod>
+        <lastmod>2025-10-29</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
+        <loc>https://nexsim.selutech.fr/contact.php</loc>
+        <lastmod>2025-10-29</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.4</priority>
+    </url>
+    <url>
         <loc>https://nexsim.selutech.fr/mentions-legales.php</loc>
-        <lastmod>2025-10-26</lastmod>
+        <lastmod>2025-10-29</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
     <url>
         <loc>https://nexsim.selutech.fr/politique-confidentialite.php</loc>
-        <lastmod>2025-10-26</lastmod>
+        <lastmod>2025-10-29</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
     <url>
         <loc>https://nexsim.selutech.fr/politique-cookies.php</loc>
-        <lastmod>2025-10-26</lastmod>
+        <lastmod>2025-10-29</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
