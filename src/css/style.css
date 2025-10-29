@@ -687,3 +687,9 @@ input:checked + .slider:before {
         height: 250px;
     }
 }
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}

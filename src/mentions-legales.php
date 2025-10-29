@@ -1,5 +1,6 @@
+<?php include 'partials/i18n.php'; ?>
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="<?php echo htmlspecialchars($GLOBALS['NX_LANG'] ?? (function_exists('nx_detect_lang') ? nx_detect_lang() : 'fr'), ENT_QUOTES, 'UTF-8'); ?>">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

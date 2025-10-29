@@ -1,16 +1,17 @@
+<?php include 'partials/i18n.php'; ?>
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="<?php echo htmlspecialchars($GLOBALS['NX_LANG'] ?? (function_exists('nx_detect_lang') ? nx_detect_lang() : 'fr'), ENT_QUOTES, 'UTF-8'); ?>">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <script src="scripts/script.js"></script>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <title>Lusim – Simulateur pulmonaire pour la formation à la ventilation mécanique</title>
+    <title><?php echo htmlspecialchars(t('lusim.seo.title'), ENT_QUOTES, 'UTF-8'); ?></title>
     <?php
     $seo = [
-            'title' => 'Lusim – Simulateur pulmonaire pour la formation à la ventilation mécanique',
-            'description' => "Lusim est un simulateur hybride (module physique, VR et mobile), véritable poumon pédagogique pour former à la ventilation mécanique : cas cliniques, réglages de respirateurs et compréhension de la mécanique respiratoire.",
+            'title' => t('lusim.seo.title'),
+            'description' => t('lusim.seo.description'),
             'path' => '/lusim.php'
     ];
     include 'partials/seo.php';
@@ -24,66 +25,61 @@
 <!-- Contenu principal -->
 <div class="main-content">
     <section class="content-section">
-        <h2>Qu’est-ce que Lusim ?</h2>
+        <h2><?php echo htmlspecialchars(t('lusim.what.title'), ENT_QUOTES, 'UTF-8'); ?></h2>
         <div class="product-showcase">
             <div class="product-image">
                 <img src="image/lusim.png" data-dark-src="image/lusim.png" alt="Simulateur Lusim"
                      class="product-main-image">
             </div>
             <div class="product-description">
-                <p>Lusim est un simulateur hybride qui associe un module physique, un module VR et une application
-                    mobile pour
-                    offrir une formation complète à la ventilation mécanique. Véritable poumon pédagogique, il facilite
-                    la compréhension et la pratique en toute sécurité.</p>
-                <p>En moins de <strong>5</strong> minutes, déployez une séance de simulation transportable, réaliste et
-                    sécurisée pour former
-                    infirmiers, médecins et étudiants en santé.</p>
-                <a href="#" class="cta-button">Demander une démonstration</a>
+                <p><?php echo htmlspecialchars(t('lusim.desc.p1'), ENT_QUOTES, 'UTF-8'); ?></p>
+                <p><?php echo htmlspecialchars(t('lusim.desc.p2', ['minutes' => 5]), ENT_QUOTES, 'UTF-8'); ?></p>
+                <a href="#" class="cta-button"><?php echo htmlspecialchars(t('lusim.cta.demo'), ENT_QUOTES, 'UTF-8'); ?></a>
             </div>
         </div>
     </section>
 
     <section class="content-section">
-        <h2>Principaux bénéfices</h2>
+        <h2><?php echo htmlspecialchars(t('lusim.benefits.title'), ENT_QUOTES, 'UTF-8'); ?></h2>
         <ul style="margin-left: 20px; margin-bottom: 15px;">
-            <li>Simuler différentes pathologies pulmonaires</li>
-            <li>Comprendre la mécanique respiratoire grâce à la VR</li>
-            <li>Pratiquer des réglages de respirateurs en conditions réelles</li>
-            <li>Créer des cas cliniques personnalisés</li>
-            <li>Déployer et transporter facilement</li>
+            <li><?php echo htmlspecialchars(t('lusim.benefits.li1'), ENT_QUOTES, 'UTF-8'); ?></li>
+            <li><?php echo htmlspecialchars(t('lusim.benefits.li2'), ENT_QUOTES, 'UTF-8'); ?></li>
+            <li><?php echo htmlspecialchars(t('lusim.benefits.li3'), ENT_QUOTES, 'UTF-8'); ?></li>
+            <li><?php echo htmlspecialchars(t('lusim.benefits.li4'), ENT_QUOTES, 'UTF-8'); ?></li>
+            <li><?php echo htmlspecialchars(t('lusim.benefits.li5'), ENT_QUOTES, 'UTF-8'); ?></li>
         </ul>
     </section>
 
     <section class="content-section">
-        <h2>Modules inclus</h2>
+        <h2><?php echo htmlspecialchars(t('lusim.modules.title'), ENT_QUOTES, 'UTF-8'); ?></h2>
         <div class="modules">
             <div class="module-card">
-                <h3>Compliance</h3>
-                <p>Réglage de la compliance pulmonaire pour simuler divers états pathologiques.</p>
+                <h3><?php echo htmlspecialchars(t('lusim.module.compliance'), ENT_QUOTES, 'UTF-8'); ?></h3>
+                <p><?php echo htmlspecialchars(t('lusim.module.compliance.p'), ENT_QUOTES, 'UTF-8'); ?></p>
             </div>
             <div class="module-card">
-                <h3>Resistance</h3>
-                <p>Simulation des résistances des voies aériennes pour cas cliniques variés.</p>
+                <h3><?php echo htmlspecialchars(t('lusim.module.resistance'), ENT_QUOTES, 'UTF-8'); ?></h3>
+                <p><?php echo htmlspecialchars(t('lusim.module.resistance.p'), ENT_QUOTES, 'UTF-8'); ?></p>
             </div>
             <div class="module-card">
-                <h3>Trigger</h3>
-                <p>Gestion des déclenchements respiratoires pour un réalisme accru.</p>
+                <h3><?php echo htmlspecialchars(t('lusim.module.trigger'), ENT_QUOTES, 'UTF-8'); ?></h3>
+                <p><?php echo htmlspecialchars(t('lusim.module.trigger.p'), ENT_QUOTES, 'UTF-8'); ?></p>
             </div>
             <div class="module-card">
-                <h3>Scope</h3>
-                <p>Module de monitoring physiologique pour observer les courbes respiratoires.</p>
+                <h3><?php echo htmlspecialchars(t('lusim.module.scope'), ENT_QUOTES, 'UTF-8'); ?></h3>
+                <p><?php echo htmlspecialchars(t('lusim.module.scope.p'), ENT_QUOTES, 'UTF-8'); ?></p>
             </div>
         </div>
     </section>
 
     <section class="content-section">
-        <h2>Pour qui ?</h2>
-        <p>Lusim est conçu pour :</p>
+        <h2><?php echo htmlspecialchars(t('lusim.forwho.title'), ENT_QUOTES, 'UTF-8'); ?></h2>
+        <p><?php echo htmlspecialchars(t('lusim.forwho.p'), ENT_QUOTES, 'UTF-8'); ?></p>
         <ul style="margin-left: 20px; margin-bottom: 15px;">
-            <li>Facultés de médecine et IFSI</li>
-            <li>Centres de simulation médicale</li>
-            <li>Fabricants de respirateurs (outil marketing)</li>
-            <li>Services de réanimation et d’anesthésie</li>
+            <li><?php echo htmlspecialchars(t('lusim.forwho.li1'), ENT_QUOTES, 'UTF-8'); ?></li>
+            <li><?php echo htmlspecialchars(t('lusim.forwho.li2'), ENT_QUOTES, 'UTF-8'); ?></li>
+            <li><?php echo htmlspecialchars(t('lusim.forwho.li3'), ENT_QUOTES, 'UTF-8'); ?></li>
+            <li><?php echo htmlspecialchars(t('lusim.forwho.li4'), ENT_QUOTES, 'UTF-8'); ?></li>
         </ul>
     </section>
 </div>

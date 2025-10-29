@@ -33,19 +33,20 @@ $equipe = [
 ]
 ?>
 
+<?php include 'partials/i18n.php'; ?>
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="<?php echo htmlspecialchars($GLOBALS['NX_LANG'] ?? (function_exists('nx_detect_lang') ? nx_detect_lang() : 'fr'), ENT_QUOTES, 'UTF-8'); ?>">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <script src="scripts/script.js"></script>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <title>L'équipe Nexsim – Experts en simulation médicale</title>
+    <title><?php echo htmlspecialchars(t('team.seo.title'), ENT_QUOTES, 'UTF-8'); ?></title>
     <?php
     $seo = [
-            'title' => "L'équipe Nexsim – Experts en simulation médicale",
-            'description' => "Découvrez l'équipe pluridisciplinaire de Nexsim : ingénieurs, soignants et experts VR qui conçoivent des simulateurs médicaux innovants.",
+            'title' => t('team.seo.title'),
+            'description' => t('team.seo.description'),
             'path' => '/equipe.php'
     ];
     include 'partials/seo.php';
@@ -59,35 +60,25 @@ $equipe = [
 <!-- Contenu principal -->
 <div class="main-content">
     <section class="content-section">
-        <h2>L'équipe NexSim</h2>
-        <p>Nexsim est formé d'une équipe pluridisciplinaire ce qui lui procure une force de frappe puissante pour une
-            petite équipe. L'enjeu est de trouver un langage commun entre ingénieur et infirmier.</p>
-        <p>Cette diversité dans le groupe nous permet de concevoir et imaginer des solutions pensées par les soignants
-            et créées par les ingénieurs pour les soignants.</p>
+        <h2><?php echo htmlspecialchars(t('team.title'), ENT_QUOTES, 'UTF-8'); ?></h2>
+        <p><?php echo htmlspecialchars(t('team.p1'), ENT_QUOTES, 'UTF-8'); ?></p>
+        <p><?php echo htmlspecialchars(t('team.p2'), ENT_QUOTES, 'UTF-8'); ?></p>
     </section>
 
     <section class="content-section">
-        <h2>Notre expertise</h2>
-        <p>Notre équipe combine des compétences variées et complémentaires :</p>
+        <h2><?php echo htmlspecialchars(t('team.expertise.title'), ENT_QUOTES, 'UTF-8'); ?></h2>
+        <p><?php echo htmlspecialchars(t('team.expertise.p'), ENT_QUOTES, 'UTF-8'); ?></p>
         <ul class="benefits-list">
-            <li><strong>Expertise médicale</strong> - Professionnels de santé expérimentés dans la formation et la
-                simulation
-            </li>
-            <li><strong>Ingénierie de pointe</strong> - Spécialistes en mécatronique, informatique et réalité virtuelle
-            </li>
-            <li><strong>Pédagogie innovante</strong> - Approches modernes d'apprentissage adaptées aux besoins des
-                soignants
-            </li>
-            <li><strong>Développement technologique</strong> - Création de solutions sur mesure pour répondre aux défis
-                de la formation médicale
-            </li>
+            <li><?php echo htmlspecialchars(t('team.expertise.li1'), ENT_QUOTES, 'UTF-8'); ?></li>
+            <li><?php echo htmlspecialchars(t('team.expertise.li2'), ENT_QUOTES, 'UTF-8'); ?></li>
+            <li><?php echo htmlspecialchars(t('team.expertise.li3'), ENT_QUOTES, 'UTF-8'); ?></li>
+            <li><?php echo htmlspecialchars(t('team.expertise.li4'), ENT_QUOTES, 'UTF-8'); ?></li>
         </ul>
-        <p>Cette synergie de compétences nous permet de développer des simulateurs médicaux à la fois réalistes,
-            pédagogiques et technologiquement avancés.</p>
+        <p><?php echo htmlspecialchars(t('team.expertise.end'), ENT_QUOTES, 'UTF-8'); ?></p>
     </section>
 
     <section class="content-section">
-        <h2>Notre équipe</h2>
+        <h2><?php echo htmlspecialchars(t('team.members.title'), ENT_QUOTES, 'UTF-8'); ?></h2>
         <div class="team-container">
             <?php foreach ($equipe as $membre): ?>
                 <div class="team-card">

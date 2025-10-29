@@ -11,11 +11,11 @@
 //   ];
 //   include 'partials/seo.php';
 
-// Defaults
+// Defaults (localized where possible)
 $defaults = [
-        'site_name' => 'Nexsim',
-        'title' => 'Nexsim - Solutions de simulation médicale innovantes',
-        'description' => "Nexsim conçoit des solutions de simulation médicale innovantes pour former le personnel soignant : simulateurs, VR et outils pédagogiques, un véritable poumon pédagogique pour la formation.",
+        'site_name' => function_exists('t') ? t('site.name') : 'Nexsim',
+        'title' => function_exists('t') ? t('seo.default.title') : 'Nexsim - Solutions de simulation médicale innovantes',
+        'description' => function_exists('t') ? t('seo.default.description') : "Nexsim conçoit des solutions de simulation médicale innovantes pour former le personnel soignant : simulateurs, VR et outils pédagogiques, un véritable poumon pédagogique pour la formation.",
         'image' => 'image/logo.png', // fallback; we will choose a best-effort existing image
         'robots' => 'index,follow',
         'type' => 'website',
@@ -62,18 +62,21 @@ if (!file_exists($relativeImage) || is_dir($relativeImage)) {
 }
 $ogImage = rtrim($baseUrl, '/') . '/' . ltrim($relativeImage, '/');
 
+// Resolve site name (which may be a callable if i18n is active)
+$siteName = is_callable($defaults['site_name']) ? $defaults['site_name']() : $defaults['site_name'];
+
 // Build the <title> combining page title + site name if needed
 $title = $config['title'];
 if (stripos($title, 'Nexsim') === false) {
-    $title .= ' | ' . $defaults['site_name'];
+    $title .= ' | ' . $siteName;
 }
 
 $description = $config['description'];
 $robots = $config['robots'];
 $type = $config['type'];
 
-// Locale (site language is fr)
-$ogLocale = 'fr_FR';
+// Locale
+$ogLocale = isset($GLOBALS['NX_LOCALE']) ? $GLOBALS['NX_LOCALE'] : (function_exists('nx_locale_map') ? (nx_locale_map()[nx_detect_lang()] ?? 'fr_FR') : 'fr_FR');
 ?>
 <!-- Consent-aware tracking placeholders (loaded by cookie-consent.js upon consent) -->
 <script>
