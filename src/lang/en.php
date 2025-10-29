@@ -49,7 +49,7 @@ return [
     'home.why.end' => 'Developed in collaboration with healthcare professionals, our products meet real-world needs.',
 
     // Lusim page
-    'lusim.seo.title' => 'Lusim – Lung simulator for mechanical ventilation training',
+    'lusim.seo.title' => 'Lusim – Educational lung for mechanical ventilation training',
     'lusim.seo.description' => 'Lusim is a hybrid simulator (physical module, VR and mobile), a true educational lung for training in mechanical ventilation: clinical cases, ventilator settings and understanding respiratory mechanics.',
     'lusim.what.title' => 'What is Lusim?',
     'lusim.desc.p1' => 'Lusim is a hybrid simulator combining a physical module, a VR module and a mobile app to provide comprehensive training in mechanical ventilation. A true educational lung, it facilitates understanding and safe practice.',
@@ -107,5 +107,10 @@ return [
     'footer.address.line1' => '9 Rue Becquerel',
     'footer.address.line2' => '90000 Belfort, France',
     'footer.email' => 'Email: contact@lusim.fr',
+    'footer.info' => 'Information',
+    'footer.legal' => 'Legal Notice',
+    'footer.privacy' => 'Privacy Policy',
+    'footer.cookies' => 'Cookie Policy',
+    'footer.cookie_prefs' => 'Cookie Preferences',
     'footer.copyright' => 'All rights reserved.',
 ];

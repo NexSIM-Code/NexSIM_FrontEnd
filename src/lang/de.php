@@ -16,12 +16,12 @@ return [
 
     // SEO defaults
     'seo.default.title' => 'Nexsim - Innovative Lösungen für medizinische Simulation',
-    'seo.default.description' => 'Nexsim entwickelt innovative Lösungen für medizinische Simulation zur Ausbildung von Pflegekräften: Simulatoren, VR und Lernwerkzeuge – ein wahrer pädagogischer Motor für die Ausbildung.',
+    'seo.default.description' => 'Nexsim entwickelt innovative Lösungen für medizinische Simulation zur Ausbildung von Pflegekräften: Simulatoren, VR und Lernwerkzeuge – eine wahre pädagogische Lunge für die Ausbildung.',
 
     // Home page
     'home.h1' => 'Nexsim - Next Simulation',
     'home.p1' => 'Spezialisten für innovative Simulationslösungen zur Ausbildung von Gesundheitsfachkräften. Bei Nexsim entwickeln wir Spitzentechnologien, um Lernen zu verbessern und die Kompetenzen von Pflegekräften zu stärken.',
-    'home.p2' => 'Unsere Mission: die medizinische Ausbildung mit realistischen und zugänglichen Simulatoren zu revolutionieren – ein wahrer pädagogischer Motor für Lernende.',
+    'home.p2' => 'Unsere Mission: die medizinische Ausbildung mit realistischen und zugänglichen Simulatoren zu revolutionieren – eine wahre pädagogische Lunge für Lernende.',
     'home.about.title' => 'Über uns',
     'home.about.p1' => 'Gegründet 2021 von einem Team aus Ingenieuren und Gesundheitsfachkräften, entstand Nexsim aus der einfachen Feststellung, dass die traditionelle medizinische Ausbildung in Bezug auf Zugänglichkeit und Realismus erhebliche Grenzen hat.',
     'home.about.p2' => 'Unsere Vision ist es, den Zugang zu hochwertigen Tools für medizinische Simulation zu demokratisieren, damit Einrichtungen und Ausbildungszentren jeder Größe von Simulation profitieren können.',
@@ -49,10 +49,10 @@ return [
     'home.why.end' => 'In Zusammenarbeit mit Gesundheitsfachkräften entwickelt, entsprechen unsere Produkte realen Bedürfnissen.',
 
     // Lusim page
-    'lusim.seo.title' => 'Lusim – Lungensimulator für die Ausbildung in mechanischer Beatmung',
-    'lusim.seo.description' => 'Lusim ist ein hybrider Simulator (physisches Modul, VR und mobil) – ein wahrer pädagogischer Motor zur Ausbildung in mechanischer Beatmung: klinische Fälle, Beatmungseinstellungen und Verständnis der Atemmechanik.',
+    'lusim.seo.title' => 'Lusim – Pädagogische Lunge zur Ausbildung in der mechanischen Beatmung',
+    'lusim.seo.description' => 'Lusim ist ein hybrider Simulator (physisches Modul, VR und mobil) – eine wahre pädagogische Lunge zur Ausbildung in mechanischer Beatmung: klinische Fälle, Beatmungseinstellungen und Verständnis der Atemmechanik.',
     'lusim.what.title' => 'Was ist Lusim?',
-    'lusim.desc.p1' => 'Lusim ist ein hybrider Simulator, der ein physisches Modul, ein VR-Modul und eine Mobile-App kombiniert, um eine umfassende Ausbildung in mechanischer Beatmung zu ermöglichen. Ein wahrer pädagogischer Motor, der Verständnis und sicheres Üben erleichtert.',
+    'lusim.desc.p1' => 'Lusim ist ein hybrider Simulator, der ein physisches Modul, ein VR-Modul und eine Mobile-App kombiniert, um eine umfassende Ausbildung in mechanischer Beatmung zu ermöglichen. Eine wahre pädagogische Lunge, die Verständnis und sicheres Üben erleichtert.',
     'lusim.desc.p2' => 'In unter {minutes} Minuten richten Sie eine portable, realistische und sichere Simulationssitzung ein – für Pflegekräfte, Ärztinnen/Ärzte und Studierende.',
     'lusim.cta.demo' => 'Demo anfragen',
     'lusim.benefits.title' => 'Hauptvorteile',
@@ -104,8 +104,13 @@ return [
     'footer.follow' => 'Folgen Sie uns',
     'footer.follow.p' => 'Bleiben Sie über unsere neuesten Innovationen informiert',
     'footer.contact' => 'Kontakt',
-    'footer.address.line1' => 'Rue Becquerel 9',
+    'footer.address.line1' => '9 Rue Becquerel',
     'footer.address.line2' => '90000 Belfort, Frankreich',
     'footer.email' => 'E-Mail: contact@lusim.fr',
+    'footer.info' => 'Informationen',
+    'footer.legal' => 'Impressum',
+    'footer.privacy' => 'Datenschutzrichtlinie',
+    'footer.cookies' => 'Cookie-Richtlinie',
+    'footer.cookie_prefs' => 'Cookie-Einstellungen',
     'footer.copyright' => 'Alle Rechte vorbehalten.',
 ];

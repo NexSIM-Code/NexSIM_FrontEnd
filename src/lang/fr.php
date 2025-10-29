@@ -49,7 +49,7 @@ return [
     'home.why.end' => 'Développés en collaboration avec des professionnels de santé, nos produits répondent aux besoins réels du terrain.',
 
     // Lusim page
-    'lusim.seo.title' => 'Lusim – Simulateur pulmonaire pour la formation à la ventilation mécanique',
+    'lusim.seo.title' => 'Lusim – Poumon pédagogique pour la formation à la ventilation mécanique',
     'lusim.seo.description' => "Lusim est un simulateur hybride (module physique, VR et mobile), véritable poumon pédagogique pour former à la ventilation mécanique : cas cliniques, réglages de respirateurs et compréhension de la mécanique respiratoire.",
     'lusim.what.title' => 'Qu’est-ce que Lusim ?',
     'lusim.desc.p1' => 'Lusim est un simulateur hybride qui associe un module physique, un module VR et une application mobile pour offrir une formation complète à la ventilation mécanique. Véritable poumon pédagogique, il facilite la compréhension et la pratique en toute sécurité.',
