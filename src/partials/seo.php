@@ -33,13 +33,32 @@ $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
 $baseUrl = $scheme . '://' . $host;
 
 // Current path
-$path = $config['path'] ?? ($_SERVER['REQUEST_URI'] ?? '/');
-if ($path === '') {
-    $path = '/';
-}
+// Prefer an explicit canonical if provided, otherwise build from path/REQUEST_URI
+$explicitCanonical = $config['canonical'] ?? null;
+if (is_string($explicitCanonical) && $explicitCanonical !== '') {
+    // Trust provided absolute or relative canonical
+    if (preg_match('#^https?://#i', $explicitCanonical)) {
+        $canonical = $explicitCanonical;
+    } else {
+        $path = $explicitCanonical;
+        // Normalize relative canonical into absolute
+        $pathOnly = parse_url($path, PHP_URL_PATH) ?: '/';
+        if ($pathOnly === '') { $pathOnly = '/'; }
+        $pathOnly = '/' . ltrim($pathOnly, '/');
+        $canonical = rtrim($baseUrl, '/') . $pathOnly;
+    }
+} else {
+    $path = $config['path'] ?? ($_SERVER['REQUEST_URI'] ?? '/');
+    if ($path === '') { $path = '/'; }
+    // Strip query string and fragment to avoid duplicate canonicals with tracking params
+    $pathOnly = parse_url($path, PHP_URL_PATH) ?: '/';
+    if ($pathOnly === '') { $pathOnly = '/'; }
+    // Ensure single leading slash
+    $pathOnly = '/' . ltrim($pathOnly, '/');
 
-// Canonical URL
-$canonical = rtrim($baseUrl, '/') . $path;
+    // Canonical URL
+    $canonical = rtrim($baseUrl, '/') . $pathOnly;
+}
 
 // Absolute image URL
 $relativeImage = $config['image'];
