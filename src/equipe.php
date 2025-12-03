@@ -1,41 +1,45 @@
 <?php
+include 'partials/i18n.php';
+
 $equipe = [
         [
                 'name' => 'Romary Lucas',
-                'role' => 'CEO',
-                'description' => 'Ingénieur mécatronique',
+                'role' => t('team.member.lucas.role'),
+                'description' => t('team.member.lucas.desc'),
                 'image' => 'image/person/lucas.png'
         ],
         [
                 'name' => 'Ferlin Jules',
-                'role' => 'CTO',
-                'description' => 'Ingénieur informatique',
+                'role' => t('team.member.jules.role'),
+                'description' => t('team.member.jules.desc'),
                 'image' => 'image/person/jules.png'
         ],
         [
                 'name' => 'Faivre Laurent',
-                'role' => 'Vacataire formateur',
-                'description' => 'Infirmier coordonnateur, responsable du centre de simulation de l\'Hôpital Nord Franche-Comté',
+                'role' => t('team.member.laurent.role'),
+                'description' => t('team.member.laurent.desc'),
                 'image' => 'image/person/laurent.png'
         ],
         [
                 'name' => 'Lauri Fabrice',
-                'role' => 'Développeur VR',
-                'description' => 'Maitre de conférence Intelligence artificielle et réalité virtuelle à l\'Université de Technologie de Belfort-Montbéliard',
+                'role' => t('team.member.fabrice.role'),
+                'description' => t('team.member.fabrice.desc'),
                 'image' => 'image/person/fabrice.png'
         ],
         [
                 'name' => 'Buvat Jean-Sebastien',
-                'role' => 'Vacataire formateur',
-                'description' => 'Médecin anesthésiste-réanimateur',
+                'role' => t('team.member.jean-sebastien.role'),
+                'description' => t('team.member.jean-sebastien.desc'),
                 'image' => 'image/person/jean-sebastien.png'
         ]
-]
+];
 ?>
 
-<?php include 'partials/i18n.php'; ?>
+<?php // i18n included above ?>
 <!DOCTYPE html>
-<html lang="<?php echo htmlspecialchars($GLOBALS['NX_LANG'] ?? (function_exists('nx_detect_lang') ? nx_detect_lang() : 'fr'), ENT_QUOTES, 'UTF-8'); ?>">
+<html
+        lang="<?php echo htmlspecialchars($GLOBALS['NX_LANG'] ?? (function_exists('nx_detect_lang') ? nx_detect_lang() : 'fr'), ENT_QUOTES, 'UTF-8'); ?>">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -58,7 +62,9 @@ $equipe = [
             'robots' => 'index,follow',
             'type' => 'website',
     ];
-    if (!isset($seo) || !is_array($seo)) { $seo = []; }
+    if (!isset($seo) || !is_array($seo)) {
+        $seo = [];
+    }
     $config = array_merge($defaults, $seo);
     $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
     $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
@@ -70,27 +76,40 @@ $equipe = [
         } else {
             $path = $explicitCanonical;
             $pathOnly = parse_url($path, PHP_URL_PATH) ?: '/';
-            if ($pathOnly === '') { $pathOnly = '/'; }
+            if ($pathOnly === '') {
+                $pathOnly = '/';
+            }
             $pathOnly = '/' . ltrim($pathOnly, '/');
             $canonical = rtrim($baseUrl, '/') . $pathOnly;
         }
     } else {
         $path = $config['path'] ?? ($_SERVER['REQUEST_URI'] ?? '/');
-        if ($path === '') { $path = '/'; }
+        if ($path === '') {
+            $path = '/';
+        }
         $pathOnly = parse_url($path, PHP_URL_PATH) ?: '/';
-        if ($pathOnly === '') { $pathOnly = '/'; }
+        if ($pathOnly === '') {
+            $pathOnly = '/';
+        }
         $pathOnly = '/' . ltrim($pathOnly, '/');
         $canonical = rtrim($baseUrl, '/') . $pathOnly;
     }
     $relativeImage = $config['image'];
     if (!file_exists($relativeImage) || is_dir($relativeImage)) {
-        $candidates = ['image/lusim.png','image/logo.png','image/logo-dark.svg','image/logo.svg','image/schema-ecosysteme.png'];
-        foreach ($candidates as $c) { if (file_exists($c)) { $relativeImage = $c; break; } }
+        $candidates = ['image/lusim.png', 'image/logo.png', 'image/logo-dark.svg', 'image/logo.svg', 'image/schema-ecosysteme.png'];
+        foreach ($candidates as $c) {
+            if (file_exists($c)) {
+                $relativeImage = $c;
+                break;
+            }
+        }
     }
     $ogImage = rtrim($baseUrl, '/') . '/' . ltrim($relativeImage, '/');
     $siteName = is_callable($defaults['site_name']) ? $defaults['site_name']() : $defaults['site_name'];
     $title = $config['title'];
-    if (stripos($title, 'Nexsim') === false) { $title .= ' | ' . $siteName; }
+    if (stripos($title, 'Nexsim') === false) {
+        $title .= ' | ' . $siteName;
+    }
     $description = $config['description'];
     $robots = $config['robots'];
     $type = $config['type'];
@@ -105,7 +124,8 @@ $equipe = [
     <meta name="description" content="<?php echo htmlspecialchars($description, ENT_QUOTES, 'UTF-8'); ?>">
     <meta name="robots" content="<?php echo htmlspecialchars($robots, ENT_QUOTES, 'UTF-8'); ?>">
     <link rel="canonical" href="<?php echo htmlspecialchars($canonical, ENT_QUOTES, 'UTF-8'); ?>">
-    <meta property="og:site_name" content="<?php echo htmlspecialchars($defaults['site_name'], ENT_QUOTES, 'UTF-8'); ?>">
+    <meta property="og:site_name"
+          content="<?php echo htmlspecialchars($defaults['site_name'], ENT_QUOTES, 'UTF-8'); ?>">
     <meta property="og:title" content="<?php echo htmlspecialchars($title, ENT_QUOTES, 'UTF-8'); ?>">
     <meta property="og:description" content="<?php echo htmlspecialchars($description, ENT_QUOTES, 'UTF-8'); ?>">
     <meta property="og:type" content="<?php echo htmlspecialchars($type, ENT_QUOTES, 'UTF-8'); ?>">
@@ -120,16 +140,19 @@ $equipe = [
     <meta name="twitter:image:alt" content="<?php echo htmlspecialchars($description, ENT_QUOTES, 'UTF-8'); ?>">
     <meta name="theme-color" content="#0b2a4a">
     <script type="application/ld+json">
-        {"@context":"https://schema.org","@type":"Organization","name":"Nexsim","url":"<?php echo $baseUrl; ?>","logo":"<?php echo rtrim($baseUrl, '/'); ?>/image/logo.svg","sameAs":[]}
+        {"@context":"https://schema.org","@type":"Organization","name":"Nexsim","url":"<?php echo $baseUrl; ?>
+        ","logo":"<?php echo rtrim($baseUrl, '/'); ?>/image/logo.svg","sameAs":[]}
     </script>
     <script type="application/ld+json">
         {"@context":"https://schema.org","@type":"WebSite","name":"Nexsim","url":"<?php echo $baseUrl; ?>"}
     </script>
-    <?php $gaId = $seo['ga_measurement_id'] ?? null; if ($gaId): ?>
+    <?php $gaId = $seo['ga_measurement_id'] ?? null;
+    if ($gaId): ?>
         <script>window.NEXSIM_GA_ID = <?php echo json_encode($gaId); ?>;</script>
         <script src="scripts/analytics.js" defer></script>
     <?php endif; ?>
 </head>
+
 <body>
 
 <!-- Barre de navigation -->
@@ -167,8 +190,7 @@ $equipe = [
                             $imagePath = 'image/person/default.png';
                         }
                         ?>
-                        <img src="<?php echo $imagePath; ?>" alt="<?php echo $membre['name']; ?>"
-                             class="team-image">
+                        <img src="<?php echo $imagePath; ?>" alt="<?php echo $membre['name']; ?>" class="team-image">
                     </div>
                     <div class="team-info">
                         <h3><?php echo $membre['name']; ?></h3>
@@ -182,4 +204,5 @@ $equipe = [
 </div>
 <?php include 'partials/footer.php'; ?>
 </body>
+
 </html>

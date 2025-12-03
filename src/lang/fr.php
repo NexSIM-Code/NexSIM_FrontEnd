@@ -92,6 +92,18 @@ return [
     'team.expertise.end' => 'Cette synergie de compétences nous permet de développer des simulateurs médicaux à la fois réalistes, pédagogiques et technologiquement avancés.',
     'team.members.title' => 'Notre équipe',
 
+    // Team Members
+    'team.member.lucas.role' => 'Président',
+    'team.member.lucas.desc' => 'Ingénieur mécatronique',
+    'team.member.jules.role' => 'Résponsable technique',
+    'team.member.jules.desc' => 'Ingénieur informatique',
+    'team.member.laurent.role' => 'Vacataire formateur',
+    'team.member.laurent.desc' => 'Infirmier coordonnateur, Hôpital Nord Franche-Comté',
+    'team.member.fabrice.role' => 'Développeur VR',
+    'team.member.fabrice.desc' => 'Enseignant-Chercheur, UTBM',
+    'team.member.jean-sebastien.role' => 'Vacataire formateur',
+    'team.member.jean-sebastien.desc' => 'Médecin anesthésiste-réanimateur, Hôpital Nord Franche-Comté',
+
     // Contact page
     'contact.seo.title' => 'Contactez Nexsim – Demande d\'information et de démonstration',
     'contact.seo.description' => "Entrez en contact avec Nexsim : demande d'informations, de démonstration de Lusim ou questions générales.",

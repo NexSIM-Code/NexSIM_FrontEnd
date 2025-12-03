@@ -92,6 +92,18 @@ return [
     'team.expertise.end' => 'This synergy enables us to develop medical simulators that are realistic, educational and technologically advanced.',
     'team.members.title' => 'Our team',
 
+    // Team Members
+    'team.member.lucas.role' => 'CEO',
+    'team.member.lucas.desc' => 'Mechatronics engineer',
+    'team.member.jules.role' => 'CTO',
+    'team.member.jules.desc' => 'Computer engineer',
+    'team.member.laurent.role' => 'Training contractor',
+    'team.member.laurent.desc' => 'Coordinating nurse, Hôpital Nord Franche-Comté',
+    'team.member.fabrice.role' => 'VR developer',
+    'team.member.fabrice.desc' => 'Associate Professor, UTBM',
+    'team.member.jean-sebastien.role' => 'Training contractor',
+    'team.member.jean-sebastien.desc' => 'Anesthesiologist-intensivist, Hôpital Nord Franche-Comté',
+
     // Contact page
     'contact.seo.title' => 'Contact Nexsim – Request information or a Lusim demo',
     'contact.seo.description' => 'Get in touch with Nexsim: information requests, Lusim demo requests, or general questions.',
