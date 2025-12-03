@@ -1,6 +1,9 @@
-<?php include 'partials/i18n.php'; ?>
+<?php include 'partials/i18n.php';
+include_once 'partials/seo_utils.php'; ?>
 <!DOCTYPE html>
-<html lang="<?php echo htmlspecialchars($GLOBALS['NX_LANG'] ?? (function_exists('nx_detect_lang') ? nx_detect_lang() : 'fr'), ENT_QUOTES, 'UTF-8'); ?>">
+<html
+        lang="<?php echo htmlspecialchars($GLOBALS['NX_LANG'] ?? (function_exists('nx_detect_lang') ? nx_detect_lang() : 'fr'), ENT_QUOTES, 'UTF-8'); ?>">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,9 +13,9 @@
     <title><?php echo htmlspecialchars(t('contact.seo.title'), ENT_QUOTES, 'UTF-8'); ?></title>
     <?php
     $seo = [
-        'title' => t('contact.seo.title'),
-        'description' => t('contact.seo.description'),
-        'path' => '/contact.php'
+            'title' => t('contact.seo.title'),
+            'description' => t('contact.seo.description'),
+            'path' => '/contact.php'
     ];
     // Inlined SEO partial (was: include 'partials/seo.php')
     $defaults = [
@@ -23,39 +26,30 @@
             'robots' => 'index,follow',
             'type' => 'website',
     ];
-    if (!isset($seo) || !is_array($seo)) { $seo = []; }
+    if (!isset($seo) || !is_array($seo)) {
+        $seo = [];
+    }
     $config = array_merge($defaults, $seo);
     $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
     $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
     $baseUrl = $scheme . '://' . $host;
-    $explicitCanonical = $config['canonical'] ?? null;
-    if (is_string($explicitCanonical) && $explicitCanonical !== '') {
-        if (preg_match('#^https?://#i', $explicitCanonical)) {
-            $canonical = $explicitCanonical;
-        } else {
-            $path = $explicitCanonical;
-            $pathOnly = parse_url($path, PHP_URL_PATH) ?: '/';
-            if ($pathOnly === '') { $pathOnly = '/'; }
-            $pathOnly = '/' . ltrim($pathOnly, '/');
-            $canonical = rtrim($baseUrl, '/') . $pathOnly;
-        }
-    } else {
-        $path = $config['path'] ?? ($_SERVER['REQUEST_URI'] ?? '/');
-        if ($path === '') { $path = '/'; }
-        $pathOnly = parse_url($path, PHP_URL_PATH) ?: '/';
-        if ($pathOnly === '') { $pathOnly = '/'; }
-        $pathOnly = '/' . ltrim($pathOnly, '/');
-        $canonical = rtrim($baseUrl, '/') . $pathOnly;
-    }
+    // Canonical URL is now handled by nx_generate_seo_tags() in the head
     $relativeImage = $config['image'];
     if (!file_exists($relativeImage) || is_dir($relativeImage)) {
-        $candidates = ['image/lusim.png','image/logo.png','image/logo-dark.svg','image/logo.svg','image/schema-ecosysteme.png'];
-        foreach ($candidates as $c) { if (file_exists($c)) { $relativeImage = $c; break; } }
+        $candidates = ['image/lusim.png', 'image/logo.png', 'image/logo-dark.svg', 'image/logo.svg', 'image/schema-ecosysteme.png'];
+        foreach ($candidates as $c) {
+            if (file_exists($c)) {
+                $relativeImage = $c;
+                break;
+            }
+        }
     }
     $ogImage = rtrim($baseUrl, '/') . '/' . ltrim($relativeImage, '/');
     $siteName = is_callable($defaults['site_name']) ? $defaults['site_name']() : $defaults['site_name'];
     $title = $config['title'];
-    if (stripos($title, 'Nexsim') === false) { $title .= ' | ' . $siteName; }
+    if (stripos($title, 'Nexsim') === false) {
+        $title .= ' | ' . $siteName;
+    }
     $description = $config['description'];
     $robots = $config['robots'];
     $type = $config['type'];
@@ -69,12 +63,15 @@
     <title><?php echo htmlspecialchars($title, ENT_QUOTES, 'UTF-8'); ?></title>
     <meta name="description" content="<?php echo htmlspecialchars($description, ENT_QUOTES, 'UTF-8'); ?>">
     <meta name="robots" content="<?php echo htmlspecialchars($robots, ENT_QUOTES, 'UTF-8'); ?>">
-    <link rel="canonical" href="<?php echo htmlspecialchars($canonical, ENT_QUOTES, 'UTF-8'); ?>">
-    <meta property="og:site_name" content="<?php echo htmlspecialchars($defaults['site_name'], ENT_QUOTES, 'UTF-8'); ?>">
+    <!-- Canonical URL & Hreflang -->
+    <?php echo nx_generate_seo_tags($config); ?>
+    <meta property="og:site_name"
+          content="<?php echo htmlspecialchars($defaults['site_name'], ENT_QUOTES, 'UTF-8'); ?>">
     <meta property="og:title" content="<?php echo htmlspecialchars($title, ENT_QUOTES, 'UTF-8'); ?>">
     <meta property="og:description" content="<?php echo htmlspecialchars($description, ENT_QUOTES, 'UTF-8'); ?>">
     <meta property="og:type" content="<?php echo htmlspecialchars($type, ENT_QUOTES, 'UTF-8'); ?>">
-    <meta property="og:url" content="<?php echo htmlspecialchars($canonical, ENT_QUOTES, 'UTF-8'); ?>">
+    <meta property="og:url"
+          content="<?php echo htmlspecialchars($baseUrl . ($_SERVER['REQUEST_URI'] ?? '/'), ENT_QUOTES, 'UTF-8'); ?>">
     <meta property="og:image" content="<?php echo htmlspecialchars($ogImage, ENT_QUOTES, 'UTF-8'); ?>">
     <meta property="og:image:alt" content="<?php echo htmlspecialchars($description, ENT_QUOTES, 'UTF-8'); ?>">
     <meta property="og:locale" content="<?php echo $ogLocale; ?>">
@@ -85,16 +82,19 @@
     <meta name="twitter:image:alt" content="<?php echo htmlspecialchars($description, ENT_QUOTES, 'UTF-8'); ?>">
     <meta name="theme-color" content="#0b2a4a">
     <script type="application/ld+json">
-        {"@context":"https://schema.org","@type":"Organization","name":"Nexsim","url":"<?php echo $baseUrl; ?>","logo":"<?php echo rtrim($baseUrl, '/'); ?>/image/logo.svg","sameAs":[]}
+        {"@context":"https://schema.org","@type":"Organization","name":"Nexsim","url":"<?php echo $baseUrl; ?>
+        ","logo":"<?php echo rtrim($baseUrl, '/'); ?>/image/logo.svg","sameAs":[]}
     </script>
     <script type="application/ld+json">
         {"@context":"https://schema.org","@type":"WebSite","name":"Nexsim","url":"<?php echo $baseUrl; ?>"}
     </script>
-    <?php $gaId = $seo['ga_measurement_id'] ?? null; if ($gaId): ?>
+    <?php $gaId = $seo['ga_measurement_id'] ?? null;
+    if ($gaId): ?>
         <script>window.NEXSIM_GA_ID = <?php echo json_encode($gaId); ?>;</script>
         <script src="scripts/analytics.js" defer></script>
     <?php endif; ?>
 </head>
+
 <body>
 
 <!-- Barre de navigation -->
@@ -106,9 +106,11 @@
         <h2><?php echo htmlspecialchars(t('contact.title'), ENT_QUOTES, 'UTF-8'); ?></h2>
         <p><?php echo htmlspecialchars(t('contact.intro'), ENT_QUOTES, 'UTF-8'); ?></p>
 
-        <div class="contact-card" style="margin-top:16px; padding:16px; border:1px solid #ddd; border-radius:8px; max-width:520px;">
+        <div class="contact-card"
+             style="margin-top:16px; padding:16px; border:1px solid #ddd; border-radius:8px; max-width:520px;">
             <p><strong><?php echo htmlspecialchars(t('contact.email_label'), ENT_QUOTES, 'UTF-8'); ?>:</strong>
-                <a href="mailto:contact@lusim.fr">contact@lusim.fr</a></p>
+                <a href="mailto:contact@lusim.fr">contact@lusim.fr</a>
+            </p>
             <p><strong><?php echo htmlspecialchars(t('contact.address_label'), ENT_QUOTES, 'UTF-8'); ?>:</strong><br>
                 <?php echo htmlspecialchars(t('footer.address.line1'), ENT_QUOTES, 'UTF-8'); ?><br>
                 <?php echo htmlspecialchars(t('footer.address.line2'), ENT_QUOTES, 'UTF-8'); ?>
@@ -119,4 +121,5 @@
 
 <?php include 'partials/footer.php'; ?>
 </body>
+
 </html>
