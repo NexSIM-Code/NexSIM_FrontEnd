@@ -19,7 +19,7 @@ return [
     'seo.default.description' => "Nexsim designs innovative medical simulation solutions like Lusim, a true educational lung. Born from the collaboration between UTBM and the Nord Franche-Comté Hospital, we train healthcare personnel with cutting-edge tools.",
 
     // Home page
-    'home.h1' => 'Nexsim - Next Simulation',
+    'home.h1' => 'Nexsim: Revolutionize Medical Training',
     'home.p1' => "Specialists in innovative simulation solutions for healthcare staff training. At Nexsim, we develop cutting-edge technologies like Lusim to enhance learning and perfect the skills of healthcare professionals.",
     'home.p2' => "Our mission: to revolutionize medical training through realistic and accessible simulators. Lusim, our educational lung, is the fruit of expertise from UTBM and the Nord Franche-Comté Hospital.",
     'home.about.title' => 'About Us',
@@ -51,6 +51,7 @@ return [
     // Lusim page
     'lusim.seo.title' => 'Lusim – Educational lung for mechanical ventilation training',
     'lusim.seo.description' => "Lusim is a hybrid simulator (physical module, VR, and mobile), a true educational lung for training in mechanical ventilation: clinical cases, ventilator settings, and understanding respiratory mechanics.",
+    'lusim.h1' => 'Lusim: The Next Generation Pedagogical Lung',
     'lusim.what.title' => 'What is Lusim?',
     'lusim.desc.p1' => 'Lusim is a revolutionary hybrid simulator that combines a physical module, a Virtual Reality (VR) module, and a mobile application. Designed as a true "educational lung," it allows for the visualization and understanding of ventilatory mechanics in complete safety, with zero risk to the patient.',
     'lusim.desc.p2' => 'In less than {minutes} minutes, deploy a transportable, realistic, and safe simulation session to train nurses, doctors, and health students.',
@@ -80,6 +81,7 @@ return [
     // Team page
     'team.seo.title' => "The Nexsim Team – Medical Simulation Experts",
     'team.seo.description' => "Discover the multidisciplinary Nexsim team: engineers, caregivers, and VR experts designing innovative medical simulators.",
+    'team.h1' => 'The Nexsim Team: The Alliance of Medical Expertise and Engineering',
     'team.title' => 'The Nexsim Team',
     'team.p1' => "Nexsim's strength lies in its multidisciplinary team, the result of close collaboration between the medical world (Nord Franche-Comté Hospital) and the engineering world (UTBM).",
     'team.p2' => "This diversity allows us to create a common language: solutions thought out by caregivers, for caregivers, and realized by expert engineers.",
@@ -107,6 +109,7 @@ return [
     // Contact page
     'contact.seo.title' => 'Contact Nexsim – Information and Demo Request',
     'contact.seo.description' => "Get in touch with Nexsim: requests for information, Lusim demonstrations, or general questions.",
+    'contact.h1' => 'Contact Us to Transform Your Training',
     'contact.title' => 'Contact',
     'contact.intro' => "For any questions, information requests, or demonstrations, contact us:",
     'contact.email_label' => 'Email',

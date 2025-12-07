@@ -19,7 +19,7 @@ return [
     'seo.default.description' => "Nexsim conçoit des solutions de simulation médicale innovantes comme Lusim, un véritable poumon pédagogique. Né de la collaboration entre l'UTBM et l'Hôpital Nord Franche-Comté, nous formons le personnel soignant avec des outils de pointe.",
 
     // Home page
-    'home.h1' => 'Nexsim - Next Simulation',
+    'home.h1' => 'Nexsim : Révolutionnez la formation médicale',
     'home.p1' => "Spécialistes des solutions innovantes de simulation pour la formation du personnel soignant. Chez Nexsim, nous développons des technologies de pointe comme Lusim pour améliorer l'apprentissage et perfectionner les compétences des professionnels de santé.",
     'home.p2' => "Notre mission : révolutionner la formation médicale grâce à des simulateurs réalistes et accessibles. Lusim, notre poumon pédagogique, est le fruit de l'expertise de l'UTBM et de l'Hôpital Nord Franche-Comté.",
     'home.about.title' => 'À propos de nous',
@@ -51,6 +51,7 @@ return [
     // Lusim page
     'lusim.seo.title' => 'Lusim – Poumon pédagogique pour la formation à la ventilation mécanique',
     'lusim.seo.description' => "Lusim est un simulateur hybride (module physique, VR et mobile), véritable poumon pédagogique pour former à la ventilation mécanique : cas cliniques, réglages de respirateurs et compréhension de la mécanique respiratoire.",
+    'lusim.h1' => 'Lusim : Le poumon pédagogique nouvelle génération',
     'lusim.what.title' => 'Qu’est-ce que Lusim ?',
     'lusim.desc.p1' => 'Lusim est un simulateur hybride révolutionnaire qui associe un module physique, un module de Réalité Virtuelle (VR) et une application mobile. Conçu comme un véritable "poumon pédagogique", il permet de visualiser et de comprendre la mécanique ventilatoire en toute sécurité, sans aucun risque pour le patient.',
     'lusim.desc.p2' => 'En moins de {minutes} minutes, déployez une séance de simulation transportable, réaliste et sécurisée pour former infirmiers, médecins et étudiants en santé.',
@@ -80,6 +81,7 @@ return [
     // Team page
     'team.seo.title' => "L'équipe Nexsim – Experts en simulation médicale",
     'team.seo.description' => "Découvrez l'équipe pluridisciplinaire de Nexsim : ingénieurs, soignants et experts VR qui conçoivent des simulateurs médicaux innovants.",
+    'team.h1' => "L'équipe Nexsim : L'alliance de l'expertise médicale et de l'ingénierie",
     'team.title' => 'L\'équipe NexSim',
     'team.p1' => "La force de Nexsim réside dans son équipe pluridisciplinaire, fruit d'une collaboration étroite entre le monde médical (Hôpital Nord Franche-Comté) et le monde de l'ingénierie (UTBM).",
     'team.p2' => "Cette diversité nous permet de créer un langage commun : des solutions pensées par des soignants, pour des soignants, et réalisées par des ingénieurs experts.",
@@ -107,6 +109,7 @@ return [
     // Contact page
     'contact.seo.title' => 'Contactez Nexsim – Demande d\'information et de démonstration',
     'contact.seo.description' => "Entrez en contact avec Nexsim : demande d'informations, de démonstration de Lusim ou questions générales.",
+    'contact.h1' => 'Contactez-nous pour transformer vos formations',
     'contact.title' => 'Contact',
     'contact.intro' => "Pour toute question, demande d'information ou de démonstration, contactez-nous :",
     'contact.email_label' => 'Email',

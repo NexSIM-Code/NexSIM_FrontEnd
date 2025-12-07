@@ -2,7 +2,7 @@
 include_once 'partials/seo_utils.php'; ?>
 <!DOCTYPE html>
 <html
-    lang="<?php echo htmlspecialchars($GLOBALS['NX_LANG'] ?? (function_exists('nx_detect_lang') ? nx_detect_lang() : 'fr'), ENT_QUOTES, 'UTF-8'); ?>">
+        lang="<?php echo htmlspecialchars($GLOBALS['NX_LANG'] ?? (function_exists('nx_detect_lang') ? nx_detect_lang() : 'fr'), ENT_QUOTES, 'UTF-8'); ?>">
 
 <head>
     <meta charset="UTF-8">
@@ -13,18 +13,18 @@ include_once 'partials/seo_utils.php'; ?>
     <title>Politique de cookies | Nexsim</title>
     <?php
     $seo = [
-        'title' => 'Politique de cookies | Nexsim',
-        'description' => "Politique de cookies Nexsim : types de cookies utilisés, finalités, durée et gestion des préférences conformément au RGPD.",
-        'path' => '/politique-cookies.php'
+            'title' => 'Politique de cookies | Nexsim',
+            'description' => "Politique de cookies Nexsim : types de cookies utilisés, finalités, durée et gestion des préférences conformément au RGPD.",
+            'path' => '/politique-cookies.php'
     ];
     // Inlined SEO partial (was: include 'partials/seo.php')
     $defaults = [
-        'site_name' => function_exists('t') ? t('site.name') : 'Nexsim',
-        'title' => function_exists('t') ? t('seo.default.title') : 'Nexsim - Solutions de simulation médicale innovantes',
-        'description' => function_exists('t') ? t('seo.default.description') : "Nexsim conçoit des solutions de simulation médicale innovantes pour former le personnel soignant : simulateurs, VR et outils pédagogiques, un véritable poumon pédagogique pour la formation.",
-        'image' => 'image/logo.png',
-        'robots' => 'index,follow',
-        'type' => 'website',
+            'site_name' => function_exists('t') ? t('site.name') : 'Nexsim',
+            'title' => function_exists('t') ? t('seo.default.title') : 'Nexsim - Solutions de simulation médicale innovantes',
+            'description' => function_exists('t') ? t('seo.default.description') : "Nexsim conçoit des solutions de simulation médicale innovantes pour former le personnel soignant : simulateurs, VR et outils pédagogiques, un véritable poumon pédagogique pour la formation.",
+            'image' => 'image/logo.png',
+            'robots' => 'index,follow',
+            'type' => 'website',
     ];
     if (!isset($seo) || !is_array($seo)) {
         $seo = [];
@@ -66,12 +66,12 @@ include_once 'partials/seo_utils.php'; ?>
     <!-- Canonical URL & Hreflang -->
     <?php echo nx_generate_seo_tags($config); ?>
     <meta property="og:site_name"
-        content="<?php echo htmlspecialchars($defaults['site_name'], ENT_QUOTES, 'UTF-8'); ?>">
+          content="<?php echo htmlspecialchars($defaults['site_name'], ENT_QUOTES, 'UTF-8'); ?>">
     <meta property="og:title" content="<?php echo htmlspecialchars($title, ENT_QUOTES, 'UTF-8'); ?>">
     <meta property="og:description" content="<?php echo htmlspecialchars($description, ENT_QUOTES, 'UTF-8'); ?>">
     <meta property="og:type" content="<?php echo htmlspecialchars($type, ENT_QUOTES, 'UTF-8'); ?>">
     <meta property="og:url"
-        content="<?php echo htmlspecialchars($baseUrl . ($_SERVER['REQUEST_URI'] ?? '/'), ENT_QUOTES, 'UTF-8'); ?>">
+          content="<?php echo htmlspecialchars($baseUrl . ($_SERVER['REQUEST_URI'] ?? '/'), ENT_QUOTES, 'UTF-8'); ?>">
     <meta property="og:image" content="<?php echo htmlspecialchars($ogImage, ENT_QUOTES, 'UTF-8'); ?>">
     <meta property="og:image:alt" content="<?php echo htmlspecialchars($description, ENT_QUOTES, 'UTF-8'); ?>">
     <meta property="og:locale" content="<?php echo $ogLocale; ?>">
@@ -82,7 +82,8 @@ include_once 'partials/seo_utils.php'; ?>
     <meta name="twitter:image:alt" content="<?php echo htmlspecialchars($description, ENT_QUOTES, 'UTF-8'); ?>">
     <meta name="theme-color" content="#0b2a4a">
     <script type="application/ld+json">
-        {"@context":"https://schema.org","@type":"Organization","name":"Nexsim","url":"<?php echo $baseUrl; ?>","logo":"<?php echo rtrim($baseUrl, '/'); ?>/image/logo.svg","sameAs":[]}
+        {"@context":"https://schema.org","@type":"Organization","name":"Nexsim","url":"<?php echo $baseUrl; ?>
+        ","logo":"<?php echo rtrim($baseUrl, '/'); ?>/image/logo.svg","sameAs":[]}
     </script>
     <script type="application/ld+json">
         {"@context":"https://schema.org","@type":"WebSite","name":"Nexsim","url":"<?php echo $baseUrl; ?>"}
@@ -95,57 +96,57 @@ include_once 'partials/seo_utils.php'; ?>
 </head>
 
 <body>
-    <?php include 'partials/navbar.php'; ?>
-    <div class="main-content">
-        <section class="content-section">
-            <h1>Politique de cookies</h1>
-            <p>Dernière mise à jour : <?php echo date('d/m/Y'); ?></p>
-        </section>
-
-        <section class="content-section">
-            <h2>Qu'est-ce qu'un cookie ?</h2>
-            <p>Un cookie est un petit fichier texte déposé sur votre terminal (ordinateur, mobile, tablette) lors de
-                votre
-                visite sur un site. Il permet notamment d'assurer le bon fonctionnement du site ou de mesurer son
-                audience.</p>
-        </section>
-
-        <section class="content-section">
-            <h2>Cookies utilisés sur ce site</h2>
-            <ul style="margin-left: 20px; margin-bottom: 15px;">
-                <li><strong>Cookies strictement nécessaires</strong> – indispensables au fonctionnement et à la sécurité
-                    du
-                    site (toujours actifs et non soumis à consentement).
-                </li>
-                <li><strong>Cookies de mesure d'audience</strong> (Google Analytics 4) – activés uniquement avec votre
-                    consentement, afin d'obtenir des statistiques d'utilisation anonymisées et d'améliorer le site.
-                </li>
-            </ul>
-        </section>
-
-        <section class="content-section">
-            <h2>Durée de conservation</h2>
-            <p>La durée de vie des cookies varie selon leur nature. Les cookies d'analyse sont conservés au maximum 14
-                mois,
-                conformément aux recommandations en vigueur.</p>
-        </section>
-
-        <section class="content-section">
-            <h2>Gestion de vos préférences</h2>
-            <p>Vous pouvez modifier vos préférences à tout moment via le lien « Préférences cookies » en pied de page.
-            </p>
-            <p>
-                <a href="#" data-cookie-preferences class="cta-button">Ouvrir les préférences cookies</a>
-            </p>
-        </section>
-
-        <section class="content-section">
-            <h2>Plus d'informations</h2>
-            <p>Pour en savoir plus sur nos traitements de données et vos droits, consultez notre <a
-                    href="politique-confidentialite.php">Politique de confidentialité</a>.</p>
-        </section>
+<?php include 'partials/navbar.php'; ?>
+<div class="main-content">
+    <div class="hero-section">
+        <h1>Politique de cookies</h1>
+        <p>Dernière mise à jour : <?php echo date('d/m/Y'); ?></p>
     </div>
-    <?php include 'partials/footer.php'; ?>
+
+    <section class="content-section">
+        <h2>Qu'est-ce qu'un cookie ?</h2>
+        <p>Un cookie est un petit fichier texte déposé sur votre terminal (ordinateur, mobile, tablette) lors de
+            votre
+            visite sur un site. Il permet notamment d'assurer le bon fonctionnement du site ou de mesurer son
+            audience.</p>
+    </section>
+
+    <section class="content-section">
+        <h2>Cookies utilisés sur ce site</h2>
+        <ul style="margin-left: 20px; margin-bottom: 15px;">
+            <li><strong>Cookies strictement nécessaires</strong> – indispensables au fonctionnement et à la sécurité
+                du
+                site (toujours actifs et non soumis à consentement).
+            </li>
+            <li><strong>Cookies de mesure d'audience</strong> (Google Analytics 4) – activés uniquement avec votre
+                consentement, afin d'obtenir des statistiques d'utilisation anonymisées et d'améliorer le site.
+            </li>
+        </ul>
+    </section>
+
+    <section class="content-section">
+        <h2>Durée de conservation</h2>
+        <p>La durée de vie des cookies varie selon leur nature. Les cookies d'analyse sont conservés au maximum 14
+            mois,
+            conformément aux recommandations en vigueur.</p>
+    </section>
+
+    <section class="content-section">
+        <h2>Gestion de vos préférences</h2>
+        <p>Vous pouvez modifier vos préférences à tout moment via le lien « Préférences cookies » en pied de page.
+        </p>
+        <p>
+            <a href="#" data-cookie-preferences class="cta-button">Ouvrir les préférences cookies</a>
+        </p>
+    </section>
+
+    <section class="content-section">
+        <h2>Plus d'informations</h2>
+        <p>Pour en savoir plus sur nos traitements de données et vos droits, consultez notre <a
+                    href="politique-confidentialite.php">Politique de confidentialité</a>.</p>
+    </section>
+</div>
+<?php include 'partials/footer.php'; ?>
 </body>
 
 </html>

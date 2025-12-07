@@ -54,8 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // Theme switcher
 function setupThemeToggle() {
     const toggleSwitch = document.querySelector('#checkbox');
-    const currentTheme = localStorage.getItem('theme') ||
-        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    const currentTheme = localStorage.getItem('theme') || 'dark';
 
     // Fonction pour appliquer le thème
     function setTheme(theme) {

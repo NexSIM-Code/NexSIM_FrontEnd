@@ -102,6 +102,9 @@ include_once 'partials/seo_utils.php'; ?>
 
 <!-- Contenu principal -->
 <div class="main-content">
+    <div class="hero-section">
+        <h1><?php echo htmlspecialchars(t('contact.h1'), ENT_QUOTES, 'UTF-8'); ?></h1>
+    </div>
     <section class="content-section">
         <h2><?php echo htmlspecialchars(t('contact.title'), ENT_QUOTES, 'UTF-8'); ?></h2>
         <p><?php echo htmlspecialchars(t('contact.intro'), ENT_QUOTES, 'UTF-8'); ?></p>

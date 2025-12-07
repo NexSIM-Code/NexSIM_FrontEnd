@@ -3,7 +3,8 @@
 // Usage: include 'partials/i18n.php' at the very top of each page before any output
 
 if (!function_exists('nx_detect_lang')) {
-    function nx_detect_lang(): string {
+    function nx_detect_lang(): string
+    {
         // 1) Query param ?lang=xx
         $supported = ['fr', 'en', 'de'];
         if (isset($_GET['lang'])) {
@@ -33,7 +34,8 @@ if (!function_exists('nx_detect_lang')) {
 }
 
 if (!function_exists('nx_locale_map')) {
-    function nx_locale_map(): array {
+    function nx_locale_map(): array
+    {
         return [
             'fr' => 'fr_FR',
             'en' => 'en_US',
@@ -43,7 +45,8 @@ if (!function_exists('nx_locale_map')) {
 }
 
 if (!function_exists('nx_load_translations')) {
-    function nx_load_translations(string $lang): array {
+    function nx_load_translations(string $lang): array
+    {
         $base = __DIR__ . '/../lang/';
         $file = realpath($base . $lang . '.php');
         if ($file && is_file($file)) {
@@ -61,7 +64,8 @@ if (!function_exists('nx_load_translations')) {
 }
 
 if (!function_exists('t')) {
-    function t(string $key, array $repl = []): string {
+    function t(string $key, array $repl = []): string
+    {
         static $DICT = null;
         if ($DICT === null) {
             // Initialize on first call

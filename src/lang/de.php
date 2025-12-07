@@ -19,7 +19,7 @@ return [
     'seo.default.description' => "Nexsim entwickelt innovative medizinische Simulationslösungen wie Lusim, eine echte Lehrlunge. Entstanden aus der Zusammenarbeit zwischen der UTBM und dem Krankenhaus Nord Franche-Comté, bilden wir medizinisches Personal mit modernsten Werkzeugen aus.",
 
     // Home page
-    'home.h1' => 'Nexsim - Next Simulation',
+    'home.h1' => 'Nexsim: Revolutionieren Sie die medizinische Ausbildung',
     'home.p1' => "Spezialisten für innovative Simulationslösungen zur Ausbildung von Pflegepersonal. Bei Nexsim entwickeln wir Spitzentechnologien wie Lusim, um das Lernen zu verbessern und die Fähigkeiten von Gesundheitsfachkräften zu perfektionieren.",
     'home.p2' => "Unsere Mission: Die medizinische Ausbildung durch realistische und zugängliche Simulatoren zu revolutionieren. Lusim, unsere Lehrlunge, ist das Ergebnis der Expertise der UTBM und des Krankenhauses Nord Franche-Comté.",
     'home.about.title' => 'Über uns',
@@ -51,6 +51,7 @@ return [
     // Lusim page
     'lusim.seo.title' => 'Lusim – Lehrlunge für die Ausbildung in mechanischer Beatmung',
     'lusim.seo.description' => "Lusim ist ein Hybridsimulator (physisches Modul, VR und Mobil), eine echte Lehrlunge für die Ausbildung in mechanischer Beatmung: klinische Fälle, Beatmungseinstellungen und Verständnis der Atemmechanik.",
+    'lusim.h1' => 'Lusim: Die pädagogische Lunge der nächsten Generation',
     'lusim.what.title' => 'Was ist Lusim?',
     'lusim.desc.p1' => 'Lusim ist ein revolutionärer Hybridsimulator, der ein physisches Modul, ein Virtual-Reality-Modul (VR) und eine mobile Anwendung kombiniert. Konzipiert als echte "Lehrlunge", ermöglicht er die sichere Visualisierung und das Verständnis der Beatmungsmechanik, ganz ohne Risiko für den Patienten.',
     'lusim.desc.p2' => 'In weniger als {minutes} Minuten richten Sie eine transportable, realistische und sichere Simulationssitzung ein, um Pflegekräfte, Ärzte und Medizinstudenten auszubilden.',
@@ -80,6 +81,7 @@ return [
     // Team page
     'team.seo.title' => "Das Nexsim-Team – Experten für medizinische Simulation",
     'team.seo.description' => "Entdecken Sie das multidisziplinäre Team von Nexsim: Ingenieure, Pflegekräfte und VR-Experten, die innovative medizinische Simulatoren entwickeln.",
+    'team.h1' => 'Das Nexsim-Team: Die Allianz aus medizinischer Expertise und Ingenieurskunst',
     'team.title' => 'Das Nexsim-Team',
     'team.p1' => "Die Stärke von Nexsim liegt in seinem multidisziplinären Team, das Ergebnis einer engen Zusammenarbeit zwischen der medizinischen Welt (Krankenhaus Nord Franche-Comté) und der Welt des Ingenieurwesens (UTBM).",
     'team.p2' => "Diese Vielfalt ermöglicht es uns, eine gemeinsame Sprache zu schaffen: Lösungen, die von Pflegekräften für Pflegekräfte gedacht und von erfahrenen Ingenieuren umgesetzt werden.",
@@ -107,6 +109,7 @@ return [
     // Contact page
     'contact.seo.title' => 'Kontaktieren Sie Nexsim – Info- und Demo-Anfrage',
     'contact.seo.description' => "Treten Sie mit Nexsim in Kontakt: Informationsanfragen, Lusim-Demonstrationen oder allgemeine Fragen.",
+    'contact.h1' => 'Kontaktieren Sie uns, um Ihre Schulungen zu transformieren',
     'contact.title' => 'Kontakt',
     'contact.intro' => "Für Fragen, Informationsanfragen oder Demonstrationen kontaktieren Sie uns:",
     'contact.email_label' => 'E-Mail',
