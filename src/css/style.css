@@ -212,7 +212,7 @@ footer h3 {
 }
 
 footer a {
-    color: #ff9292;
+    color: var(--primary-color);
     text-decoration: none;
 }
 
@@ -973,4 +973,77 @@ input:checked + .slider:before {
 
 .dark-mode .linkedin-section h2 {
     color: #5ce1e6;
+}
+
+/* Image Lightbox Styles */
+.lightbox-modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 900px;
+    max-height: 80vh;
+    object-fit: contain;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    z-index: 2001;
+    cursor: pointer;
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Desktop Hover Effects */
+@media (min-width: 769px) {
+    .content-section img:not(.no-zoom),
+    .ecosystem-graphic img:not(.no-zoom),
+    .product-card img:not(.no-zoom),
+    .carousel-slide img:not(.no-zoom),
+    .team-card img:not(.no-zoom) {
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+
+    .content-section img:not(.no-zoom):hover,
+    .ecosystem-graphic img:not(.no-zoom):hover,
+    .product-card img:not(.no-zoom):hover,
+    .carousel-slide img:not(.no-zoom):hover,
+    .team-card img:not(.no-zoom):hover {
+        transform: scale(1.1);
+        z-index: 10;
+        position: relative;
+    }
 }

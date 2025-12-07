@@ -47,6 +47,44 @@ document.addEventListener('DOMContentLoaded', function () {
             this.classList.remove('pulse');
         });
     });
+    // Image Lightbox Logic
+    const lightboxModal = document.getElementById('lightbox-modal');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.querySelector('.lightbox-close');
+
+    if (lightboxModal && lightboxImg && lightboxClose) {
+        // Function to open lightbox
+        const openLightbox = (src) => {
+            lightboxModal.style.display = "flex";
+            lightboxImg.src = src;
+        };
+
+        // Select all relevant images
+        const images = document.querySelectorAll('.content-section img:not(.no-zoom), .ecosystem-graphic img:not(.no-zoom), .product-card img:not(.no-zoom), .carousel-slide img:not(.no-zoom), .team-card img:not(.no-zoom)');
+
+        images.forEach(img => {
+            img.addEventListener('click', function(e) {
+                // Check if mobile (screen width <= 768px)
+                if (window.innerWidth <= 768) {
+                    e.preventDefault(); // Prevent default link behavior if wrapped in <a>
+                    openLightbox(this.src);
+                }
+            });
+        });
+
+        // Close lightbox
+        lightboxClose.addEventListener('click', function() {
+            lightboxModal.style.display = "none";
+        });
+
+        // Close on outside click
+        lightboxModal.addEventListener('click', function(e) {
+            if (e.target === lightboxModal) {
+                 lightboxModal.style.display = "none";
+            }
+        });
+    }
+
     // Ajout de l'initialisation du switch de thème
     setupThemeToggle();
 });

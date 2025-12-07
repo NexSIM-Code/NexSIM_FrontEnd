@@ -158,7 +158,6 @@ include_once 'partials/seo_utils.php'; ?>
     <!-- Hero Section -->
     <div class="hero-section">
         <h1><?php echo htmlspecialchars(t('home.h1'), ENT_QUOTES, 'UTF-8'); ?></h1>
-        <p><?php echo htmlspecialchars(t('home.p1'), ENT_QUOTES, 'UTF-8'); ?></p>
     </div>
 
     <!-- Carousel Section -->
