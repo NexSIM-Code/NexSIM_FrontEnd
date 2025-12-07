@@ -14,26 +14,16 @@
 
 .dark-mode {
     --primary-color: #5ce1e6;
-    /* Turquoise */
     --accent-color: #1e4e61;
-    /* Turquoise très claire */
     --accent-color2: #FF9292;
     --bg-color: #1a2d3b;
-    /* Bleu nuit */
     --text-color: #ffffff;
-    /* Turquoise très claire */
     --section-bg: #1e4e61;
-    /* Autre bleu nuit */
     --card-bg: #076487;
-    /* Bleu nuit claire */
     --footer-bg: #1e4e61;
-    /* Bleu nuit */
     --border-color: #3edad8;
-    /* Turquoise claire */
     --modal-bg: #1e4e61;
-    /* Autre bleu nuit */
-    --nav-bg: #1e4e61;
-    /* Bleu nuit */
+    --nav-bg: #183e4d;
 }
 
 
@@ -83,7 +73,7 @@ nav {
 }
 
 .nav-links a:hover {
-    color: var(--accent-color);
+    color: var(--accent-color2);
 }
 
 .contact-btn {
@@ -316,11 +306,11 @@ nav {
     z-index: 2;
 }
 
-input:checked + .slider {
+input:checked+.slider {
     background-color: #5ce1e6;
 }
 
-input:checked + .slider:before {
+input:checked+.slider:before {
     transform: translateX(30px);
 }
 
@@ -902,6 +892,8 @@ input:checked + .slider:before {
     cursor: pointer;
     transition: background-color 0.3s;
     border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 0;
+    margin: 0;
 }
 
 .carousel-dot.active {

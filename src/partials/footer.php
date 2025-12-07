@@ -45,8 +45,8 @@
     <p style="margin-top: 1rem;">&copy; <?php echo date('Y'); ?> Nexsim - Next
         Simulation. <?php echo htmlspecialchars(t('footer.copyright'), ENT_QUOTES, 'UTF-8'); ?></p>
     <!-- Image Lightbox Modal -->
-    <div id="lightbox-modal" class="lightbox-modal">
-        <span class="lightbox-close">&times;</span>
+    <div id="lightbox-modal" class="lightbox-modal" role="dialog" aria-modal="true" aria-label="Image View">
+        <button class="lightbox-close" aria-label="Close">&times;</button>
         <img class="lightbox-content" id="lightbox-img" alt="Agrandissement">
     </div>
 </footer>

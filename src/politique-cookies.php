@@ -82,8 +82,14 @@ include_once 'partials/seo_utils.php'; ?>
     <meta name="twitter:image:alt" content="<?php echo htmlspecialchars($description, ENT_QUOTES, 'UTF-8'); ?>">
     <meta name="theme-color" content="#0b2a4a">
     <script type="application/ld+json">
-        {"@context":"https://schema.org","@type":"Organization","name":"Nexsim","url":"<?php echo $baseUrl; ?>
-        ","logo":"<?php echo rtrim($baseUrl, '/'); ?>/image/logo.svg","sameAs":[]}
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Nexsim",
+          "url": "<?php echo $baseUrl; ?>",
+          "logo": "<?php echo rtrim($baseUrl, '/'); ?>/image/logo.svg",
+          "sameAs": []
+        }
     </script>
     <script type="application/ld+json">
         {"@context":"https://schema.org","@type":"WebSite","name":"Nexsim","url":"<?php echo $baseUrl; ?>"}
@@ -97,7 +103,7 @@ include_once 'partials/seo_utils.php'; ?>
 
 <body>
 <?php include 'partials/navbar.php'; ?>
-<div class="main-content">
+<main class="main-content">
     <div class="hero-section">
         <h1>Politique de cookies</h1>
         <p>Dernière mise à jour : <?php echo date('d/m/Y'); ?></p>
@@ -145,7 +151,7 @@ include_once 'partials/seo_utils.php'; ?>
         <p>Pour en savoir plus sur nos traitements de données et vos droits, consultez notre <a
                     href="politique-confidentialite.php">Politique de confidentialité</a>.</p>
     </section>
-</div>
+</main>
 <?php include 'partials/footer.php'; ?>
 </body>
 

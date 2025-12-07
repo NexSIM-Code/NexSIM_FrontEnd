@@ -82,8 +82,14 @@ include_once 'partials/seo_utils.php'; ?>
     <meta name="twitter:image:alt" content="<?php echo htmlspecialchars($description, ENT_QUOTES, 'UTF-8'); ?>">
     <meta name="theme-color" content="#0b2a4a">
     <script type="application/ld+json">
-        {"@context":"https://schema.org","@type":"Organization","name":"Nexsim","url":"<?php echo $baseUrl; ?>
-        ","logo":"<?php echo rtrim($baseUrl, '/'); ?>/image/logo.svg","sameAs":[]}
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Nexsim",
+          "url": "<?php echo $baseUrl; ?>",
+          "logo": "<?php echo rtrim($baseUrl, '/'); ?>/image/logo.svg",
+          "sameAs": []
+        }
     </script>
     <script type="application/ld+json">
         {"@context":"https://schema.org","@type":"WebSite","name":"Nexsim","url":"<?php echo $baseUrl; ?>"}
@@ -101,7 +107,7 @@ include_once 'partials/seo_utils.php'; ?>
 <?php include 'partials/navbar.php'; ?>
 
 <!-- Contenu principal -->
-<div class="main-content">
+<main class="main-content">
     <div class="hero-section">
         <h1><?php echo htmlspecialchars(t('lusim.h1'), ENT_QUOTES, 'UTF-8'); ?></h1>
     </div>
@@ -115,7 +121,7 @@ include_once 'partials/seo_utils.php'; ?>
             <div class="product-description">
                 <p><?php echo htmlspecialchars(t('lusim.desc.p1'), ENT_QUOTES, 'UTF-8'); ?></p>
                 <p><?php echo htmlspecialchars(t('lusim.desc.p2', ['minutes' => 5]), ENT_QUOTES, 'UTF-8'); ?></p>
-                <a href="#"
+                <a href="contact.php"
                    class="cta-button"><?php echo htmlspecialchars(t('lusim.cta.demo'), ENT_QUOTES, 'UTF-8'); ?></a>
             </div>
         </div>
@@ -164,7 +170,7 @@ include_once 'partials/seo_utils.php'; ?>
             <li><?php echo htmlspecialchars(t('lusim.forwho.li4'), ENT_QUOTES, 'UTF-8'); ?></li>
         </ul>
     </section>
-</div>
+</main>
 <?php include 'partials/footer.php'; ?>
 </body>
 

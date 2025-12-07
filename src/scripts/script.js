@@ -5,13 +5,17 @@ document.addEventListener('DOMContentLoaded', function () {
     const logoContainer = document.querySelector('.logo-container');
 
     // Créer le bouton hamburger
-    const hamburger = document.createElement('div');
+    const hamburger = document.createElement('button');
     hamburger.classList.add('hamburger');
+    hamburger.setAttribute('aria-label', 'Menu');
+    hamburger.setAttribute('aria-expanded', 'false');
     hamburger.innerHTML = '<span></span><span></span><span></span>';
     document.querySelector('nav').appendChild(hamburger);
 
     // Gérer le clic sur le menu hamburger
     hamburger.addEventListener('click', function () {
+        const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+        hamburger.setAttribute('aria-expanded', !isExpanded);
         navLinks.classList.toggle('active');
         hamburger.classList.toggle('active');
     });

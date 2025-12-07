@@ -119,8 +119,14 @@ $equipe = [
     <meta name="twitter:image:alt" content="<?php echo htmlspecialchars($description, ENT_QUOTES, 'UTF-8'); ?>">
     <meta name="theme-color" content="#0b2a4a">
     <script type="application/ld+json">
-        {"@context":"https://schema.org","@type":"Organization","name":"Nexsim","url":"<?php echo $baseUrl; ?>
-        ","logo":"<?php echo rtrim($baseUrl, '/'); ?>/image/logo.svg","sameAs":[]}
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Nexsim",
+          "url": "<?php echo $baseUrl; ?>",
+          "logo": "<?php echo rtrim($baseUrl, '/'); ?>/image/logo.svg",
+          "sameAs": []
+        }
     </script>
     <script type="application/ld+json">
         {"@context":"https://schema.org","@type":"WebSite","name":"Nexsim","url":"<?php echo $baseUrl; ?>"}
@@ -138,7 +144,7 @@ $equipe = [
 <?php include 'partials/navbar.php'; ?>
 
 <!-- Contenu principal -->
-<div class="main-content">
+<main class="main-content">
     <div class="hero-section">
         <h1><?php echo htmlspecialchars(t('team.h1'), ENT_QUOTES, 'UTF-8'); ?></h1>
     </div>
@@ -183,7 +189,7 @@ $equipe = [
             <?php endforeach; ?>
         </div>
     </section>
-</div>
+</main>
 <?php include 'partials/footer.php'; ?>
 </body>
 

@@ -154,7 +154,7 @@ include_once 'partials/seo_utils.php'; ?>
 <?php include 'partials/navbar.php'; ?>
 
 <!-- Contenu principal -->
-<div class="main-content">
+<main class="main-content">
     <!-- Hero Section -->
     <div class="hero-section">
         <h1><?php echo htmlspecialchars(t('home.h1'), ENT_QUOTES, 'UTF-8'); ?></h1>
@@ -175,12 +175,12 @@ include_once 'partials/seo_utils.php'; ?>
             </div>
             <div class="carousel-nav" id="carouselNav">
                 <?php foreach ($carouselImages as $index => $image): ?>
-                    <div class="carousel-dot <?php echo $index === 0 ? 'active' : ''; ?>"
-                         data-index="<?php echo $index; ?>"></div>
+                    <button class="carousel-dot <?php echo $index === 0 ? 'active' : ''; ?>"
+                            data-index="<?php echo $index; ?>" aria-label="Slide <?php echo $index + 1; ?>"></button>
                 <?php endforeach; ?>
             </div>
-            <button class="carousel-arrow carousel-prev" id="carouselPrev">&#10094;</button>
-            <button class="carousel-arrow carousel-next" id="carouselNext">&#10095;</button>
+            <button class="carousel-arrow carousel-prev" id="carouselPrev" aria-label="Previous slide">&#10094;</button>
+            <button class="carousel-arrow carousel-next" id="carouselNext" aria-label="Next slide">&#10095;</button>
         </section>
         <script>
             document.addEventListener('DOMContentLoaded', function () {
@@ -284,7 +284,7 @@ include_once 'partials/seo_utils.php'; ?>
         </ul>
         <p><?php echo htmlspecialchars(t('home.why.end'), ENT_QUOTES, 'UTF-8'); ?></p>
     </section>
-</div>
+</main>
 <?php include 'partials/footer.php'; ?>
 </body>
 
