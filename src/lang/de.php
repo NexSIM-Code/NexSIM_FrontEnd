@@ -95,9 +95,9 @@ return [
     'team.members.title' => 'Unser Team',
 
     // Team Members
-    'team.member.lucas.role' => 'Präsident',
+    'team.member.lucas.role' => 'Technischer Leiter',
     'team.member.lucas.desc' => 'Ingenieur für Mechatronik',
-    'team.member.jules.role' => 'Technischer Leiter',
+    'team.member.jules.role' => 'Präsident',
     'team.member.jules.desc' => 'Informatikingenieur',
     'team.member.laurent.role' => 'Externer Ausbilder',
     'team.member.laurent.desc' => 'Koordinierender Pfleger, Krankenhaus Nord Franche-Comté',

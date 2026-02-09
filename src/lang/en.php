@@ -95,9 +95,9 @@ return [
     'team.members.title' => 'Our Team',
 
     // Team Members
-    'team.member.lucas.role' => 'President',
+    'team.member.lucas.role' => 'Technical Manager',
     'team.member.lucas.desc' => 'Mechatronics Engineer',
-    'team.member.jules.role' => 'Technical Manager',
+    'team.member.jules.role' => 'President',
     'team.member.jules.desc' => 'IT Engineer',
     'team.member.laurent.role' => 'Adjunct Trainer',
     'team.member.laurent.desc' => 'Coordinating Nurse, Nord Franche-Comté Hospital',

@@ -95,9 +95,9 @@ return [
     'team.members.title' => 'Notre équipe',
 
     // Team Members
-    'team.member.lucas.role' => 'Président',
+    'team.member.lucas.role' => 'Résponsable technique',
     'team.member.lucas.desc' => 'Ingénieur mécatronique',
-    'team.member.jules.role' => 'Responsable technique',
+    'team.member.jules.role' => 'Président',
     'team.member.jules.desc' => 'Ingénieur informatique',
     'team.member.laurent.role' => 'Vacataire formateur',
     'team.member.laurent.desc' => 'Infirmier coordonnateur, Hôpital Nord Franche-Comté',

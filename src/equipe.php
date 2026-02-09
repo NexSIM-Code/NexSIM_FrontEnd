@@ -4,31 +4,31 @@ include_once 'partials/seo_utils.php';
 
 $equipe = [
         [
-                'name' => 'Romary Lucas',
-                'role' => t('team.member.lucas.role'),
-                'description' => t('team.member.lucas.desc'),
-                'image' => 'image/person/lucas.png'
-        ],
-        [
-                'name' => 'Ferlin Jules',
+                'name' => 'Jules Ferlin',
                 'role' => t('team.member.jules.role'),
                 'description' => t('team.member.jules.desc'),
                 'image' => 'image/person/jules.png'
         ],
         [
-                'name' => 'Faivre Laurent',
+                'name' => 'Lucas Romary',
+                'role' => t('team.member.lucas.role'),
+                'description' => t('team.member.lucas.desc'),
+                'image' => 'image/person/lucas.png'
+        ],
+        [
+                'name' => 'Laurent Faivre',
                 'role' => t('team.member.laurent.role'),
                 'description' => t('team.member.laurent.desc'),
                 'image' => 'image/person/laurent.png'
         ],
         [
-                'name' => 'Lauri Fabrice',
+                'name' => 'Fabrice Lauri',
                 'role' => t('team.member.fabrice.role'),
                 'description' => t('team.member.fabrice.desc'),
                 'image' => 'image/person/fabrice.png'
         ],
         [
-                'name' => 'Buvat Jean-Sebastien',
+                'name' => 'Jean-Sébastien Buvat',
                 'role' => t('team.member.jean-sebastien.role'),
                 'description' => t('team.member.jean-sebastien.desc'),
                 'image' => 'image/person/jean-sebastien.png'
