@@ -226,11 +226,12 @@ include_once 'partials/seo_utils.php'; ?>
     <?php endif; ?>
 
     <section class="content-section">
-        <p><?php echo htmlspecialchars(t('home.p2'), ENT_QUOTES, 'UTF-8'); ?></p>
+        <video src="videos/Lusim_V10.mov" controls poster="image/lusim_preview.png"></video>
     </section>
 
     <section class="content-section">
         <h2><?php echo htmlspecialchars(t('home.about.title'), ENT_QUOTES, 'UTF-8'); ?></h2>
+        <p><?php echo htmlspecialchars(t('home.p2'), ENT_QUOTES, 'UTF-8'); ?></p>
         <p><?php echo htmlspecialchars(t('home.about.p1'), ENT_QUOTES, 'UTF-8'); ?></p>
         <p><?php echo htmlspecialchars(t('home.about.p2'), ENT_QUOTES, 'UTF-8'); ?></p>
 

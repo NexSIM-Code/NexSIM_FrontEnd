@@ -19,11 +19,11 @@ return [
     'seo.default.description' => "Nexsim conçoit des solutions de simulation médicale innovantes comme Lusim, un véritable poumon pédagogique. Né de la collaboration entre l'UTBM et l'Hôpital Nord Franche-Comté, nous formons le personnel soignant avec des outils de pointe.",
 
     // Home page
-    'home.h1' => 'Nexsim : Révolutionnez la formation médicale',
+    'home.h1' => 'Nexsim : Une nouvelle approche de la formation médicale',
     'home.p1' => "Spécialistes des solutions innovantes de simulation pour la formation du personnel soignant. Chez Nexsim, nous développons des technologies de pointe comme Lusim pour améliorer l'apprentissage et perfectionner les compétences des professionnels de santé.",
-    'home.p2' => "Notre mission : révolutionner la formation médicale grâce à des simulateurs réalistes et accessibles. Lusim, notre poumon pédagogique, est le fruit de l'expertise de l'UTBM et de l'Hôpital Nord Franche-Comté.",
+    'home.p2' => "Notre mission : optimiser la formation médicale avec nos simulateurs réalistes, simples et pédagogiques. Lusim, notre produit phare, permet de simuler des pathologies pulmonaires pour former à la ventilation mécanique.",
     'home.about.title' => 'À propos de nous',
-    'home.about.p1' => "Nexsim est née de la synergie entre l'expertise médicale de l'Hôpital Nord Franche-Comté et l'ingénierie de pointe de l'UTBM. Notre équipe pluridisciplinaire travaille à combler le fossé entre la théorie et la pratique clinique.",
+    'home.about.p1' => "Nexsim est née de la synergie entre l'expertise médicale et l'ingénierie de pointe de l'Université de Technologie de Belfort Montbéliard. Notre équipe pluridisciplinaire a pour objectif de rendre travaille à combler le fossé entre la théorie et la pratique clinique.",
     'home.about.p2' => "Notre vision est de démocratiser l'accès à des outils de simulation médicale de haute qualité, permettant aux établissements de santé et aux centres de formation de toutes tailles de bénéficier des avantages de la simulation.",
     'home.highlight.innovation' => 'Innovation',
     'home.highlight.innovation.p' => 'Nous combinons expertise médicale et ingénierie de pointe pour créer des solutions uniques.',
