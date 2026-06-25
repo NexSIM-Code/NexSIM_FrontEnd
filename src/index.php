@@ -7,7 +7,7 @@
     <!-- 1.1 Balises de Métadonnées -->
     <title>Nexsim Lusim | Simulateur Pulmonaire de Formation Médicale</title>
     <meta name="description"
-          content="Découvrez Lusim par Nexsim, le premier simulateur pulmonaire hybride (VR et physique) conçu pour révolutionner la formation en ventilation mécanique.">
+          content="Découvrez Lusim par Nexsim, le premier simulateur pulmonaire hybride (VR et physique) conçu pour faciliter la formation en ventilation mécanique.">
 
     <!-- 1.3 URL Canonique -->
     <link rel="canonical" href="https://www.nexsim.fr/">
@@ -25,7 +25,7 @@
     <!-- 5.1 Protocole Open Graph (OG) -->
     <meta property="og:title" content="Nexsim Lusim | Simulateur Pulmonaire de Formation Médicale">
     <meta property="og:description"
-          content="Découvrez Lusim par Nexsim, le premier simulateur pulmonaire hybride conçu pour révolutionner la formation en ventilation mécanique.">
+          content="Découvrez Lusim par Nexsim, le premier simulateur pulmonaire hybride conçu pour faciliter la formation en ventilation mécanique.">
     <meta property="og:url" content="https://www.nexsim.fr/">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://www.nexsim.fr/image/og-image.jpg">
@@ -40,7 +40,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Nexsim Lusim | Simulateur Pulmonaire de Formation Médicale">
     <meta name="twitter:description"
-          content="Découvrez Lusim par Nexsim, le premier simulateur pulmonaire hybride conçu pour révolutionner la formation en ventilation mécanique.">
+          content="Découvrez Lusim par Nexsim, le premier simulateur pulmonaire hybride conçu pour faciliter la formation en ventilation mécanique.">
     <meta name="twitter:image" content="https://www.nexsim.fr/image/og-image.jpg">
     <meta name="twitter:site" content="@nexsim_fr">
 
@@ -117,7 +117,9 @@
 <body>
 <header class="navbar" role="banner">
     <div class="logo">
-        <span>Nex<span class="text-cyan">SIM</span></span>
+        <a href="#accueil" aria-label="Retour à l'accueil" style="display: flex; align-items: center;">
+            <img src="image/logo.svg" alt="Logo Nexsim" height="40" width="120" style="object-fit: contain;">
+        </a>
     </div>
     <nav role="navigation" aria-label="Navigation principale">
         <a href="#accueil">Accueil</a>
@@ -152,25 +154,22 @@
     <!-- Section 2 : Avantages -->
     <section id="avantages" class="section">
         <div class="container">
-            <h2 class="section-title">Pourquoi choisir l'écosystème Lusim ?</h2>
+            <h2 class="section-title">Pourquoi équiper votre établissement avec Lusim ?</h2>
             <div class="grid-3 scroll-animated-list">
                 <article class="card glass">
                     <div class="card-icon" aria-hidden="true">⚡</div>
-                    <h3>Réalisme physique & Mécatronique</h3>
-                    <p>Imprimé en 3D avec des capteurs de pression et de débit. Connectez de véritables respirateurs
-                        cliniques au module physique de Lusim pour préserver la mémoire haptique.</p>
+                    <h3>Pratique sur votre propre matériel</h3>
+                    <p>Équipé de capteurs de haute précision, Lusim se branche directement aux respirateurs de votre hôpital. Vos équipes médicales s'entraînent ainsi dans des conditions réelles, avec le matériel qu'elles utilisent au quotidien.</p>
                 </article>
                 <article class="card glass">
                     <div class="card-icon" aria-hidden="true">🥽</div>
-                    <h3>Immersion en Réalité Virtuelle (NexVR)</h3>
-                    <p>Plongez à l'intérieur de l'anatomie grâce à la réalité virtuelle. Observez le recrutement
-                        alvéolaire et la dynamique diaphragmatique en temps réel.</p>
+                    <h3>Immersion en Réalité Virtuelle</h3>
+                    <p>Enfilez le casque de réalité virtuelle pour explorer l'intérieur des poumons. Visualisez instantanément et de manière claire l'impact des réglages de la machine sur l'anatomie du patient virtuel.</p>
                 </article>
                 <article class="card glass">
                     <div class="card-icon" aria-hidden="true">🎯</div>
-                    <h3>Déploiement Rapide in situ</h3>
-                    <p>Opérationnel en moins de cinq minutes. Sa conception compacte et transportable s'affranchit des
-                        centres de simulation pour s'intégrer directement en chambre de réanimation.</p>
+                    <h3>Installation facile et mobile</h3>
+                    <p>Déployable très rapidement, Lusim est un dispositif compact et facile à transporter. Il peut s'utiliser directement dans vos services ou dans les chambres, sans avoir besoin d'une grande salle de simulation dédiée.</p>
                 </article>
             </div>
         </div>
@@ -182,27 +181,22 @@
             <h2 class="section-title">Notre produit au service de la pédagogie</h2>
             <div class="flex-layout">
                 <div class="text-content scroll-fade-in">
-                    <h3>L'hybridation pour réduire la charge cognitive</h3>
-                    <p>L'apprentissage de la ventilation mécanique requiert de traduire des courbes bidimensionnelles en
-                        réalités physiologiques. L'immersion proposée par Lusim court-circuite cet obstacle
-                        cognitif.</p>
+                    <h3>Rendre la respiration visible pour mieux l'apprendre</h3>
+                    <p>Apprendre à bien régler un respirateur est souvent un défi pour le personnel. L'approche très visuelle et concrète de Lusim simplifie grandement cet apprentissage, le rendant accessible aux infirmiers, internes et médecins spécialistes.</p>
                     <ul>
-                        <li><strong>Modélisation visuelle</strong> : Visualisez les dommages tissulaires
-                            (volotraumatisme, atélectasie) pour mieux les prévenir.
+                        <li><strong>Prévention facilitée</strong> : Les soignants voient directement comment un mauvais réglage peut blesser les poumons, ce qui les aide à mieux protéger les vrais patients.
                         </li>
-                        <li><strong>Personnalisation clinique via NexControl</strong> : Créez des scénarios de
-                            bronchospasme ou modifiez la compliance pulmonaire en temps réel.
+                        <li><strong>Scénarios sur mesure</strong> : L'enseignant ou le formateur peut modifier l'état du patient virtuel en direct (comme déclencher une crise d'asthme) pour adapter l'exercice aux besoins de l'apprenant.
                         </li>
-                        <li><strong>Mémoire procédurale préservée</strong> : Interaction avec de véritables tuyaux et
-                            les alarmes réelles des machines hospitalières.
+                        <li><strong>Entraînement réaliste</strong> : Les équipes manipulent les vrais tuyaux et apprennent à réagir efficacement aux véritables alarmes de vos équipements hospitaliers.
                         </li>
                     </ul>
                 </div>
                 <div class="image-content scroll-fade-in">
                     <div class="photo-placeholder glass">
                         <!-- Image optimisée SEO : balise img avec attributs alt, width, height et loading="lazy" -->
-                        <img src="image/formation-lusim-vr.jpg"
-                             alt="Un étudiant en médecine utilisant le casque de réalité virtuelle NexVR pour observer l'anatomie pulmonaire de Lusim"
+                        <img src="image/lusim-vr.png"
+                             alt="Un soignant utilisant le casque de réalité virtuelle NexVR pour observer l'anatomie pulmonaire de Lusim"
                              width="600" height="450" loading="lazy"
                              style="max-width: 100%; height: auto; border-radius: 8px;">
                     </div>
@@ -214,9 +208,8 @@
     <!-- Section 4 : L'Équipe -->
     <section id="equipe" class="section">
         <div class="container text-center">
-            <h2 class="section-title">Fondateurs et Équipe Dirigeante</h2>
-            <p class="subtitle">Des experts complémentaires animés par la passion de l'innovation médicale et de
-                l'ingénierie frugale.</p>
+            <h2 class="section-title">L'équipe derrière NexSIM</h2>
+            <p class="subtitle">Des professionnels alliant expertise médicale, ingénierie et nouvelles technologies pour concevoir la meilleure solution de formation pour votre hôpital.</p>
             <div class="team-grid scroll-animated-list">
                 <div class="team-member glass">
                     <!-- Image optimisée SEO -->
@@ -256,9 +249,8 @@
     <!-- Contact Section -->
     <section id="contact" class="section bg-cyan text-dark">
         <div class="container text-center">
-            <h2>Prêt à révolutionner votre formation médicale ?</h2>
-            <p>Contactez-nous pour une démonstration de Lusim au sein de votre Institut de Formation en Soins Infirmiers
-                (IFSI) ou Faculté de Médecine.</p>
+            <h2>Prêt à moderniser vos formations médicales ?</h2>
+            <p>Contactez-nous pour organiser une démonstration de Lusim au sein de votre établissement, que vous représentiez un pôle de soins, une direction des achats ou un centre de formation.</p>
             <a href="mailto:contact@nexsim.fr" class="btn btn-dark mt-2" title="Envoyer un email de contact à Nexsim">Envoyer
                 un message</a>
         </div>
@@ -268,7 +260,9 @@
 <!-- Pied de page avec protection data-nosnippet pour les clauses légales -->
 <footer data-nosnippet>
     <div class="container flex-footer">
-        <div class="footer-logo">Nex<span class="text-cyan">SIM</span></div>
+        <div class="footer-logo">
+            <img src="image/logo.svg" alt="Logo Nexsim" height="30" width="90" loading="lazy" style="object-fit: contain;">
+        </div>
         <div class="footer-links">
             <p>&copy; <?php echo date("Y"); ?> Nexsim. Tous droits réservés.</p>
         </div>
