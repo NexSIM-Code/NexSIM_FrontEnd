@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- 1.1 Balises de Métadonnées -->
-    <title>Nexsim Lusim | Simulateur Pulmonaire de Formation Médicale</title>
+    <title>Nexsim LuSIM | Simulateur Pulmonaire de Formation Médicale</title>
     <meta name="description"
-          content="Découvrez Lusim par Nexsim, le premier simulateur pulmonaire hybride (VR et physique) conçu pour faciliter la formation en ventilation mécanique.">
+          content="Découvrez LuSIM par Nexsim, le premier simulateur pulmonaire hybride (VR et physique) conçu pour faciliter la formation en ventilation mécanique.">
 
     <!-- 1.3 URL Canonique -->
     <link rel="canonical" href="https://www.nexsim.fr/">
@@ -23,24 +23,24 @@
     <meta name="google-site-verification" content="KjI3msHzOdGMSiN_H8r7V6Dy7Gt18m67kyVdILfri4w"/>
 
     <!-- 5.1 Protocole Open Graph (OG) -->
-    <meta property="og:title" content="Nexsim Lusim | Simulateur Pulmonaire de Formation Médicale">
+    <meta property="og:title" content="Nexsim LuSIM | Simulateur Pulmonaire de Formation Médicale">
     <meta property="og:description"
-          content="Découvrez Lusim par Nexsim, le premier simulateur pulmonaire hybride conçu pour faciliter la formation en ventilation mécanique.">
+          content="Découvrez LuSIM par Nexsim, le premier simulateur pulmonaire hybride conçu pour faciliter la formation en ventilation mécanique.">
     <meta property="og:url" content="https://www.nexsim.fr/">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://www.nexsim.fr/image/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:type" content="image/jpeg">
-    <meta property="og:image:alt" content="Simulateur pulmonaire Lusim par Nexsim">
+    <meta property="og:image:alt" content="Simulateur pulmonaire LuSIM par Nexsim">
     <meta property="og:site_name" content="Nexsim">
     <meta property="og:locale" content="fr_FR">
 
     <!-- 5.2 Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Nexsim Lusim | Simulateur Pulmonaire de Formation Médicale">
+    <meta name="twitter:title" content="Nexsim LuSIM | Simulateur Pulmonaire de Formation Médicale">
     <meta name="twitter:description"
-          content="Découvrez Lusim par Nexsim, le premier simulateur pulmonaire hybride conçu pour faciliter la formation en ventilation mécanique.">
+          content="Découvrez LuSIM par Nexsim, le premier simulateur pulmonaire hybride conçu pour faciliter la formation en ventilation mécanique.">
     <meta name="twitter:image" content="https://www.nexsim.fr/image/og-image.jpg">
     <meta name="twitter:site" content="@nexsim_fr">
 
@@ -94,7 +94,7 @@
                 {
                     "@type": "Product",
                     "@id": "https://www.nexsim.fr/#product",
-                    "name": "Lusim",
+                    "name": "LuSIM",
                     "description": "Simulateur pulmonaire hybride de nouvelle génération pour la formation en ventilation mécanique, fusionnant robotique physique et réalité virtuelle.",
                     "brand": {
                         "@id": "https://www.nexsim.fr/#organization"
@@ -105,7 +105,7 @@
                     "@type": "WebPage",
                     "@id": "https://www.nexsim.fr/#webpage",
                     "url": "https://www.nexsim.fr/",
-                    "name": "Nexsim Lusim | Simulateur Pulmonaire de Formation Médicale",
+                    "name": "Nexsim LuSIM | Simulateur Pulmonaire de Formation Médicale",
                     "about": {
                         "@id": "https://www.nexsim.fr/#product"
                     }
@@ -138,11 +138,9 @@
         </video>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <!-- Seul et unique H1 de la page, optimisé pour le mot-clé principal -->
-            <h1 class="animate-fade-in-up">Lusim : Le simulateur pulmonaire de formation médicale</h1>
-            <p class="animate-fade-in-up delay-1">Découvrez le poumon pédagogique nouvelle génération combinant réalité
-                virtuelle et mécatronique.</p>
-            <a href="#avantages" class="scroll-indicator animate-bounce" aria-label="Découvrir les avantages de Lusim">
+            <h1 class="animate-fade-in-up">LuSIM<br>Le simulateur pulmonaire</h1>
+            <p class="animate-fade-in-up delay-1">Découvrez le poumon pédagogique hybride pour la formation médicale et paramédicale</p>
+            <a href="#avantages" class="scroll-indicator animate-bounce" aria-label="Découvrir les avantages de LuSIM">
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                      stroke-linecap="round" stroke-linejoin="round">
                     <path d="M12 5v14M19 12l-7 7-7-7"/>
@@ -151,25 +149,89 @@
         </div>
     </section>
 
-    <!-- Section 2 : Avantages -->
-    <section id="avantages" class="section">
+    <!-- Section 2 : Physique -->
+    <section id="physique" class="section">
         <div class="container">
-            <h2 class="section-title">Pourquoi équiper votre établissement avec Lusim ?</h2>
+            <h2 class="section-title">La partie physique :</h2>
+            <div class="3d-renderer" style="position: relative; border-radius: 16px; overflow: hidden; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);">
+                <!-- Importation de Model Viewer -->
+                <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+                
+                <model-viewer 
+                    src="./modeles/lusim.glb"
+                    alt="Modèle 3D de la partie physique de LuSIM" 
+                    auto-rotate 
+                    auto-rotate-delay="1000"
+                    camera-controls 
+                    style="width: 100%; height: 500px;"
+                    rotation-per-second="1000%"
+                    camera-orbit="0deg 60deg 2.5m"
+                ></model-viewer>
+                
+                <button onclick="document.getElementById('dialog-3d').showModal()" class="btn btn-outline" style="position: absolute; bottom: 15px; right: 15px; background: rgba(18, 28, 38, 0.8);">
+                    Agrandir ⛶
+                </button>
+            </div>
+
+            <!-- Dialog pour la vue agrandie -->
+            <dialog id="dialog-3d" class="glass" style="width: 95vw; height: 95vh; max-width: 1400px; max-height: 900px; margin: auto; padding: 0; border: none; border-radius: 16px; overflow: hidden;">
+                <div style="display: flex; flex-direction: column; width: 100%; height: 100%;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1); background: var(--bg-dark);">
+                        <h3 style="margin: 0; color: #fff;">LuSIM - Vue 3D</h3>
+                        <button onclick="document.getElementById('dialog-3d').close()" class="btn btn-outline" style="padding: 0.5rem 1rem;">Fermer ✕</button>
+                    </div>
+                    <div style="flex-grow: 1; background: var(--bg-darker);">
+                        <model-viewer
+                                src="./modeles/lusim.glb"
+                                alt="Modèle 3D de la partie physique de LuSIM"
+                                auto-rotate
+                                auto-rotate-delay="1000"
+                                camera-controls
+                                style="width: 100%; height: 500px;"
+                                rotation-per-second="1000%"
+                                camera-orbit="0deg 60deg 2.5m"
+                        ></model-viewer>
+                    </div>
+                </div>
+            </dialog>
+            
+            <style>
+                dialog::backdrop {
+                    background: rgba(0, 0, 0, 0.8);
+                    backdrop-filter: blur(5px);
+                }
+            </style>
+        </div>
+    </section>
+
+    <!-- Section 3 : Réalité virtuelle -->
+    <section id="vr" class="section bg-darker">
+        <div class="container">
+            <h2 class="section-title">La partie numérique :</h2>
+            <div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4 : Nos offres -->
+    <section id="offers" class="section bg-darker">
+        <div class="container">
+            <h2 class="section-title">Nos offres</h2>
             <div class="grid-3 scroll-animated-list">
                 <article class="card glass">
-                    <div class="card-icon" aria-hidden="true">⚡</div>
-                    <h3>Pratique sur votre propre matériel</h3>
-                    <p>Équipé de capteurs de haute précision, Lusim se branche directement aux respirateurs de votre hôpital. Vos équipes médicales s'entraînent ainsi dans des conditions réelles, avec le matériel qu'elles utilisent au quotidien.</p>
+                    <div class="card-icon" aria-hidden="true"><img src="./image/training.png" alt="Rent Icon" width="50" height="50"></div>
+                    <h3>Formation</h3>
+                    <p>Nous proposons des formations adaptées à vos besoins.</p>
                 </article>
                 <article class="card glass">
-                    <div class="card-icon" aria-hidden="true">🥽</div>
-                    <h3>Immersion en Réalité Virtuelle</h3>
-                    <p>Enfilez le casque de réalité virtuelle pour explorer l'intérieur des poumons. Visualisez instantanément et de manière claire l'impact des réglages de la machine sur l'anatomie du patient virtuel.</p>
+                    <div class="card-icon" aria-hidden="true"><img src="./image/rent.png" alt="Rent Icon" width="50" height="50"></div>
+                    <h3>Location</h3>
+                    <p>Tous nos produits sont disponibles pour la location.</p>
                 </article>
                 <article class="card glass">
-                    <div class="card-icon" aria-hidden="true">🎯</div>
-                    <h3>Installation facile et mobile</h3>
-                    <p>Déployable très rapidement, Lusim est un dispositif compact et facile à transporter. Il peut s'utiliser directement dans vos services ou dans les chambres, sans avoir besoin d'une grande salle de simulation dédiée.</p>
+                    <div class="card-icon" aria-hidden="true"><img src="./image/shopping-cart.png" alt="Rent Icon" width="50" height="50"></div>
+                    <h3>Achat</h3>
+                    <p></p>
                 </article>
             </div>
         </div>
@@ -182,7 +244,7 @@
             <div class="flex-layout">
                 <div class="text-content scroll-fade-in">
                     <h3>Rendre la respiration visible pour mieux l'apprendre</h3>
-                    <p>Apprendre à bien régler un respirateur est souvent un défi pour le personnel. L'approche très visuelle et concrète de Lusim simplifie grandement cet apprentissage, le rendant accessible aux infirmiers, internes et médecins spécialistes.</p>
+                    <p>Apprendre à bien régler un respirateur est souvent un défi pour le personnel. L'approche très visuelle et concrète de LuSIM simplifie grandement cet apprentissage, le rendant accessible aux infirmiers, internes et médecins spécialistes.</p>
                     <ul>
                         <li><strong>Prévention facilitée</strong> : Les soignants voient directement comment un mauvais réglage peut blesser les poumons, ce qui les aide à mieux protéger les vrais patients.
                         </li>
@@ -196,7 +258,7 @@
                     <div class="photo-placeholder glass">
                         <!-- Image optimisée SEO : balise img avec attributs alt, width, height et loading="lazy" -->
                         <img src="image/lusim-vr.png"
-                             alt="Un soignant utilisant le casque de réalité virtuelle NexVR pour observer l'anatomie pulmonaire de Lusim"
+                             alt="Un soignant utilisant le casque de réalité virtuelle NexVR pour observer l'anatomie pulmonaire de LuSIM"
                              width="600" height="450" loading="lazy"
                              style="max-width: 100%; height: auto; border-radius: 8px;">
                     </div>
@@ -250,7 +312,7 @@
     <section id="contact" class="section bg-cyan text-dark">
         <div class="container text-center">
             <h2>Prêt à moderniser vos formations médicales ?</h2>
-            <p>Contactez-nous pour organiser une démonstration de Lusim au sein de votre établissement, que vous représentiez un pôle de soins, une direction des achats ou un centre de formation.</p>
+            <p>Contactez-nous pour organiser une démonstration de LuSIM au sein de votre établissement, que vous représentiez un pôle de soins, une direction des achats ou un centre de formation.</p>
             <a href="mailto:contact@nexsim.fr" class="btn btn-dark mt-2" title="Envoyer un email de contact à Nexsim">Envoyer
                 un message</a>
         </div>
