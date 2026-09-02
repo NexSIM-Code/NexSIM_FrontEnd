@@ -3,10 +3,22 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.nexsim.fr/</loc>
-    <lastmod>2026-06-23</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.nexsim.fr/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nexsim.fr/" />
+  </url>
+  <url>
+    <loc>https://www.nexsim.fr/mentions-legales.php</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://www.nexsim.fr/politique-de-confidentialite.php</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
   </url>
 </urlset>
