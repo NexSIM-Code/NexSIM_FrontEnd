@@ -1471,16 +1471,24 @@ html[data-theme="light"] .footer-brand img {
 }
 
 .logo-item img {
-    height: 64px;
+    height: 96px;
     width: auto;
-    max-width: 220px;
+    max-width: 320px;
     object-fit: contain;
-    padding: 0.75rem 1.25rem;
+    padding: 1rem 1.5rem;
     box-sizing: content-box;
     background: #FFFFFF;
     border-radius: var(--radius);
     border: 1px solid var(--outline);
     box-shadow: var(--shadow-sm);
+}
+
+@media (max-width: 900px) {
+    .logo-item img {
+        height: 64px;
+        max-width: 220px;
+        padding: 0.75rem 1.25rem;
+    }
 }
 
 @keyframes logo-scroll {
