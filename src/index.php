@@ -14,9 +14,9 @@ $logoAlt = fn(string $file): string => ucfirst(trim(preg_replace('/[-_]+/', ' ',
 
 /* Points chauds sur la maquette 3D : position (m) dans le repère du modèle, orbite caméra à l'activation. */
 $hotspots = [
-    'compliance' => ['label' => 'Compliance', 'position' => '-0.095m 0.080m 0.035m', 'normal' => '0m 1m 0m',     'orbit' => '330deg 50deg 1.2m'],
-    'resistance' => ['label' => 'Résistance', 'position' => '0.001m 0.090m -0.131m', 'normal' => '-0.09m 1m 0m', 'orbit' => '30deg 45deg 1.0m'],
-    'trigger'    => ['label' => 'Trigger',    'position' => '0.001m 0.096m -0.335m', 'normal' => '0m 1m 0m',     'orbit' => '270deg 55deg 1.2m'],
+    'compliance' => ['label' => 'Compliance', 'position' => '-0.097m 0.070m 0.148m', 'normal' => '0m 1m 0m',     'orbit' => '330deg 50deg 1.2m'],
+    'resistance' => ['label' => 'Résistance', 'position' => '-0.001m 0.095m -0.040m', 'normal' => '-0.09m 1m 0m', 'orbit' => '30deg 45deg 1.0m'],
+    'trigger'    => ['label' => 'Trigger',    'position' => '-0.001m 0.098m -0.201m', 'normal' => '0m 1m 0m',     'orbit' => '270deg 55deg 1.2m'],
 ];
 $renderHotspots = function () use ($hotspots) {
     foreach ($hotspots as $key => $h) {
