@@ -20,9 +20,10 @@ include __DIR__ . '/partials/head.php';
             <p>Le site <a href="https://www.nexsim.fr/">www.nexsim.fr</a> est édité par :</p>
             <address class="legal-address">
                 <strong>Nexsim</strong><br>
-                <span class="todo">[Forme juridique et capital social à compléter]</span><br>
-                9 Rue Becquerel, 90000 Belfort, France<br>
-                <span class="todo">[Numéro SIREN / RCS à compléter]</span><br>
+                SAS, société par actions simplifiée<br>
+                au capital de 90000 EUR<br>
+                13 Rue Ernest Thierry-Mieg, 90000 Belfort, France<br>
+                Belfort B 105 973 325 - 10597332500019 - 5829B<br>
                 E-mail : <a href="mailto:contact@nexsim.fr">contact@nexsim.fr</a>
             </address>
             <p><strong>Directeur de la publication :</strong> Jules Ferlin, Président.</p>
@@ -32,9 +33,8 @@ include __DIR__ . '/partials/head.php';
             <h2>2. Hébergement</h2>
             <p>Le site est hébergé par :</p>
             <address class="legal-address">
-                <strong class="todo">[Nom de l'hébergeur à compléter]</strong><br>
-                <span class="todo">[Adresse postale de l'hébergeur]</span><br>
-                <span class="todo">[Téléphone ou site web de l'hébergeur]</span>
+                <strong>OVH SAS</strong><br>
+                2 rue Kellermann, 59100 Roubaix,  France<br>
             </address>
         </section>
 

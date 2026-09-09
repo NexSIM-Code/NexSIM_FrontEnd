@@ -45,7 +45,7 @@ include __DIR__ . '/partials/head.php';
             <h2>4. Destinataires et sous-traitants</h2>
             <p>Les données sont destinées aux seules personnes habilitées de Nexsim. Elles peuvent être traitées par nos sous-traitants techniques dans la limite de leurs missions :</p>
             <ul>
-                <li><strong>Hébergeur du site</strong> : <span class="todo">[Nom de l'hébergeur à compléter]</span>, pour l'hébergement et les journaux techniques.</li>
+                <li><strong>Hébergeur du site</strong> : OVH SAS, pour l'hébergement et les journaux techniques.</li>
                 <li><strong>Google Fonts et Google Hosted Libraries</strong> : la police Open Sans et le composant de visualisation 3D sont chargés depuis les serveurs de Google LLC. Lors de ce chargement, votre navigateur transmet votre adresse IP à Google, susceptible d'être traitée aux États-Unis dans le cadre des clauses contractuelles types de la Commission européenne.</li>
             </ul>
             <p>Aucune donnée n'est vendue ni cédée à des tiers à des fins commerciales.</p>
