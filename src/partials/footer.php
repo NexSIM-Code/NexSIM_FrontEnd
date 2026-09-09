@@ -7,7 +7,8 @@ $base = $isHome ? '' : 'index.php';
 <footer data-nosnippet>
     <div class="container footer-inner">
         <div class="footer-brand">
-            <img src="image/logo.svg" alt="Logo Nexsim" height="30" width="52" loading="lazy">
+            <img class="logo-dark" src="image/logo_Nexsim_dark.svg" alt="Logo Nexsim" height="30" width="52" loading="lazy">
+            <img class="logo-light" src="image/logo_Nexsim_light.svg" alt="Logo Nexsim" height="30" width="52" loading="lazy">
             <span>9 Rue Becquerel, 90000 Belfort, France</span>
         </div>
         <div class="footer-links">

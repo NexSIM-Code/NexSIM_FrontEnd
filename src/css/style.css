@@ -144,7 +144,7 @@ h1, h2, h3, h4 {
 }
 
 .container {
-    width: min(1200px, 100% - 2 * clamp(1rem, 5vw, 3rem));
+    width: min(1500px, 100% - 2 * clamp(1rem, 5vw, 3rem));
     margin: 0 auto;
 }
 
@@ -335,10 +335,6 @@ html[data-theme="light"] .btn-outline:hover {
     object-fit: contain;
 }
 
-html[data-theme="light"] .logo img {
-    filter: brightness(0.25);
-}
-
 .nav-links {
     display: flex;
     align-items: center;
@@ -431,9 +427,6 @@ html[data-theme="light"] .theme-toggle .icon-moon {
     width: auto;
 }
 
-html[data-theme="light"] .drawer-head img {
-    filter: brightness(0.25);
-}
 
 .drawer-title {
     font-weight: 700;
@@ -1131,11 +1124,11 @@ footer {
 .footer-brand img {
     height: 30px;
     width: auto;
+    /* .footer-brand est un flex en colonne : sans cette ligne, l'image
+       est étirée à la largeur du bloc et le logo se déforme. */
+    align-self: flex-start;
 }
 
-html[data-theme="light"] .footer-brand img {
-    filter: brightness(0.25);
-}
 
 .footer-links {
     display: flex;
@@ -1620,3 +1613,28 @@ html[data-theme="light"] .legal a {
         justify-content: flex-start;
     }
 }
+
+/* ---------------------------------------------- Blocs image / texte --- */
+.split-block + .split-block { margin-top: clamp(2.5rem, 6vw, 5rem); }
+.split .text-content .eyebrow { margin-bottom: 0.75rem; }
+.split-note { margin-top: 1.25rem; padding-left: 1rem; border-left: 3px solid var(--accent-strong); color: var(--text); font-weight: 600; }
+.split-tagline { margin-top: 1.5rem; font-size: 1.15rem; font-weight: 700; color: var(--accent); }
+html[data-theme="light"] .split-tagline { color: var(--secondary); }
+.image-placeholder {
+    aspect-ratio: 4 / 3; width: 100%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem;
+    border-radius: calc(var(--radius) - 4px);
+    background: radial-gradient(ellipse at 50% 40%, var(--surface-2), var(--bg-deep) 80%);
+    color: var(--muted); text-align: center; padding: 1.5rem;
+}
+.image-placeholder svg { width: 56px; height: 56px; color: var(--accent-strong); }
+.image-placeholder span { font-weight: 700; color: var(--text); }
+.image-placeholder small { font-size: 0.8rem; }
+.image-placeholder code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+/* --------------------------------------------------- Logo bi-thème --- */
+/* Deux fichiers SVG dédiés : variante claire du logo sur fond sombre,
+   variante sombre sur fond clair. La bascule suit le thème choisi. */
+.logo-light { display: none; }
+html[data-theme="light"] .logo-dark { display: none; }
+html[data-theme="light"] .logo-light { display: block; }

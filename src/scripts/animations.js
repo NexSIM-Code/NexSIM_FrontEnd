@@ -120,13 +120,21 @@
     const moduleData = {
         compliance: {
             title: 'Module de Compliance',
-            desc: "Modifie l'élasticité du poumon artificiel pour reproduire des états restrictifs sévères (poumon rigide caractéristique du SDRA) ou des états de compliance anormale (emphysème).",
-            points: ['Réglage continu de la compliance pulmonaire', 'Simulation du SDRA et de l\'emphysème', 'Réponse immédiate sur les courbes du respirateur'],
+            desc: "Modifie l'élasticité du poumon artificiel pour reproduire des pathologies alvéolaires aboutissant à des troubles de la compliance rencontrées fréquemment en milieu hospitalier.",
+            points: [
+                'Possibilité d’un panel large de pathologies avec atteintes uni ou bilatérales des champs pulmonaires (SDRA, atélectasies, pneumothorax…)',
+                'Réglage continu de la compliance pulmonaire, avec une représentation des courbes proche de la physiopathologie humaine',
+                'Modification de la pression plateau, de la pression motrice et de la PEP intrinsèque en direct',
+            ],
         },
         resistance: {
             title: 'Module de Résistance',
-            desc: "Altère la résistance dynamique des voies aériennes simulées, permettant la création de scénarios de bronchospasme, de crise d'asthme sévère ou d'obstruction par des sécrétions.",
-            points: ['Résistances inspiratoire et expiratoire', 'Scénarios de bronchospasme et d\'asthme', 'Obstruction par sécrétions'],
+            desc: "Modifie avec facilité et réactivité la résistance des voies aériennes extra-alvéolaires tout en conservant la compliance pulmonaire. Ce module permet de simuler :",
+            points: [
+                'Bronchospasme, crise d’asthme',
+                'Œdème laryngé',
+                'Sonde d’intubation obstruée, filtre saturé…',
+            ],
         },
         trigger: {
             title: 'Module Trigger',

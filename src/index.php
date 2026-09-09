@@ -59,7 +59,7 @@ include __DIR__ . '/partials/head.php';
                     "url": "https://www.nexsim.fr/",
                     "logo": {
                         "@type": "ImageObject",
-                        "url": "https://www.nexsim.fr/image/logo.svg"
+                        "url": "https://www.nexsim.fr/image/logo_Nexsim_light.svg"
                     },
                     "address": {
                         "@type": "PostalAddress",
@@ -109,7 +109,6 @@ include __DIR__ . '/partials/head.php';
         <div class="hero-overlay"></div>
         <div class="container">
             <div class="hero-content">
-                <span class="hero-badge animate-fade-in-up">Simulateur hybride<span class="badge-extra"> · Physique + Réalité virtuelle</span></span>
                 <h1 class="animate-fade-in-up">LuSIM<br><span class="accent">Le simulateur pulmonaire</span></h1>
                 <p class="animate-fade-in-up delay-1">Le poumon pédagogique hybride pour la formation médicale et paramédicale à la ventilation mécanique.</p>
                 <div class="hero-actions animate-fade-in-up delay-2">
@@ -169,7 +168,7 @@ include __DIR__ . '/partials/head.php';
                 <aside class="card module-panel" aria-live="polite">
                     <span class="eyebrow">Module sélectionné</span>
                     <h3 id="module-title">Module de Compliance</h3>
-                    <p id="module-desc">Modifie l'élasticité du poumon artificiel pour reproduire des états restrictifs sévères (poumon rigide caractéristique du SDRA) ou des états de compliance anormale (emphysème).</p>
+                    <p id="module-desc">Modifie l'élasticité du poumon artificiel pour reproduire des pathologies alvéolaires aboutissant à des troubles de la compliance rencontrées fréquemment en milieu hospitalier.</p>
                     <ul id="module-list" class="module-list"></ul>
                 </aside>
             </div>
@@ -213,29 +212,53 @@ include __DIR__ . '/partials/head.php';
             <div class="section-head scroll-fade-in">
                 <span class="eyebrow">La partie numérique</span>
                 <h2 class="section-title">Voir l'invisible, piloter la séance</h2>
-                <p>Le module physique est complété par une application de réalité virtuelle et par l'application mobile NexControl qui pilote le simulateur.</p>
+                <p>Pilotez simplement les modules LuSIM depuis l’application mobile NexControl et ajustez vos scénarios en quelques gestes. Son interface intuitive facilite la prise en main et fluidifie chaque séance. Pour pousser l’immersion encore plus loin, LuSIM s’enrichit d’une application de réalité virtuelle qui plonge les apprenants au cœur de situations cliniques réalistes.</p>
             </div>
-            <div class="grid-2 scroll-animated-list">
-                <article class="card feature">
-                    <div class="feature-icon" aria-hidden="true"><svg><use href="#i-vr"/></svg></div>
-                    <h3>Réalité virtuelle</h3>
-                    <p>L'apprenant observe en immersion l'anatomie pulmonaire et l'effet de chaque réglage du respirateur sur les alvéoles, en temps réel.</p>
-                    <ul>
-                        <li>Anatomie pulmonaire animée et synchronisée avec le module physique</li>
-                        <li>Visualisation des lésions liées à un mauvais réglage</li>
-                        <li>Compatible avec les casques VR autonomes</li>
-                    </ul>
-                </article>
-                <article class="card feature">
-                    <div class="feature-icon" aria-hidden="true"><svg><use href="#i-phone"/></svg></div>
+
+            <!-- Bloc 1 : image à gauche, texte à droite -->
+            <div class="split split-block">
+                <div class="image-content card scroll-fade-in">
+                    <?php if (file_exists(__DIR__ . '/image/nexcontrol.png')): ?>
+                    <img src="image/nexcontrol.png" alt="L'application NexControl sur tablette, pilotant le simulateur LuSIM" width="600" height="450" loading="lazy">
+                    <?php else: ?>
+                    <div class="image-placeholder" role="img" aria-label="Visuel de l'application NexControl à venir">
+                        <svg aria-hidden="true"><use href="#i-phone"/></svg>
+                        <span>Application NexControl</span>
+                        <small>Déposez <code>image/nexcontrol.png</code> pour afficher le visuel</small>
+                    </div>
+                    <?php endif; ?>
+                </div>
+                <div class="text-content scroll-fade-in">
+                    <span class="eyebrow">Application mobile</span>
                     <h3>Application NexControl</h3>
-                    <p>Le formateur pilote le simulateur depuis une tablette ou un smartphone : réglages manuels, pathologies pré-enregistrées et scénarios évolutifs.</p>
+                    <p>Avec NexControl, le formateur garde le contrôle de la séance en temps réel : il ajuste les paramètres du simulateur, sélectionne des pathologies préconfigurées et fait évoluer les scénarios au rythme de l’apprentissage.</p>
                     <ul>
-                        <li>Mode manuel : compliance, résistance et trigger au doigt</li>
-                        <li>Bibliothèque de pathologies (SDRA, BPCO, asthme…)</li>
-                        <li>Connexion sans fil au module physique</li>
+                        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Réglages en temps réel de la compliance, de la résistance et du trigger</span></li>
+                        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Bibliothèque de pathologies pré-enregistrées : SDRA, BPCO, asthme…</span></li>
+                        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Scénarios évolutifs pour adapter la situation clinique aux objectifs pédagogiques</span></li>
+                        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Connexion sans fil avec le module physique pour une utilisation fluide et sans contrainte</span></li>
                     </ul>
-                </article>
+                    <p class="split-note">Une interface intuitive pour piloter la simulation du bout des doigts et se concentrer pleinement sur la pédagogie.</p>
+                </div>
+            </div>
+
+            <!-- Bloc 2 : texte à gauche, image à droite -->
+            <div class="split split-block">
+                <div class="text-content scroll-fade-in">
+                    <span class="eyebrow">Réalité virtuelle</span>
+                    <h3>Plongez au cœur de la mécanique respiratoire</h3>
+                    <p>Une expérience immersive et interactive. Avec la réalité virtuelle, l’apprenant visualise en temps réel l’anatomie, la physiologie et la physiopathologie pulmonaires, pour mieux comprendre les mécanismes de la ventilation et les conséquences de chaque décision clinique.</p>
+                    <ul>
+                        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Visualisation immédiate de l’effet des réglages du respirateur sur l’alvéole pulmonaire et des lésions potentielles liées à des réglages ventilatoires inadaptés</span></li>
+                        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Représentation animée des principales maladies pulmonaires, synchronisée avec le module physique</span></li>
+                    </ul>
+                    <p class="split-note">Une immersion au cœur du poumon pour rendre visible l’invisible et mieux comprendre l’impact de la ventilation mécanique.</p>
+                </div>
+                <div class="image-content card scroll-fade-in">
+                    <img src="image/lusim-vr.png"
+                         alt="Un soignant utilisant le casque de réalité virtuelle NexVR pour observer l'anatomie pulmonaire de LuSIM"
+                         width="600" height="450" loading="lazy">
+                </div>
             </div>
         </div>
     </section>
@@ -245,23 +268,23 @@ include __DIR__ . '/partials/head.php';
         <div class="container">
             <div class="section-head scroll-fade-in">
                 <span class="eyebrow">Nos offres</span>
-                <h2 class="section-title">Une solution adaptée à votre établissement</h2>
+                <h2 class="section-title">Une solution adaptée à vos besoins</h2>
             </div>
             <div class="grid-3 scroll-animated-list">
                 <article class="card feature offer">
                     <div class="feature-icon" aria-hidden="true"><svg><use href="#i-training"/></svg></div>
                     <h3>Formation</h3>
-                    <p>Des sessions animées par des soignants formateurs, adaptées à vos équipes : IFSI, internes, réanimation, anesthésie.</p>
+                    <p>Des sessions de formation animées par des soignants formateurs et médecins, du niveau débutant à expert : ventilation en extra-hospitalier, USIP, USIC, SSPI, réanimation, bloc opératoire… adaptées au profil médical et paramédical.</p>
                 </article>
                 <article class="card feature offer">
                     <div class="feature-icon" aria-hidden="true"><svg><use href="#i-rent"/></svg></div>
                     <h3>Location</h3>
-                    <p>Tous nos produits sont disponibles à la location, pour une journée de simulation ou une session complète.</p>
+                    <p><strong>Organisez vos formations en toute autonomie.</strong><br>Tous nos produits sont disponibles à la location, à la semaine ou au mois, pour vous permettre d’adapter facilement votre équipement à vos besoins et à votre rythme de formation.</p>
                 </article>
                 <article class="card feature offer">
                     <div class="feature-icon" aria-hidden="true"><svg><use href="#i-cart"/></svg></div>
                     <h3>Achat</h3>
-                    <p>Intégrez LuSIM durablement à votre centre de simulation, avec mise en service, formation initiale et suivi.</p>
+                    <p>Une solution clé en main pour déployer LuSIM durablement et en toute sérénité.</p>
                 </article>
             </div>
         </div>
@@ -276,18 +299,19 @@ include __DIR__ . '/partials/head.php';
             </div>
             <div class="split">
                 <div class="text-content scroll-fade-in">
-                    <h3>Rendre la respiration visible pour mieux l'apprendre</h3>
-                    <p>Apprendre à bien régler un respirateur est souvent un défi pour le personnel. L'approche très visuelle et concrète de LuSIM simplifie grandement cet apprentissage, le rendant accessible aux infirmiers, internes et médecins spécialistes.</p>
+                    <h3>Rendre la respiration visible pour mieux l’apprendre</h3>
+                    <p>Comprendre la ventilation mécanique devient plus simple lorsqu’on peut en visualiser les effets. Grâce à son approche concrète et immersive, LuSIM transforme des mécanismes complexes en situations faciles à comprendre, pour accompagner infirmiers, internes et médecins dans l’apprentissage de la ventilation.</p>
                     <ul>
-                        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><strong>Prévention facilitée</strong> : les soignants voient directement comment un mauvais réglage peut blesser les poumons, ce qui les aide à mieux protéger les vrais patients.</span></li>
-                        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><strong>Scénarios sur mesure</strong> : l'enseignant ou le formateur peut modifier l'état du patient virtuel en direct (comme déclencher une crise d'asthme) pour adapter l'exercice aux besoins de l'apprenant.</span></li>
-                        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><strong>Entraînement réaliste</strong> : les équipes manipulent les vrais tuyaux et apprennent à réagir efficacement aux véritables alarmes de vos équipements hospitaliers.</span></li>
+                        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><strong>Prévenir les complications</strong> : mieux comprendre les pressions ventilatoires et les risques de barotraumatisme.</span></li>
+                        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><strong>Créer des scénarios sur mesure</strong> : faire évoluer l’état du patient en temps réel pour adapter chaque exercice.</span></li>
+                        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><strong>Développer le raisonnement clinique</strong> : confronter l’apprenant à des situations pathologiques réalistes pour mieux réagir en pratique.</span></li>
                     </ul>
+                    <p class="split-tagline">Voir, comprendre, décider : une nouvelle façon d’apprendre la ventilation mécanique.</p>
                 </div>
                 <div class="image-content card scroll-fade-in">
-                    <img src="image/lusim-vr.png"
-                         alt="Un soignant utilisant le casque de réalité virtuelle NexVR pour observer l'anatomie pulmonaire de LuSIM"
-                         width="600" height="450" loading="lazy">
+                    <img src="videos/poster.jpg"
+                         alt="Le simulateur pulmonaire LuSIM avec ses modules physiques"
+                         width="1920" height="1080" loading="lazy">
                 </div>
             </div>
         </div>

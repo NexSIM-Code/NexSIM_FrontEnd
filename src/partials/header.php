@@ -32,7 +32,8 @@ $base = $isHome ? '' : 'index.php';
 <header class="navbar" role="banner">
     <div class="logo">
         <a href="<?= $base ?: '#accueil' ?>" aria-label="Retour à l'accueil">
-            <img src="image/logo.svg" alt="Logo Nexsim" height="36" width="62">
+            <img class="logo-dark" src="image/logo_Nexsim_dark.svg" alt="Logo Nexsim" height="36" width="62">
+            <img class="logo-light" src="image/logo_Nexsim_light.svg" alt="Logo Nexsim" height="36" width="62">
         </a>
     </div>
     <nav class="nav-links" aria-label="Navigation principale">
@@ -59,7 +60,8 @@ $base = $isHome ? '' : 'index.php';
 <div id="scrim" class="scrim" aria-hidden="true"></div>
 <nav id="drawer" class="drawer" aria-label="Menu mobile" aria-hidden="true" tabindex="-1">
     <div class="drawer-head">
-        <img src="image/logo.svg" alt="Logo Nexsim" height="32" width="55">
+        <img class="logo-dark" src="image/logo_Nexsim_dark.svg" alt="Logo Nexsim" height="32" width="55">
+        <img class="logo-light" src="image/logo_Nexsim_light.svg" alt="Logo Nexsim" height="32" width="55">
         <button type="button" class="btn-icon drawer-close" aria-label="Fermer le menu">
             <svg aria-hidden="true"><use href="#i-close"/></svg>
         </button>
