@@ -218,13 +218,14 @@ include __DIR__ . '/partials/head.php';
             <!-- Bloc 1 : image à gauche, texte à droite -->
             <div class="split split-block">
                 <div class="image-content card scroll-fade-in">
-                    <?php if (file_exists(__DIR__ . '/image/nexcontrol.png')): ?>
-                    <img src="image/nexcontrol.png" alt="L'application NexControl sur tablette, pilotant le simulateur LuSIM" width="600" height="450" loading="lazy">
+                    <?php if (file_exists(__DIR__ . '/image/nexcontrol_light.png')): ?>
+                    <img class="nexcontrol-light" src="image/nexcontrol_light.png" alt="L'application NexControl sur tablette, pilotant le simulateur LuSIM" width="600" height="450" loading="lazy">
+                    <img class="nexcontrol-dark" src="image/nexcontrol_dark.png" alt="L'application NexControl sur tablette, pilotant le simulateur LuSIM" width="600" height="450" loading="lazy">
                     <?php else: ?>
                     <div class="image-placeholder" role="img" aria-label="Visuel de l'application NexControl à venir">
                         <svg aria-hidden="true"><use href="#i-phone"/></svg>
                         <span>Application NexControl</span>
-                        <small>Déposez <code>image/nexcontrol.png</code> pour afficher le visuel</small>
+                        <small>Déposez <code>image/nexcontrol_light.png</code> pour afficher le visuel</small>
                     </div>
                     <?php endif; ?>
                 </div>
@@ -255,7 +256,7 @@ include __DIR__ . '/partials/head.php';
                     <p class="split-note">Une immersion au cœur du poumon pour rendre visible l’invisible et mieux comprendre l’impact de la ventilation mécanique.</p>
                 </div>
                 <div class="image-content card scroll-fade-in">
-                    <img src="image/lusim-vr.png"
+                    <img src="image/vr.jpeg"
                          alt="Un soignant utilisant le casque de réalité virtuelle NexVR pour observer l'anatomie pulmonaire de LuSIM"
                          width="600" height="450" loading="lazy">
                 </div>
@@ -309,9 +310,9 @@ include __DIR__ . '/partials/head.php';
                     <p class="split-tagline">Voir, comprendre, décider : une nouvelle façon d’apprendre la ventilation mécanique.</p>
                 </div>
                 <div class="image-content card scroll-fade-in">
-                    <img src="videos/poster.jpg"
-                         alt="Le simulateur pulmonaire LuSIM avec ses modules physiques"
-                         width="1920" height="1080" loading="lazy">
+                    <img src="image/lusim-vr.png"
+                         alt="Un soignant utilisant le casque de réalité virtuelle NexVR pour observer l'anatomie pulmonaire de LuSIM"
+                         width="600" height="450" loading="lazy">
                 </div>
             </div>
         </div>

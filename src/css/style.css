@@ -1621,7 +1621,7 @@ html[data-theme="light"] .legal a {
 .split-tagline { margin-top: 1.5rem; font-size: 1.15rem; font-weight: 700; color: var(--accent); }
 html[data-theme="light"] .split-tagline { color: var(--secondary); }
 .image-placeholder {
-    aspect-ratio: 4 / 3; width: 100%;
+    aspect-ratio: 4 / 5; width: 100%;
     display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem;
     border-radius: calc(var(--radius) - 4px);
     background: radial-gradient(ellipse at 50% 40%, var(--surface-2), var(--bg-deep) 80%);
@@ -1638,3 +1638,8 @@ html[data-theme="light"] .split-tagline { color: var(--secondary); }
 .logo-light { display: none; }
 html[data-theme="light"] .logo-dark { display: none; }
 html[data-theme="light"] .logo-light { display: block; }
+
+
+.nexcontrol-light { display: none; }
+html[data-theme="light"] .nexcontrol-dark { display: none; }
+html[data-theme="light"] .nexcontrol-light { display: block; }
