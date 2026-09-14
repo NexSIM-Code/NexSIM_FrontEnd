@@ -1,8 +1,10 @@
 <?php
 /**
  * Barre de navigation + tiroir mobile.
- * Variable attendue : $isHome (bool). Sur les pages secondaires, les ancres pointent vers index.php.
+ * Variable attendue : $isHome (bool). Sur les pages secondaires, les ancres pointent
+ * vers index.php. Les libellés proviennent du dictionnaire de la langue active.
  */
+require_once __DIR__ . '/../includes/bootstrap.php';
 $isHome = $isHome ?? false;
 $base = $isHome ? '' : 'index.php';
 ?>
@@ -26,31 +28,34 @@ $base = $isHome ? '' : 'index.php';
     <symbol id="i-training" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 10 12 5 2 10l10 5 10-5zM6 12v5c3 3 9 3 12 0v-5"/></symbol>
     <symbol id="i-rent" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M16 2v4M8 2v4M3 10h18"/></symbol>
     <symbol id="i-cart" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1" fill="currentColor"/><circle cx="20" cy="21" r="1" fill="currentColor"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9S14.5 18.5 12 21c-2.5-2.5-3.8-5.6-3.8-9S9.5 5.5 12 3z"/></symbol>
     <symbol id="i-arrow-left" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M19 12H5m7-7-7 7 7 7"/></symbol>
 </svg>
 
 <header class="navbar" role="banner">
     <div class="logo">
-        <a href="<?= $base ?: '#accueil' ?>" aria-label="Retour à l'accueil">
-            <img class="logo-dark" src="image/logo_Nexsim_dark.svg" alt="Logo Nexsim" height="36" width="62">
-            <img class="logo-light" src="image/logo_Nexsim_light.svg" alt="Logo Nexsim" height="36" width="62">
+        <a href="<?= $base ?: '#accueil' ?>" aria-label="<?= e('nav.aria.home') ?>">
+            <img class="logo-dark" src="image/logo_Nexsim_dark.svg" alt="<?= e('nav.logo.alt') ?>" height="36" width="62">
+            <img class="logo-light" src="image/logo_Nexsim_light.svg" alt="<?= e('nav.logo.alt') ?>" height="36" width="62">
         </a>
     </div>
-    <nav class="nav-links" aria-label="Navigation principale">
-        <a href="<?= $base ?>#accueil">Accueil</a>
-        <a href="<?= $base ?>#physique">LuSIM</a>
-        <a href="<?= $base ?>#numerique">Numérique</a>
-        <a href="<?= $base ?>#offres">Offres</a>
-        <a href="<?= $base ?>#pedagogie">Pédagogie</a>
-        <a href="<?= $base ?>#equipe">L'équipe</a>
+    <nav class="nav-links" aria-label="<?= e('nav.aria.main') ?>">
+        <a href="<?= $base ?>#accueil"><?= t('nav.home') ?></a>
+        <a href="<?= $base ?>#physique"><?= t('nav.lusim') ?></a>
+        <a href="<?= $base ?>#numerique"><?= t('nav.digital') ?></a>
+        <a href="<?= $base ?>#offres"><?= t('nav.offers') ?></a>
+        <a href="<?= $base ?>#pedagogie"><?= t('nav.pedagogy') ?></a>
+        <a href="<?= $base ?>#equipe"><?= t('nav.team') ?></a>
     </nav>
     <div class="nav-actions">
-        <button type="button" class="btn-icon theme-toggle" aria-label="Activer le thème clair" aria-pressed="false">
+        <button type="button" class="btn-icon theme-toggle"
+                aria-label="<?= $nexsimTheme === 'light' ? e('nav.theme.dark') : e('nav.theme.light') ?>"
+                aria-pressed="<?= $nexsimTheme === 'light' ? 'true' : 'false' ?>">
             <svg class="icon-moon" aria-hidden="true"><use href="#i-moon"/></svg>
             <svg class="icon-sun" aria-hidden="true"><use href="#i-sun"/></svg>
         </button>
-        <a href="<?= $base ?>#contact" class="btn btn-accent btn-cta">Nous contacter</a>
-        <button type="button" class="btn-icon nav-toggle" aria-label="Ouvrir le menu" aria-controls="drawer" aria-expanded="false">
+        <a href="<?= $base ?>#contact" class="btn btn-accent btn-cta"><?= t('nav.contact') ?></a>
+        <button type="button" class="btn-icon nav-toggle" aria-label="<?= e('nav.menu.open') ?>" aria-controls="drawer" aria-expanded="false">
             <svg aria-hidden="true"><use href="#i-menu"/></svg>
         </button>
     </div>
@@ -58,22 +63,22 @@ $base = $isHome ? '' : 'index.php';
 
 <!-- Tiroir de navigation mobile (style NavigationDrawer de NexControl) -->
 <div id="scrim" class="scrim" aria-hidden="true"></div>
-<nav id="drawer" class="drawer" aria-label="Menu mobile" aria-hidden="true" tabindex="-1">
+<nav id="drawer" class="drawer" aria-label="<?= e('nav.menu.aria') ?>" aria-hidden="true" tabindex="-1">
     <div class="drawer-head">
-        <img class="logo-dark" src="image/logo_Nexsim_dark.svg" alt="Logo Nexsim" height="32" width="55">
-        <img class="logo-light" src="image/logo_Nexsim_light.svg" alt="Logo Nexsim" height="32" width="55">
-        <button type="button" class="btn-icon drawer-close" aria-label="Fermer le menu">
+        <img class="logo-dark" src="image/logo_Nexsim_dark.svg" alt="<?= e('nav.logo.alt') ?>" height="32" width="55">
+        <img class="logo-light" src="image/logo_Nexsim_light.svg" alt="<?= e('nav.logo.alt') ?>" height="32" width="55">
+        <button type="button" class="btn-icon drawer-close" aria-label="<?= e('nav.menu.close') ?>">
             <svg aria-hidden="true"><use href="#i-close"/></svg>
         </button>
     </div>
-    <div class="drawer-title">Navigation</div>
-    <a href="<?= $base ?>#accueil"><svg aria-hidden="true"><use href="#i-home"/></svg>Accueil</a>
-    <a href="<?= $base ?>#physique"><svg aria-hidden="true"><use href="#i-cube"/></svg>LuSIM</a>
-    <a href="<?= $base ?>#numerique"><svg aria-hidden="true"><use href="#i-vr"/></svg>Numérique</a>
-    <a href="<?= $base ?>#offres"><svg aria-hidden="true"><use href="#i-cart"/></svg>Offres</a>
-    <a href="<?= $base ?>#pedagogie"><svg aria-hidden="true"><use href="#i-lung"/></svg>Pédagogie</a>
-    <a href="<?= $base ?>#equipe"><svg aria-hidden="true"><use href="#i-team"/></svg>L'équipe</a>
+    <div class="drawer-title"><?= t('nav.menu.title') ?></div>
+    <a href="<?= $base ?>#accueil"><svg aria-hidden="true"><use href="#i-home"/></svg><?= t('nav.home') ?></a>
+    <a href="<?= $base ?>#physique"><svg aria-hidden="true"><use href="#i-cube"/></svg><?= t('nav.lusim') ?></a>
+    <a href="<?= $base ?>#numerique"><svg aria-hidden="true"><use href="#i-vr"/></svg><?= t('nav.digital') ?></a>
+    <a href="<?= $base ?>#offres"><svg aria-hidden="true"><use href="#i-cart"/></svg><?= t('nav.offers') ?></a>
+    <a href="<?= $base ?>#pedagogie"><svg aria-hidden="true"><use href="#i-lung"/></svg><?= t('nav.pedagogy') ?></a>
+    <a href="<?= $base ?>#equipe"><svg aria-hidden="true"><use href="#i-team"/></svg><?= t('nav.team') ?></a>
     <div class="drawer-cta">
-        <a href="<?= $base ?>#contact" class="btn btn-accent"><svg width="20" height="20" aria-hidden="true"><use href="#i-mail"/></svg>Nous contacter</a>
+        <a href="<?= $base ?>#contact" class="btn btn-accent"><svg width="20" height="20" aria-hidden="true"><use href="#i-mail"/></svg><?= t('nav.contact') ?></a>
     </div>
 </nav>

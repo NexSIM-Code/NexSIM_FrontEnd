@@ -1152,6 +1152,60 @@ footer {
     font-size: 0.8rem;
 }
 
+/* -------------------------------------------------- Sélecteur de langue --- */
+.lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+.lang-switcher .lang-icon {
+    width: 18px;
+    height: 18px;
+    flex: none;
+}
+
+.lang-label {
+    font-weight: 600;
+}
+
+.lang-options {
+    display: flex;
+    gap: 0.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.lang-option {
+    display: block;
+    min-width: 44px;
+    padding: 0.35rem 0.7rem;
+    border: 1px solid var(--outline);
+    border-radius: var(--radius-pill);
+    color: var(--muted);
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.lang-option:hover,
+.lang-option:focus-visible {
+    background: var(--accent-alpha);
+    color: var(--text);
+    border-color: var(--secondary-light);
+}
+
+.lang-option.active {
+    background: var(--accent);
+    color: var(--on-accent);
+    border-color: var(--accent);
+    cursor: default;
+}
+
 /* ------------------------------------------------------------ Responsive -- */
 @media (max-width: 900px) {
     .nav-links {
@@ -1599,6 +1653,59 @@ html[data-theme="light"] .legal a {
 .legal code {
     font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
     font-size: 0.9em;
+}
+
+/* Avertissement de traduction sur les pages légales non francophones. */
+.legal-notice {
+    margin-bottom: 1.5rem;
+    padding: 0.75rem 1rem;
+    border-left: 3px solid var(--accent-strong);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+/* Tableau des cookies de la politique de confidentialité. */
+.legal-table-wrap {
+    margin: 1.25rem 0;
+    overflow-x: auto;
+}
+
+.legal-table {
+    width: 100%;
+    min-width: 520px;
+    border-collapse: collapse;
+    background: var(--surface);
+    border: 1px solid var(--outline);
+    border-radius: var(--radius);
+    overflow: hidden;
+    font-size: 0.92rem;
+}
+
+.legal-table th,
+.legal-table td {
+    padding: 0.7rem 0.9rem;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid var(--outline);
+}
+
+.legal-table thead th {
+    background: var(--surface-2);
+    color: var(--text);
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.legal-table tbody th {
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.legal-table tbody tr:last-child th,
+.legal-table tbody tr:last-child td {
+    border-bottom: 0;
 }
 
 .todo {

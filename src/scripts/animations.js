@@ -5,8 +5,28 @@
     const html = document.documentElement;
     const body = document.body;
 
+    /* ------------------------------------------------ Préférences serveur --- */
+    /* head.php dépose la langue active, les libellés du bouton de thème et les
+       textes des modules 3D dans un bloc JSON : le JavaScript n'embarque plus
+       aucune chaîne traduisible. */
+    const I18N = (() => {
+        const node = document.getElementById('nexsim-i18n');
+        try { return node ? JSON.parse(node.textContent) : {}; } catch (e) { return {}; }
+    })();
+
     /* ------------------------------------------------------------ Thème --- */
-    const THEME_KEY = 'nexsim-theme';
+    /* Le thème est appliqué côté serveur sur <html> d'après le cookie : ici on ne
+       gère que la bascule et sa mémorisation. */
+    const THEME_COOKIE = (I18N.cookie && I18N.cookie.theme) || 'nexsim_theme';
+    const THEME_MAX_AGE = (I18N.cookie && I18N.cookie.maxAge) || 31536000;
+    const themeLabels = I18N.theme || {};
+
+    const storeTheme = (theme) => {
+        try {
+            document.cookie = THEME_COOKIE + '=' + theme + ';path=/;max-age=' + THEME_MAX_AGE +
+                ';samesite=lax' + (location.protocol === 'https:' ? ';secure' : '');
+        } catch (e) { /* cookies indisponibles : le thème reste valable pour la visite */ }
+    };
 
     const applyTheme = (theme) => {
         if (theme === 'light') {
@@ -17,21 +37,19 @@
         const meta = document.querySelector('meta[name="theme-color"]');
         if (meta) meta.setAttribute('content', theme === 'light' ? '#E4ECF1' : '#13212B');
         document.querySelectorAll('.theme-toggle').forEach((btn) => {
-            btn.setAttribute('aria-label', theme === 'light' ? 'Activer le thème sombre' : 'Activer le thème clair');
+            const label = theme === 'light' ? themeLabels.dark : themeLabels.light;
+            if (label) btn.setAttribute('aria-label', label);
             btn.setAttribute('aria-pressed', theme === 'light' ? 'true' : 'false');
         });
     };
 
-    const storedTheme = (() => {
-        try { return localStorage.getItem(THEME_KEY); } catch (e) { return null; }
-    })();
-    applyTheme(storedTheme === 'light' ? 'light' : 'dark');
+    applyTheme(html.getAttribute('data-theme') === 'light' ? 'light' : 'dark');
 
     document.querySelectorAll('.theme-toggle').forEach((btn) => {
         btn.addEventListener('click', () => {
             const next = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
             applyTheme(next);
-            try { localStorage.setItem(THEME_KEY, next); } catch (e) { /* stockage indisponible */ }
+            storeTheme(next);
         });
     });
 
@@ -117,31 +135,9 @@
     }
 
     /* ---------------------------------------------------- Modules 3D ----- */
-    const moduleData = {
-        compliance: {
-            title: 'Module de Compliance',
-            desc: "Modifie l'élasticité du poumon artificiel pour reproduire des pathologies alvéolaires aboutissant à des troubles de la compliance rencontrées fréquemment en milieu hospitalier.",
-            points: [
-                'Possibilité d’un panel large de pathologies avec atteintes uni ou bilatérales des champs pulmonaires (SDRA, atélectasies, pneumothorax…)',
-                'Réglage continu de la compliance pulmonaire, avec une représentation des courbes proche de la physiopathologie humaine',
-                'Modification de la pression plateau, de la pression motrice et de la PEP intrinsèque en direct',
-            ],
-        },
-        resistance: {
-            title: 'Module de Résistance',
-            desc: "Modifie avec facilité et réactivité la résistance des voies aériennes extra-alvéolaires tout en conservant la compliance pulmonaire. Ce module permet de simuler :",
-            points: [
-                'Bronchospasme, crise d’asthme',
-                'Œdème laryngé',
-                'Sonde d’intubation obstruée, filtre saturé…',
-            ],
-        },
-        trigger: {
-            title: 'Module Trigger',
-            desc: "Gère l'interaction patient-machine en simulant un effort inspiratoire autonome du patient. Crucial pour l'enseignement du sevrage ventilatoire et la détection des asynchronies.",
-            points: ['Effort inspiratoire spontané paramétrable', 'Apprentissage du sevrage ventilatoire', 'Détection des asynchronies patient-ventilateur'],
-        },
-    };
+    /* Titre, description et points de chaque module : fournis traduits par le
+       serveur (voir includes/modules.php). */
+    const moduleData = I18N.modules || {};
 
     const chips = document.querySelectorAll('.chip[data-module]');
     const hotspots = document.querySelectorAll('.hotspot[data-module]');
@@ -189,7 +185,7 @@
         e.stopPropagation();
         showModule(spot.dataset.module, spot.closest('model-viewer'));
     }));
-    if (chips.length) showModule('compliance');
+    if (chips.length && Object.keys(moduleData).length) showModule(Object.keys(moduleData)[0]);
 
     /* Masque l'indication "glisser pour tourner" après la 1re interaction. */
     document.querySelectorAll('.viewer-stage').forEach((stage) => {
