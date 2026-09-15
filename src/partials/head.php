@@ -104,4 +104,4 @@ if ($isHome) {
 
     <!-- CSS intégré (Open Sans auto-hébergé, déclaré dans css/style.css) -->
     <style><?= nexsim_inline_css('css/style.css') ?></style>
-    <script src="scripts/animations.js" defer></script>
+    <script src="<?= htmlspecialchars(nexsim_asset_url('scripts/animations.js')) ?>" defer></script>

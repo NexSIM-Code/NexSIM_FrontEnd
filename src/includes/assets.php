@@ -16,6 +16,16 @@ function nexsim_asset_path(string $relative): string
     return __DIR__ . '/../' . ltrim($relative, '/');
 }
 
+function nexsim_asset_url(string $relative): string
+{
+    $path = nexsim_asset_path($relative);
+    if (!is_file($path)) {
+        return $relative;
+    }
+
+    return $relative . '?v=' . substr(md5_file($path) ?: '', 0, 8);
+}
+
 /** Contenu d'une feuille de style, prêt à être placé dans un <style>. */
 function nexsim_inline_css(string $relative): string
 {

@@ -25,14 +25,11 @@ function nexsim_image_manifest(): array
     return $manifest;
 }
 
-/** URL d'une déclinaison : image/person/lucas.png → image/opt/person/lucas-208.avif */
-function nexsim_image_variant(string $src, int $width, string $format): string
+function nexsim_image_variant(string $src, string $file): string
 {
-    $relative = substr($src, strlen('image/'));
-    $dir = dirname($relative);
-    $name = pathinfo($relative, PATHINFO_FILENAME);
+    $dir = dirname(substr($src, strlen('image/')));
 
-    return 'image/opt/' . ($dir === '.' ? '' : $dir . '/') . $name . '-' . $width . '.' . $format;
+    return 'image/opt/' . ($dir === '.' ? '' : $dir . '/') . $file;
 }
 
 /**
@@ -116,8 +113,8 @@ function nexsim_picture(string $src, string $alt, array $options = []): string
             continue;
         }
         $srcset = [];
-        foreach ($widths as $variantWidth) {
-            $srcset[] = nexsim_image_variant($src, $variantWidth, $format) . ' ' . $variantWidth . 'w';
+        foreach ($widths as $variant) {
+            $srcset[] = nexsim_image_variant($src, $variant['file']) . ' ' . $variant['width'] . 'w';
         }
         $sources .= '<source' . nexsim_image_attrs([
             'type' => $mime,

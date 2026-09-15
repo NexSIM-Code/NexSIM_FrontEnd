@@ -345,6 +345,19 @@ html[data-theme="light"] .btn-outline:hover {
     box-shadow: var(--shadow);
 }
 
+/* Sentinelle posée en haut du document par animations.js : sa sortie de l'écran
+   déclenche l'ombre de la barre, sans lecture de window.scrollY. Sa hauteur est
+   le seuil de déclenchement. */
+.scroll-sentinel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 20px;
+    visibility: hidden;
+    pointer-events: none;
+}
+
 .logo a {
     display: flex;
     align-items: center;

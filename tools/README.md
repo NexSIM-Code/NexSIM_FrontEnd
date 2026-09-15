@@ -14,7 +14,14 @@ npm run build
 
 Les originaux dans `src/image/` restent la source de vérité et ne sont jamais
 modifiés. Les déclinaisons sont écrites dans `src/image/opt/`, qui est un dossier
-entièrement dérivé : il peut être supprimé et régénéré à tout moment.
+entièrement dérivé : il est d'ailleurs vidé au début de chaque exécution.
+
+Chaque déclinaison porte une empreinte de son contenu dans son nom
+(`vr-640.5d0c84f4.avif`). C'est ce qui permet à `src/.htaccess` de les servir avec
+un cache d'un an : une image modifiée produit un nom différent, donc une URL
+différente, et aucun visiteur ne reste sur une version périmée. **Il faut donc
+déployer `image/opt/` et le manifeste ensemble** — un manifeste plus récent que
+les fichiers pointerait vers des noms absents.
 
 **À rejouer après toute image ajoutée, remplacée ou recadrée.** Sans cela, une
 image sans entrée dans le manifeste continue d'être servie dans son format

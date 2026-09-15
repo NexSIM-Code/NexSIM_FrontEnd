@@ -8,7 +8,8 @@
  * Utilisation :  cd tools && npm install && npm run build
  */
 import sharp from 'sharp';
-import { mkdir, writeFile, readdir, stat } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
+import { mkdir, writeFile, readdir, stat, rm } from 'node:fs/promises';
 import { dirname, join, extname, basename, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -57,6 +58,8 @@ async function filesOf(group) {
     return entries.filter((f) => RASTER.test(f)).sort().map((f) => `${group.dir}/${f}`);
 }
 
+await rm(OUT_DIR, { recursive: true, force: true });
+
 const manifest = {};
 let totalIn = 0;
 let totalOut = 0;
@@ -80,13 +83,15 @@ for (const group of GROUPS) {
         for (const format of ['avif', 'webp']) {
             entry.variants[format] = [];
             for (const width of widths) {
-                const dest = `${outBase}-${width}.${format}`;
-                const info = await sharp(src)
+                const buffer = await sharp(src)
                     .resize({ width, withoutEnlargement: true })
                     [format]({ quality: group.quality[format] })
-                    .toFile(dest);
-                entry.variants[format].push(width);
-                totalOut += info.size;
+                    .toBuffer();
+                const digest = createHash('sha256').update(buffer).digest('hex').slice(0, 8);
+                const file = `${basename(outBase)}-${width}.${digest}.${format}`;
+                await writeFile(join(dirname(outBase), file), buffer);
+                entry.variants[format].push({ width, file });
+                totalOut += buffer.length;
             }
         }
 

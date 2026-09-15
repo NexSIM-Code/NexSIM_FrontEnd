@@ -1,0 +1,84 @@
+# Configuration du serveur de production.
+#
+# La production tourne sous Apache — le docker-compose et nginx/default.conf de
+# ce dépôt ne servent qu'au développement local. Toute règle de cache, de
+# compression ou de type MIME destinée au site en ligne doit être écrite ici.
+#
+# Chaque bloc est protégé par <IfModule> : si un module n'est pas actif sur
+# l'hébergement, la directive est ignorée plutôt que de provoquer une erreur 500.
+
+# --------------------------------------------------------------- Types MIME ---
+# Apache ne connaît ni .avif ni .woff2 par défaut : ces fichiers étaient servis
+# sans Content-Type. Les navigateurs s'en sortaient par reniflement, mais aucune
+# règle de cache par type ne pouvait s'y appliquer.
+<IfModule mod_mime.c>
+    AddType image/avif        .avif
+    AddType image/webp        .webp
+    AddType font/woff2        .woff2
+    AddType model/gltf-binary .glb
+</IfModule>
+
+# -------------------------------------------------------------- Compression ---
+# AddOutputFilterByType est fournie par mod_filter, pas par mod_deflate : c'est
+# bien mod_filter qu'il faut tester ici, sans quoi la directive passe le garde et
+# renvoie une erreur 500 sur chaque requête là où mod_filter est absent.
+<IfModule mod_filter.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml
+    # text/javascript et application/javascript désignent tous deux du JS selon
+    # la version d'Apache : les deux sont listés pour que la compression
+    # s'applique quel que soit l'hébergement.
+    AddOutputFilterByType DEFLATE text/javascript application/javascript application/json application/xml
+    AddOutputFilterByType DEFLATE image/svg+xml
+    # Images, polices et vidéos sont déjà compressées : les repasser en gzip ne
+    # ferait que consommer du processeur.
+</IfModule>
+
+# ------------------------------------------------------------------- Cache ---
+<IfModule mod_headers.c>
+    # Contenus au nom porteur d'une empreinte ou d'une version : le fichier ne
+    # changera jamais sous cette URL, un contenu modifié produit une autre URL.
+    #   - image/opt/ : empreinte insérée par tools/build-images.mjs
+    #   - fonts/     : version figée d'Open Sans (voir fonts/README.md)
+    #   - ?v=        : empreinte ajoutée par nexsim_asset_url() (animations.js)
+    <FilesMatch "\.(avif|webp|woff2)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+
+    <IfModule mod_rewrite.c>
+        RewriteEngine On
+        RewriteCond %{QUERY_STRING} (^|&)v=
+        RewriteRule \.(js|css)$ - [E=VERSIONED:1]
+    </IfModule>
+    Header set Cache-Control "public, max-age=31536000, immutable" env=VERSIONED
+
+    # Contenus servis sous un nom stable : un remplacement sur place doit finir
+    # par atteindre les visiteurs déjà venus, d'où une durée bornée.
+    #   Les vidéos portent un numéro de version dans leur nom (Lusim_V10.mp4) ;
+    #   le conserver en le faisant évoluer à chaque nouveau montage permettrait
+    #   de les passer elles aussi en cache d'un an.
+    <FilesMatch "\.(mp4|mov|jpe?g|png|svg|ico|glb)$">
+        Header set Cache-Control "public, max-age=2592000"
+    </FilesMatch>
+
+    # Les pages sont générées par PHP et varient selon la langue et le thème
+    # mémorisés en cookie : elles ne doivent pas être mises en cache telles
+    # quelles par un intermédiaire.
+    <FilesMatch "\.php$">
+        Header set Cache-Control "private, no-cache"
+    </FilesMatch>
+</IfModule>
+
+# Repli quand mod_headers est absent : mod_expires suffit à poser une durée.
+<IfModule !mod_headers.c>
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/avif "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType video/mp4  "access plus 30 days"
+    ExpiresByType image/jpeg "access plus 30 days"
+    ExpiresByType image/png  "access plus 30 days"
+    ExpiresByType image/svg+xml "access plus 30 days"
+    ExpiresByType application/javascript "access plus 30 days"
+</IfModule>
+</IfModule>

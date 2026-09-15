@@ -55,12 +55,21 @@
 
     /* ----------------------------------------------------------- Navbar --- */
     const navbar = document.querySelector('.navbar');
-    const onScroll = () => {
-        if (!navbar) return;
-        navbar.classList.toggle('scrolled', window.scrollY > 20);
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+    if (navbar) {
+        if ('IntersectionObserver' in window) {
+            const sentinel = document.createElement('div');
+            sentinel.className = 'scroll-sentinel';
+            sentinel.setAttribute('aria-hidden', 'true');
+            body.prepend(sentinel);
+            new IntersectionObserver(([entry]) => {
+                navbar.classList.toggle('scrolled', !entry.isIntersecting);
+            }).observe(sentinel);
+        } else {
+            const onScroll = () => navbar.classList.toggle('scrolled', window.scrollY > 20);
+            window.addEventListener('scroll', onScroll, { passive: true });
+            onScroll();
+        }
+    }
 
     /* ----------------------------------------------------------- Drawer --- */
     const drawer = document.getElementById('drawer');
