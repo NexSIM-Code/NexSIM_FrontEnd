@@ -134,6 +134,38 @@
         }
     }
 
+    /* ------------------------------------------------ Bibliothèque 3D ----- */
+    const MODEL_VIEWER_SRC = 'https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js';
+    let modelViewerRequested = false;
+
+    const loadModelViewer = () => {
+        if (modelViewerRequested) return;
+        modelViewerRequested = true;
+        const script = document.createElement('script');
+        script.type = 'module';
+        script.src = MODEL_VIEWER_SRC;
+        document.head.appendChild(script);
+    };
+
+    const viewerStages = document.querySelectorAll('.viewer-stage');
+    if (viewerStages.length) {
+        const watchViewers = () => {
+            if (!('IntersectionObserver' in window)) {
+                loadModelViewer();
+                return;
+            }
+            const viewerObserver = new IntersectionObserver((entries) => {
+                if (!entries.some((entry) => entry.isIntersecting)) return;
+                viewerObserver.disconnect();
+                loadModelViewer();
+            }, { rootMargin: '400px 0px' });
+            viewerStages.forEach((stage) => viewerObserver.observe(stage));
+        };
+
+        if (document.readyState === 'complete') watchViewers();
+        else window.addEventListener('load', watchViewers, { once: true });
+    }
+
     /* ---------------------------------------------------- Modules 3D ----- */
     /* Titre, description et points de chaque module : fournis traduits par le
        serveur (voir includes/modules.php). */
@@ -150,8 +182,13 @@
         if (!viewer) return;
         const spot = viewer.querySelector(`.hotspot[data-module="${key}"]`);
         if (!spot) return;
-        viewer.cameraTarget = spot.dataset.position;
-        if (spot.dataset.orbit) viewer.cameraOrbit = spot.dataset.orbit;
+        /* cameraTarget et cameraOrbit sont des accesseurs définis par la
+           bibliothèque : les écrire avant que l'élément ne soit « upgradé »
+           créerait des propriétés propres qui masqueraient ces accesseurs. */
+        customElements.whenDefined('model-viewer').then(() => {
+            viewer.cameraTarget = spot.dataset.position;
+            if (spot.dataset.orbit) viewer.cameraOrbit = spot.dataset.orbit;
+        });
     };
 
     const showModule = (key, viewerToFocus) => {
@@ -200,6 +237,7 @@
     document.querySelectorAll('[data-open-dialog]').forEach((btn) => {
         btn.addEventListener('click', () => {
             if (!dialog) return;
+            loadModelViewer();
             if (dialogViewer && !dialogViewer.getAttribute('src') && dialogViewer.dataset.src) {
                 dialogViewer.setAttribute('src', dialogViewer.dataset.src);
             }

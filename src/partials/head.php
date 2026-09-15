@@ -105,6 +105,3 @@ if ($isHome) {
     <!-- CSS intégré (Open Sans auto-hébergé, déclaré dans css/style.css) -->
     <style><?= nexsim_inline_css('css/style.css') ?></style>
     <script src="scripts/animations.js" defer></script>
-    <?php if ($isHome): ?>
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
-    <?php endif; ?>
