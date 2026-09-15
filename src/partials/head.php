@@ -7,6 +7,7 @@
  */
 require_once __DIR__ . '/../includes/bootstrap.php';
 require_once __DIR__ . '/../includes/modules.php';
+require_once __DIR__ . '/../includes/assets.php';
 
 $pageTitle = $pageTitle ?? t('seo.home.title');
 $pageDescription = $pageDescription ?? t('seo.home.description');
@@ -77,10 +78,9 @@ if ($isHome) {
     <meta name="twitter:image" content="https://www.nexsim.fr/videos/poster.jpg">
     <meta name="twitter:site" content="@nexsim_fr">
 
-    <!-- Resource hints -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="css/style.css">
+    <!-- Resource hints : la police latine est le seul asset du chemin critique
+         (le CSS est intégré au document, cf. includes/assets.php). -->
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/open-sans-latin.woff2" crossorigin>
     <?php if ($isHome): ?>
     <link rel="preload" as="image" href="videos/poster.jpg">
     <?php endif; ?>
@@ -102,9 +102,8 @@ if ($isHome) {
         } catch (e) {}
     </script>
 
-    <!-- CSS et Polices (Open Sans, comme NexControl) -->
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- CSS intégré (Open Sans auto-hébergé, déclaré dans css/style.css) -->
+    <style><?= nexsim_inline_css('css/style.css') ?></style>
     <script src="scripts/animations.js" defer></script>
     <?php if ($isHome): ?>
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
