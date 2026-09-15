@@ -1,3 +1,5 @@
 .idea
 
 scripts/
+tools/node_modules/
+src/image/opt

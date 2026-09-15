@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/bootstrap.php';
 require_once __DIR__ . '/includes/modules.php';
+require_once __DIR__ . '/includes/images.php';
 
 $isHome = true;
 $pageTitle = t('seo.home.title');
@@ -16,6 +17,19 @@ sort($logos, SORT_NATURAL | SORT_FLAG_CASE);
 $logoAlt = fn(string $file): string => ucfirst(trim(preg_replace('/[-_]+/', ' ', pathinfo($file, PATHINFO_FILENAME))));
 
 /* Modules mécaniques : géométrie + libellés traduits (voir includes/modules.php). */
+/* Emplacement occupé par les illustrations, dérivé du CSS : .container vaut
+   min(1500px, 100vw - 2 x clamp(1rem, 5vw, 3rem)), .split le coupe en deux
+   colonnes séparées par clamp(1.5rem, 5vw, 4rem) au-delà de 900 px, et la carte
+   .image-content retire 0,75rem de marge intérieure de chaque côté. Annoncer
+   une largeur trop généreuse ferait basculer le navigateur sur la déclinaison
+   supérieure du srcset pour rien. */
+$illustrationSizes = implode(', ', [
+    '(max-width: 900px) calc(90vw - 24px)',   /* une seule colonne */
+    '(max-width: 1279px) calc(47.5vw - 72px)', /* deux colonnes, gouttière à 5vw */
+    '(max-width: 1595px) calc(50vw - 104px)',  /* gouttière plafonnée à 4rem */
+    '694px',                                   /* conteneur plafonné à 1500 px */
+]);
+
 $modules = nexsim_modules();
 $defaultModule = nexsim_default_module();
 
@@ -240,8 +254,8 @@ include __DIR__ . '/partials/head.php';
             <div class="split split-block">
                 <div class="image-content card scroll-fade-in">
                     <?php if (file_exists(__DIR__ . '/image/nexcontrol_light.png')): ?>
-                    <img class="nexcontrol-light" src="image/nexcontrol_light.png" alt="<?= e('num.app.img.alt') ?>" width="600" height="450" loading="lazy">
-                    <img class="nexcontrol-dark" src="image/nexcontrol_dark.png" alt="<?= e('num.app.img.alt') ?>" width="600" height="450" loading="lazy">
+                    <?= nexsim_picture('image/nexcontrol_light.png', t('num.app.img.alt'), ['class' => 'nexcontrol-light', 'sizes' => $illustrationSizes]) ?>
+                    <?= nexsim_picture('image/nexcontrol_dark.png', t('num.app.img.alt'), ['class' => 'nexcontrol-dark', 'sizes' => $illustrationSizes]) ?>
                     <?php else: ?>
                     <div class="image-placeholder" role="img" aria-label="<?= e('num.app.placeholder.aria') ?>">
                         <svg aria-hidden="true"><use href="#i-phone"/></svg>
@@ -277,7 +291,7 @@ include __DIR__ . '/partials/head.php';
                     <p class="split-note"><?= t('num.vr.note') ?></p>
                 </div>
                 <div class="image-content card scroll-fade-in">
-                    <img src="image/vr.jpeg" alt="<?= e('num.vr.img.alt') ?>" width="600" height="450" loading="lazy">
+                    <?= nexsim_picture('image/vr.jpeg', t('num.vr.img.alt'), ['sizes' => $illustrationSizes]) ?>
                 </div>
             </div>
         </div>
@@ -321,7 +335,7 @@ include __DIR__ . '/partials/head.php';
                     <p class="split-tagline"><?= t('peda.tagline') ?></p>
                 </div>
                 <div class="image-content card scroll-fade-in">
-                    <img src="image/lusim-vr.png" alt="<?= e('peda.img.alt') ?>" width="600" height="450" loading="lazy">
+                    <?= nexsim_picture('image/lusim-vr.png', t('peda.img.alt'), ['sizes' => $illustrationSizes]) ?>
                 </div>
             </div>
         </div>
@@ -338,7 +352,7 @@ include __DIR__ . '/partials/head.php';
             <div class="team-grid scroll-animated-list">
                 <?php foreach ($team as $member): ?>
                 <div class="card team-member">
-                    <img src="image/person/<?= htmlspecialchars($member['photo']) ?>" alt="<?= htmlspecialchars($member['alt']) ?>" class="avatar" width="104" height="104" loading="lazy">
+                    <?= nexsim_picture('image/person/' . $member['photo'], $member['alt'], ['class' => 'avatar', 'width' => 104, 'height' => 104]) ?>
                     <h4><?= htmlspecialchars($member['name']) ?></h4>
                     <p><?= t($member['role']) ?></p>
                 </div>
@@ -361,7 +375,19 @@ include __DIR__ . '/partials/head.php';
             <ul class="logo-track"<?= $pass ? ' aria-hidden="true"' : '' ?>>
                 <?php foreach ($logos as $file): ?>
                 <li class="logo-item">
-                    <img src="image/partenaires/<?= rawurlencode($file) ?>" alt="<?= $pass ? '' : htmlspecialchars($logoAlt($file)) ?>" loading="lazy" height="64">
+                    <?php
+                    /* Calé sur une hauteur CSS fixe : la largeur occupée dépend
+                       du rapport propre à chaque logo (voir .logo-item img). */
+                    $logoSrc = 'image/partenaires/' . $file;
+                    echo nexsim_picture($logoSrc, $pass ? '' : $logoAlt($file), [
+                        'height' => 96,
+                        'sizes' => sprintf(
+                            '(max-width: 900px) %dpx, %dpx',
+                            nexsim_image_display_width($logoSrc, 64, 220),
+                            nexsim_image_display_width($logoSrc, 96, 320)
+                        ),
+                    ]);
+                    ?>
                 </li>
                 <?php endforeach; ?>
             </ul>
