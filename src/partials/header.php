@@ -7,6 +7,10 @@
 require_once __DIR__ . '/../includes/bootstrap.php';
 $isHome = $isHome ?? false;
 $base = $isHome ? '' : 'index.php';
+
+$logoPriority = fn(string $variant): string => $variant === $nexsimTheme
+    ? ' fetchpriority="high"'
+    : ' fetchpriority="low"';
 ?>
 <body>
 
@@ -35,8 +39,8 @@ $base = $isHome ? '' : 'index.php';
 <header class="navbar" role="banner">
     <div class="logo">
         <a href="<?= $base ?: '#accueil' ?>" aria-label="<?= e('nav.aria.home') ?>">
-            <img class="logo-dark" src="image/logo_Nexsim_dark.svg" alt="<?= e('nav.logo.alt') ?>" height="36" width="62">
-            <img class="logo-light" src="image/logo_Nexsim_light.svg" alt="<?= e('nav.logo.alt') ?>" height="36" width="62">
+            <img class="logo-dark" src="image/logo_Nexsim_dark.svg" alt="<?= e('nav.logo.alt') ?>" height="36" width="62"<?= $logoPriority('dark') ?>>
+            <img class="logo-light" src="image/logo_Nexsim_light.svg" alt="<?= e('nav.logo.alt') ?>" height="36" width="62"<?= $logoPriority('light') ?>>
         </a>
     </div>
     <nav class="nav-links" aria-label="<?= e('nav.aria.main') ?>">
@@ -65,8 +69,8 @@ $base = $isHome ? '' : 'index.php';
 <div id="scrim" class="scrim" aria-hidden="true"></div>
 <nav id="drawer" class="drawer" aria-label="<?= e('nav.menu.aria') ?>" aria-hidden="true" tabindex="-1">
     <div class="drawer-head">
-        <img class="logo-dark" src="image/logo_Nexsim_dark.svg" alt="<?= e('nav.logo.alt') ?>" height="32" width="55">
-        <img class="logo-light" src="image/logo_Nexsim_light.svg" alt="<?= e('nav.logo.alt') ?>" height="32" width="55">
+        <img class="logo-dark" src="image/logo_Nexsim_dark.svg" alt="<?= e('nav.logo.alt') ?>" height="32" width="55" fetchpriority="low">
+        <img class="logo-light" src="image/logo_Nexsim_light.svg" alt="<?= e('nav.logo.alt') ?>" height="32" width="55" fetchpriority="low">
         <button type="button" class="btn-icon drawer-close" aria-label="<?= e('nav.menu.close') ?>">
             <svg aria-hidden="true"><use href="#i-close"/></svg>
         </button>
