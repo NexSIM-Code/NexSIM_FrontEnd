@@ -353,7 +353,7 @@ include __DIR__ . '/partials/head.php';
                 <?php foreach ($team as $member): ?>
                 <div class="card team-member">
                     <?= nexsim_picture('image/person/' . $member['photo'], $member['alt'], ['class' => 'avatar', 'width' => 104, 'height' => 104]) ?>
-                    <h4><?= htmlspecialchars($member['name']) ?></h4>
+                    <h3><?= htmlspecialchars($member['name']) ?></h3>
                     <p><?= t($member['role']) ?></p>
                 </div>
                 <?php endforeach; ?>

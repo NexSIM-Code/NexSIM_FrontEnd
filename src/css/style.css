@@ -1060,7 +1060,7 @@ html[data-theme="light"] .split .text-content li svg {
     box-shadow: 0 0 0 4px var(--accent-alpha);
 }
 
-.team-member h4 {
+.team-member h3 {
     font-size: 1.05rem;
     margin-bottom: 0.25rem;
 }
