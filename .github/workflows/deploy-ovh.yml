@@ -1,4 +1,4 @@
-# Déploie le site sur l'hébergement OVH (www.nexsim.fr) par FTP.
+# Déploie le site sur l'hébergement OVH (www.nexsim.fr) par SFTP.
 #
 # Déclenchement manuel uniquement. Le distant est mis à l'identique de src/ :
 # tout ce qui n'existe plus localement est supprimé, tout le reste est réécrit.
@@ -7,11 +7,15 @@
 # versionné : sans cette étape le site partirait avec des <picture> pointant vers
 # des fichiers absents.
 #
+# Le cluster129 refuse le FTPS sur le port 21 (« server does not support or
+# allow SSL ») : le transfert passe donc par SFTP sur le port 22, qui chiffre la
+# session de bout en bout et n'a pas de canal de données séparé à protéger.
+#
 # Secrets attendus :
-#   OVH_FTP_HOST      ex. ftp.cluster0XX.hosting.ovh.net
+#   OVH_FTP_HOST      ftp.cluster129.hosting.ovh.net
 #   OVH_FTP_USER      ex. nexsimx
 #   OVH_FTP_PASSWORD
-name: Déployer sur OVH (FTP)
+name: Déployer sur OVH (SFTP)
 
 on:
   workflow_dispatch:
@@ -29,6 +33,12 @@ concurrency:
 
 env:
   REMOTE_DIR: /home/nexsimx/www
+  # Clé d'hôte publique du cluster, relevée le 2026-09-17 par ssh-keyscan. La
+  # coder ici authentifie le serveur à chaque exécution, au lieu de faire
+  # confiance à ce qui répond au bout du câble. Si OVH migre le compte vers un
+  # autre cluster, la connexion échouera sur une erreur de clé d'hôte : relever
+  # la nouvelle avec `ssh-keyscan -t ed25519 <hôte>` et la remplacer ici.
+  OVH_HOST_KEY: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPHzGPnvg+XUpaMELjQ4AIj/6pkjvvHYCUxDVpcdaC8T
 
 jobs:
   deploy:
@@ -63,15 +73,25 @@ jobs:
           test -s src/.htaccess
           echo "$(find src -type f | wc -l) fichiers à déployer ($(du -sh src | cut -f1))"
 
-      - name: Installer lftp
-        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends lftp
+      - name: Installer lftp et sshpass
+        # sshpass fournit le mot de passe à ssh : sans lui, ssh le réclamerait
+        # sur un terminal qui n'existe pas dans un runner.
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends lftp sshpass
+
+      - name: Déclarer la clé d'hôte du serveur
+        env:
+          FTP_HOST: ${{ secrets.OVH_FTP_HOST }}
+        run: |
+          set -euo pipefail
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          printf '%s %s\n' "$FTP_HOST" "$OVH_HOST_KEY" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
+          ssh-keygen -lf ~/.ssh/known_hosts
 
       - name: Envoyer src/ sur OVH
         env:
           FTP_HOST: ${{ secrets.OVH_FTP_HOST }}
           FTP_USER: ${{ secrets.OVH_FTP_USER }}
-          # Lu directement par lftp (--env-password) : le mot de passe ne
-          # transite ni par la ligne de commande ni par un fichier de script.
           LFTP_PASSWORD: ${{ secrets.OVH_FTP_PASSWORD }}
           DRY_RUN: ${{ inputs.dry_run }}
         run: |
@@ -81,43 +101,19 @@ jobs:
           [ "$DRY_RUN" != 'true' ] || dry='--dry-run'
 
           lftp <<LFTP
-          # FTP explicite (FTPES) : OVH accepte le FTP en clair, qui ferait
-          # voyager le mot de passe et les fichiers sans chiffrement.
-          set ftp:ssl-allow true
-          set ftp:ssl-force true
-          set ftp:ssl-protect-data true
-          # Si la connexion échoue sur une erreur de certificat, passer à "no" :
-          # le canal reste chiffré, mais le serveur n'est plus authentifié.
-          set ssl:verify-certificate yes
-
-          # Sans -a, le listing distant masque les fichiers commençant par un
-          # point : .htaccess serait renvoyé à chaque déploiement et jamais
-          # comparé — et, surtout, jamais supprimé s'il disparaissait du dépôt.
-          set ftp:list-options -a
+          set sftp:connect-program "sshpass -e ssh -a -x -o StrictHostKeyChecking=yes -o PubkeyAuthentication=no -o PreferredAuthentications=password"
+          set sftp:auto-confirm no
 
           set net:max-retries 3
           set net:timeout 30
           set xfer:clobber on
-          # Une erreur au milieu du miroir doit faire échouer le workflow, pas
-          # laisser un site à moitié déployé passer pour un succès.
           set cmd:fail-exit true
 
-          open -u "$FTP_USER" --env-password "$FTP_HOST"
+          open -u "$FTP_USER" --env-password "sftp://$FTP_HOST"
 
-          # --delete aligne le distant sur src/ au lieu de le vider d'abord : le
-          # site n'est jamais servi depuis un répertoire à moitié rempli, et un
-          # transfert interrompu laisse la version précédente en place.
-          #
-          # --exclude protège ce qu'OVH ou une validation de domaine dépose
-          # elle-même dans le docroot ; ajouter ici tout fichier maintenu à la
-          # main en ligne, sinon --delete l'emportera.
-          #
-          # Le checkout donne à tous les fichiers la date du jour : lftp les voit
-          # plus récents que le distant et renvoie donc l'intégralité de src/
-          # (~62 Mio, dont 47 de vidéos) à chaque exécution. C'est voulu. Si la
-          # durée devient gênante, ajouter --ignore-time : la comparaison se fait
-          # alors sur la seule taille, au prix des modifications qui n'en
-          # changent pas — une correction de faute de frappe, typiquement.
+          cd "$REMOTE_DIR"
+          cls -d .
+
           mirror --reverse --delete --verbose --parallel=4 $dry --exclude '^\.well-known/' --exclude-glob '.DS_Store' src/ "$REMOTE_DIR"
 
           bye
