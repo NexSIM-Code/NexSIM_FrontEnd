@@ -1,0 +1,100 @@
+# Construit l'image de pré-production et la pousse sur le registre self-hosted.
+#
+# Déclenchement manuel uniquement (onglet Actions > Publier l'image Docker > Run
+# workflow) : publier est un geste de déploiement, pas la conséquence d'un push.
+#
+# Le build régénère les déclinaisons d'images (src/image/opt/), qui ne sont pas
+# versionnées — voir l'étape « assets » du Dockerfile.
+#
+# Secrets attendus (dépôt ou organisation) :
+#   SELUTECH_REGISTRY_USERNAME / SELUTECH_REGISTRY_PASSWORD
+name: Publier l'image Docker
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Tag de l'image (vide = nom de la branche)"
+        required: false
+        default: ''
+      latest:
+        description: 'Pousser aussi :latest'
+        type: boolean
+        default: true
+      platforms:
+        description: 'Plateformes cibles'
+        type: choice
+        default: linux/amd64
+        options:
+          - linux/amd64
+          - linux/arm64
+          - linux/amd64,linux/arm64
+
+env:
+  REGISTRY: registry.selutech.fr
+  IMAGE: registry.selutech.fr/nexsim/nexsim-site
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cloner le dépôt
+        uses: actions/checkout@v4
+
+      # Les entrées d'un workflow_dispatch sont du texte libre : elles passent par
+      # l'environnement plutôt que par ${{ }}, qui les recopierait dans le script.
+      - name: Calculer les tags
+        id: meta
+        env:
+          INPUT_TAG: ${{ inputs.tag }}
+          INPUT_LATEST: ${{ inputs.latest }}
+        run: |
+          set -euo pipefail
+
+          tag="$INPUT_TAG"
+          # « / » est licite dans un nom de branche, pas dans un tag d'image.
+          [ -n "$tag" ] || tag="${GITHUB_REF_NAME//\//-}"
+          case "$tag" in
+            [!a-zA-Z0-9_]*|*[!a-zA-Z0-9_.-]*)
+              echo "::error::Tag « $tag » invalide (lettres, chiffres, « _ », « . », « - » ; ne peut commencer par « . » ou « - »)"
+              exit 1 ;;
+          esac
+
+          # Le tag de commit est toujours poussé : c'est le seul qui ne puisse pas
+          # être déplacé ensuite, donc le seul qui relie un conteneur à un commit.
+          tags="${IMAGE}:${tag},${IMAGE}:sha-${GITHUB_SHA::7}"
+          [ "$INPUT_LATEST" != 'true' ] || tags="${tags},${IMAGE}:latest"
+
+          echo "tags=$tags" >> "$GITHUB_OUTPUT"
+          {
+            echo '### Tags publiés'
+            printf '%s\n' "${tags//,/$'\n'}" | sed 's/^/- `/; s/$/`/'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      # Utile seulement pour construire vers une autre architecture que celle du runner.
+      - name: Installer QEMU
+        if: contains(inputs.platforms, 'arm64')
+        uses: docker/setup-qemu-action@v3
+
+      - name: Installer Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: S'authentifier sur le registre
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ secrets.SELUTECH_REGISTRY_USERNAME }}
+          password: ${{ secrets.SELUTECH_REGISTRY_PASSWORD }}
+
+      - name: Construire et pousser
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          platforms: ${{ inputs.platforms }}
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          # Un registry:2 nu affiche les attestations de provenance comme des
+          # entrées « unknown/unknown » à côté des vraies plateformes.
+          provenance: false
