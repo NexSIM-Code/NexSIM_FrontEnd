@@ -122,10 +122,23 @@ jobs:
         env:
           FTP_HOST: ${{ secrets.OVH_FTP_HOST }}
           FTP_USER: ${{ secrets.OVH_FTP_USER }}
+          # Le même mot de passe sert deux fois : sshpass le donne à ssh, qui
+          # authentifie réellement la session, et lftp en réclame un de son côté
+          # — sans quoi il se rabat sur un login anonyme et se fait refuser. Ni
+          # l'une ni l'autre n'apparaît sur la ligne de commande, où ps les
+          # montrerait.
+          SSHPASS: ${{ secrets.OVH_FTP_PASSWORD }}
           LFTP_PASSWORD: ${{ secrets.OVH_FTP_PASSWORD }}
           DRY_RUN: ${{ inputs.dry_run }}
         run: |
           set -euo pipefail
+
+          # set -u ne protège que les variables que CE script lit. SSHPASS n'est
+          # lue que par sshpass, deux processus plus loin : son absence ne se
+          # verrait qu'au moment de la connexion, sous un message qui ne la
+          # rattache pas au bloc env: de cette étape.
+          : "${SSHPASS:?absente du bloc env: de cette étape}"
+          : "${LFTP_PASSWORD:?absente du bloc env: de cette étape}"
 
           dry=''
           [ "$DRY_RUN" != 'true' ] || dry='--dry-run'
