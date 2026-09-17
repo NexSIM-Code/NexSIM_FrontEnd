@@ -47,6 +47,36 @@ jobs:
     # déploiement (Settings > Environments > production > Required reviewers).
     environment: production
     steps:
+      # En premier : inutile de passer trois minutes à construire les images pour
+      # buter sur un secret manquant au moment de se connecter.
+      - name: Vérifier que les secrets sont accessibles
+        env:
+          FTP_HOST: ${{ secrets.OVH_FTP_HOST }}
+          FTP_USER: ${{ secrets.OVH_FTP_USER }}
+          FTP_PASSWORD: ${{ secrets.OVH_FTP_PASSWORD }}
+        run: |
+          set -uo pipefail
+          manquants=0
+          # Actions n'exporte pas une variable dont la valeur est vide : un secret
+          # absent arrive ici comme une variable non définie, d'où le "${VAR-}".
+          # Sans ce garde, l'absence se manifeste bien plus loin sous la forme
+          # « SSHPASS environment variable not set », qui ne désigne pas la cause.
+          for nom in FTP_HOST FTP_USER FTP_PASSWORD; do
+            eval "valeur=\${$nom-}"
+            if [ -z "$valeur" ]; then
+              echo "::error::Le secret OVH_$nom est absent ou vide"
+              manquants=1
+            else
+              echo "OVH_$nom : défini"
+            fi
+          done
+          if [ "$manquants" -ne 0 ]; then
+            echo "Settings > Secrets and variables > Actions : vérifier l'orthographe exacte." >&2
+            echo "Secrets d'organisation : vérifier que ce dépôt figure dans « Repository access »." >&2
+            echo "Ce job utilise l'environnement « production » : un secret rangé dans un autre environnement ne lui est pas visible." >&2
+            exit 1
+          fi
+
       - name: Cloner le dépôt
         uses: actions/checkout@v4
 
