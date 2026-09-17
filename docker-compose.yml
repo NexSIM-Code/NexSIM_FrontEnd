@@ -1,20 +1,23 @@
+# Pré-production : l'image Apache autoportante, telle qu'elle est publiée sur le
+# registre self-hosted par .github/workflows/docker-publish.yml.
+#
+#   docker login registry.selutech.fr   (le registre demande une authentification
+#   docker compose pull                  pour le pull comme pour le push)
+#   docker compose up -d                → http://localhost:8090
+#
+# Le site en ligne (www.nexsim.fr) reste déposé en FTP chez OVH et n'est pas
+# concerné par ce fichier : l'image ne sert qu'à valider src/.htaccess sous Apache
+# avant ce dépôt.
+#
+# Pour développer avec le code monté en volume : docker-compose.dev.yml.
 
 services:
-  nginx:
-    image: nginx:latest
-    container_name: nginx-nexsim
+  web:
+    image: registry.selutech.fr/nexsim/nexsim-site:${NEXSIM_SITE_TAG:-latest}
+    # Conservé pour reconstruire l'image en local sous le même nom
+    # (docker compose build) sans passer par la pipeline.
+    build: .
+    container_name: nexsim-site
     ports:
-      - "8090:80"
-    volumes:
-      - ./src:/var/www/html
-      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
-    depends_on:
-      - php
-    restart: always
-
-  php:
-    image: php:8.2-fpm
-    container_name: php-nexsim
-    volumes:
-      - ./src:/var/www/html
+      - "${NEXSIM_SITE_LISTEN:-8090}:80"
     restart: always

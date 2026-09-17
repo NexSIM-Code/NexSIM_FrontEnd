@@ -1,0 +1,22 @@
+.git
+.github
+.idea
+.junie
+.DS_Store
+**/.DS_Store
+
+# Réinstallé par npm ci dans l'étape « assets » : copier l'arbre de l'hôte
+# enverrait des binaires sharp compilés pour une autre plateforme.
+tools/node_modules
+
+# Dossier entièrement dérivé, régénéré par l'étape « assets ». Le copier depuis
+# l'hôte ferait entrer dans l'image des déclinaisons plus anciennes que les
+# originaux — build-images.mjs vide de toute façon ce dossier.
+src/image/opt
+
+nginx/
+scripts/
+docker-compose*.yml
+Dockerfile
+package.xml
+I18N.md
