@@ -93,11 +93,11 @@ include __DIR__ . '/partials/head.php';
             '@context' => 'https://schema.org',
             '@graph' => [
                     [
-                            '@type' => 'Organization',
+                            '@type' => ['Organization', 'LocalBusiness'],
                             '@id' => 'https://www.nexsim.fr/#organization',
                             'address' => [
                                     '@type' => 'PostalAddress',
-                                    'streetAddress' => '9 Rue Becquerel',
+                                    'streetAddress' => 'Crunch Lab, 13 Rue Ernest Thierry-Mieg',
                                     'postalCode' => '90000',
                                     'addressLocality' => 'Belfort',
                                     'addressCountry' => 'FR',
@@ -110,6 +110,7 @@ include __DIR__ . '/partials/head.php';
                             'description' => t('jsonld.organization.description'),
                             'email' => 'contact@nexsim.fr',
                             'foundingDate' => '2026-06-28',
+                            'image' => 'https://www.nexsim.fr/videos/poster.jpg',
                             'logo' => [
                                     '@type' => 'ImageObject',
                                     'url' => 'https://www.nexsim.fr/image/logo_Nexsim_light.svg',
@@ -126,12 +127,26 @@ include __DIR__ . '/partials/head.php';
                             'vatID' => 'FR62105973325',
                     ],
                     [
+                            '@type' => 'VideoObject',
+                            '@id' => 'https://www.nexsim.fr/#video-lusim',
+                            'name' => t('jsonld.video.name'),
+                            'description' => t('jsonld.video.description'),
+                            'thumbnailUrl' => 'https://www.nexsim.fr/videos/poster.jpg',
+                            'uploadDate' => '2025-12-08',
+                            'duration' => 'PT1M1S',
+                            'contentUrl' => 'https://www.nexsim.fr/videos/Lusim_V10.mp4',
+                            'width' => 1920,
+                            'height' => 1080,
+                            'publisher' => ['@id' => 'https://www.nexsim.fr/#organization'],
+                    ],
+                    [
                             '@type' => 'WebPage',
                             '@id' => 'https://www.nexsim.fr/#webpage',
                             'url' => 'https://www.nexsim.fr/',
                             'name' => t('seo.home.title'),
                             'inLanguage' => nexsim_lang(),
-                            'about' => ['@id' => 'https://www.nexsim.fr/#lusim'],
+                            'about' => ['@id' => 'https://www.nexsim.fr/#organization'],
+                            'video' => ['@id' => 'https://www.nexsim.fr/#video-lusim'],
                     ],
             ],
     ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT | JSON_HEX_TAG) ?>

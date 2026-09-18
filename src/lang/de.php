@@ -7,7 +7,7 @@
 return [
     // --------------------------------------------------------------- Allgemein
     'format.date' => 'd.m.Y',
-    'site.address' => '9 Rue Becquerel, 90000 Belfort, Frankreich',
+    'site.address' => 'Crunch Lab, 13 Rue Ernest Thierry-Mieg, 90000 Belfort, Frankreich',
 
     // -------------------------------------------------------------- Navigation
     'nav.aria.main' => 'Hauptnavigation',
@@ -20,6 +20,7 @@ return [
     'nav.pedagogy' => 'Didaktik',
     'nav.team' => 'Das Team',
     'nav.contact' => 'Kontakt',
+    'nav.partners' => 'Partner',
     'nav.theme.light' => 'Helles Design aktivieren',
     'nav.theme.dark' => 'Dunkles Design aktivieren',
     'nav.menu.open' => 'Menü öffnen',
@@ -31,7 +32,9 @@ return [
     'seo.home.title' => 'Nexsim LuSIM | Lungensimulator für die medizinische Ausbildung',
     'seo.home.description' => 'Entdecken Sie LuSIM von Nexsim, den ersten hybriden Lungensimulator (physisch und VR) für eine einfachere Ausbildung in maschineller Beatmung.',
     'seo.og.image.alt' => 'Lungensimulator LuSIM von Nexsim',
-    'jsonld.product.description' => 'Hybrider Lungensimulator der neuen Generation für die Ausbildung in maschineller Beatmung, der physische Robotik und virtuelle Realität verbindet.',
+    'jsonld.video.name' => 'LuSIM im Einsatz: der hybride Lungensimulator von Nexsim',
+    'jsonld.video.description' => 'Vorführung des Lungensimulators LuSIM: die modulare künstliche Lunge in Bewegung und eine Beatmungssitzung aus Sicht der Steuerungsoberfläche.',
+    'jsonld.organization.description' => 'Nexsim entwickelt innovative Lösungen für die medizinische Ausbildung, die physische Simulation und virtuelle Realität kombinieren.',
 
     // ---------------------------------------------------- Abschnitt 1: Einstieg
     'hero.title' => 'LuSIM',
@@ -199,7 +202,7 @@ return [
     'privacy.intro' => 'Nexsim misst dem Schutz Ihrer personenbezogenen Daten große Bedeutung bei. Diese Erklärung beschreibt, welche Daten bei Ihrem Besuch auf <a href="https://www.nexsim.fr/">www.nexsim.fr</a> verarbeitet werden können, im Einklang mit der Datenschutz-Grundverordnung (DSGVO) und dem französischen Datenschutzgesetz.',
 
     'privacy.s1.title' => '1. Verantwortlicher',
-    'privacy.s1.p' => 'Verantwortlicher ist Nexsim, 9 Rue Becquerel, 90000 Belfort, Frankreich. Bei Fragen zu Ihren Daten: <a href="mailto:contact@nexsim.fr">contact@nexsim.fr</a>.',
+    'privacy.s1.p' => 'Verantwortlicher ist Nexsim, Crunch Lab, 13 Rue Ernest Thierry-Mieg, 90000 Belfort, Frankreich. Bei Fragen zu Ihren Daten: <a href="mailto:contact@nexsim.fr">contact@nexsim.fr</a>.',
 
     'privacy.s2.title' => '2. Erhobene Daten und Zwecke',
     'privacy.s2.intro' => 'Diese Website ist eine reine Informationsseite: Sie enthält kein Formular, keinen Kundenbereich und kein Werkzeug zur Reichweitenmessung. Die Verarbeitung beschränkt sich auf die folgenden Fälle.',
@@ -246,4 +249,17 @@ return [
 
     'privacy.s9.title' => '9. Änderung dieser Erklärung',
     'privacy.s9.p' => 'Diese Erklärung kann jederzeit aktualisiert werden, insbesondere bei Änderungen der Website oder der Rechtslage. Das Datum der letzten Aktualisierung finden Sie oben auf dieser Seite.',
+
+    // ------------------------------------------------------------ 404-Seite ---
+    'seo.notfound.title' => 'Seite nicht gefunden | Nexsim',
+    'seo.notfound.description' => 'Diese Adresse gibt es auf nexsim.fr nicht mehr. Den LuSIM-Simulator, unsere Angebote und das Team finden Sie auf der Startseite.',
+    'notfound.eyebrow' => 'Fehler 404',
+    'notfound.title' => 'Diese Seite gibt es nicht mehr',
+    'notfound.intro' => 'Die Website bestand früher aus einer Seite je Thema. Heute passt sie auf eine einzige Seite mit mehreren Abschnitten — die aufgerufene Adresse entspricht dort nichts.',
+    'notfound.guess.title' => 'Sie suchten vermutlich',
+    'notfound.guess.p' => 'Der aufgerufenen Adresse nach zu urteilen ist der Abschnitt „{section}“ am ehesten gemeint.',
+    'notfound.guess.cta' => 'Zu „{section}“',
+    'notfound.sections.title' => 'Die Abschnitte der Website',
+    'notfound.help.title' => 'Immer noch nicht fündig?',
+    'notfound.help.p' => 'Schreiben Sie uns — wir sagen Ihnen, wo Sie finden, was Sie suchen.',
 ];

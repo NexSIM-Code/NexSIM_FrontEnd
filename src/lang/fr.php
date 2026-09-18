@@ -7,7 +7,7 @@
 return [
     // ---------------------------------------------------------------- Général
     'format.date' => 'd/m/Y',
-    'site.address' => '9 Rue Becquerel, 90000 Belfort, France',
+    'site.address' => 'Crunch Lab, 13 Rue Ernest Thierry-Mieg, 90000 Belfort, France',
 
     // ------------------------------------------------------------ Navigation
     'nav.aria.main' => 'Navigation principale',
@@ -20,6 +20,7 @@ return [
     'nav.pedagogy' => 'Pédagogie',
     'nav.team' => "L'équipe",
     'nav.contact' => 'Nous contacter',
+    'nav.partners' => 'Partenaires',
     'nav.theme.light' => 'Activer le thème clair',
     'nav.theme.dark' => 'Activer le thème sombre',
     'nav.menu.open' => 'Ouvrir le menu',
@@ -31,7 +32,9 @@ return [
     'seo.home.title' => 'Nexsim LuSIM | Simulateur pulmonaire de formation médicale',
     'seo.home.description' => "Découvrez LuSIM par Nexsim, le premier simulateur pulmonaire hybride (VR et physique) conçu pour faciliter la formation en ventilation mécanique.",
     'seo.og.image.alt' => 'Simulateur pulmonaire LuSIM par Nexsim',
-    'jsonld.product.description' => "Simulateur pulmonaire hybride de nouvelle génération pour la formation en ventilation mécanique, fusionnant robotique physique et réalité virtuelle.",
+    'jsonld.video.name' => 'LuSIM en fonctionnement : le simulateur pulmonaire hybride de Nexsim',
+    'jsonld.video.description' => "Démonstration du simulateur pulmonaire LuSIM : le poumon artificiel modulaire en mouvement et la séance de ventilation mécanique vue depuis l'interface de pilotage.",
+    'jsonld.organization.description' => "Nexsim est une entreprise spécialisée dans le développement de solutions de formation médicale innovantes, notamment le simulateur pulmonaire LuSIM.",
 
     // ------------------------------------------------------ Section 1 : héros
     'hero.title' => 'LuSIM',
@@ -199,7 +202,7 @@ return [
     'privacy.intro' => 'Nexsim attache une grande importance à la protection de vos données personnelles. Cette politique décrit les données susceptibles d\'être traitées lors de votre visite sur <a href="https://www.nexsim.fr/">www.nexsim.fr</a>, conformément au Règlement général sur la protection des données (RGPD) et à la loi Informatique et Libertés.',
 
     'privacy.s1.title' => '1. Responsable du traitement',
-    'privacy.s1.p' => 'Le responsable du traitement est Nexsim, 9 Rue Becquerel, 90000 Belfort, France. Pour toute question relative à vos données : <a href="mailto:contact@nexsim.fr">contact@nexsim.fr</a>.',
+    'privacy.s1.p' => 'Le responsable du traitement est Nexsim, Crunch Lab, 13 Rue Ernest Thierry-Mieg, 90000 Belfort, France. Pour toute question relative à vos données : <a href="mailto:contact@nexsim.fr">contact@nexsim.fr</a>.',
 
     'privacy.s2.title' => '2. Données collectées et finalités',
     'privacy.s2.intro' => "Le site est un site vitrine : il ne comporte ni formulaire, ni espace client, ni outil de mesure d'audience. Les traitements sont limités aux cas suivants.",
@@ -246,4 +249,17 @@ return [
 
     'privacy.s9.title' => '9. Modification de la politique',
     'privacy.s9.p' => 'Cette politique peut être mise à jour à tout moment, notamment en cas d\'évolution du site ou de la réglementation. La date de dernière mise à jour figure en haut de cette page.',
+
+    // ------------------------------------------------------------- Page 404 ---
+    'seo.notfound.title' => 'Page introuvable | Nexsim',
+    'seo.notfound.description' => "Cette adresse n'existe plus sur nexsim.fr. Retrouvez le simulateur LuSIM, les offres et l'équipe depuis la page d'accueil.",
+    'notfound.eyebrow' => 'Erreur 404',
+    'notfound.title' => 'Cette page n\'existe plus',
+    'notfound.intro' => "Le site était autrefois découpé en une page par rubrique. Il tient désormais en une seule page, organisée en sections — l'adresse que vous avez suivie n'y correspond à rien.",
+    'notfound.guess.title' => 'Vous cherchiez peut-être',
+    'notfound.guess.p' => "D'après l'adresse demandée, la section « {section} » est probablement celle que vous visiez.",
+    'notfound.guess.cta' => 'Aller à « {section} »',
+    'notfound.sections.title' => 'Les sections du site',
+    'notfound.help.title' => 'Toujours perdu ?',
+    'notfound.help.p' => "Écrivez-nous : nous vous indiquerons où trouver ce que vous cherchiez.",
 ];

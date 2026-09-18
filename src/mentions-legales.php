@@ -28,7 +28,7 @@ include __DIR__ . '/partials/head.php';
                 <strong>Nexsim</strong><br>
                 <?= t('legal.s1.form') ?><br>
                 <?= t('legal.s1.capital') ?><br>
-                13 Rue Ernest Thierry-Mieg, 90000 Belfort, France<br>
+                Crunch Lab, 13 Rue Ernest Thierry-Mieg, 90000 Belfort, France<br>
                 Belfort B 105 973 325 - 10597332500019 - 5829B<br>
                 <?= t('legal.s1.email') ?> <a href="mailto:contact@nexsim.fr">contact@nexsim.fr</a>
             </address>

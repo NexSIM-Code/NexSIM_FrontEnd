@@ -7,7 +7,7 @@
 return [
     // ---------------------------------------------------------------- General
     'format.date' => 'd/m/Y',
-    'site.address' => '9 Rue Becquerel, 90000 Belfort, France',
+    'site.address' => 'Crunch Lab, 13 Rue Ernest Thierry-Mieg, 90000 Belfort, France',
 
     // ------------------------------------------------------------- Navigation
     'nav.aria.main' => 'Main navigation',
@@ -20,6 +20,7 @@ return [
     'nav.pedagogy' => 'Teaching',
     'nav.team' => 'The team',
     'nav.contact' => 'Contact us',
+    'nav.partners' => 'Partners',
     'nav.theme.light' => 'Switch to light theme',
     'nav.theme.dark' => 'Switch to dark theme',
     'nav.menu.open' => 'Open menu',
@@ -31,7 +32,9 @@ return [
     'seo.home.title' => 'Nexsim LuSIM | Lung simulator for medical training',
     'seo.home.description' => 'Discover LuSIM by Nexsim, the first hybrid lung simulator (physical and VR) designed to make mechanical ventilation training easier.',
     'seo.og.image.alt' => 'LuSIM lung simulator by Nexsim',
-    'jsonld.product.description' => 'Next-generation hybrid lung simulator for mechanical ventilation training, combining physical robotics and virtual reality.',
+    'jsonld.video.name' => 'LuSIM in action: the Nexsim hybrid lung simulator',
+    'jsonld.video.description' => 'Demonstration of the LuSIM lung simulator: the modular artificial lung in motion and a mechanical ventilation session seen from the control interface.',
+    'jsonld.organization.description' => 'Nexsim is a French company that designs and develops innovative medical training solutions, combining physical simulation and virtual reality.',
 
     // ------------------------------------------------------ Section 1: hero
     'hero.title' => 'LuSIM',
@@ -199,7 +202,7 @@ return [
     'privacy.intro' => 'Nexsim takes the protection of your personal data seriously. This policy describes the data that may be processed when you visit <a href="https://www.nexsim.fr/">www.nexsim.fr</a>, in accordance with the General Data Protection Regulation (GDPR) and the French Data Protection Act.',
 
     'privacy.s1.title' => '1. Data controller',
-    'privacy.s1.p' => 'The data controller is Nexsim, 9 Rue Becquerel, 90000 Belfort, France. For any question about your data: <a href="mailto:contact@nexsim.fr">contact@nexsim.fr</a>.',
+    'privacy.s1.p' => 'The data controller is Nexsim, Crunch Lab, 13 Rue Ernest Thierry-Mieg, 90000 Belfort, France. For any question about your data: <a href="mailto:contact@nexsim.fr">contact@nexsim.fr</a>.',
 
     'privacy.s2.title' => '2. Data collected and purposes',
     'privacy.s2.intro' => 'This is a showcase site: it has no form, no customer area and no audience measurement tool. Processing is limited to the following cases.',
@@ -246,4 +249,17 @@ return [
 
     'privacy.s9.title' => '9. Changes to this policy',
     'privacy.s9.p' => 'This policy may be updated at any time, in particular if the site or the applicable regulations change. The date of the latest update appears at the top of this page.',
+
+    // ------------------------------------------------------------- 404 page ---
+    'seo.notfound.title' => 'Page not found | Nexsim',
+    'seo.notfound.description' => 'This address no longer exists on nexsim.fr. Find the LuSIM simulator, our offers and the team from the home page.',
+    'notfound.eyebrow' => 'Error 404',
+    'notfound.title' => 'This page no longer exists',
+    'notfound.intro' => 'The site used to have one page per topic. It now fits on a single page, organised into sections — the address you followed matches nothing there.',
+    'notfound.guess.title' => 'You may have been looking for',
+    'notfound.guess.p' => 'Judging by the address requested, the "{section}" section is most likely the one you wanted.',
+    'notfound.guess.cta' => 'Go to "{section}"',
+    'notfound.sections.title' => 'Sections of the site',
+    'notfound.help.title' => 'Still lost?',
+    'notfound.help.p' => 'Write to us and we will point you to what you were looking for.',
 ];

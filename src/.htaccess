@@ -82,3 +82,33 @@
     ExpiresByType application/javascript "access plus 30 days"
 </IfModule>
 </IfModule>
+
+# ----------------------------------------------------------- Anciennes URL ---
+# Le site comptait une page PHP par rubrique ; il tient maintenant en une seule,
+# découpée en sections. Ces adresses restent indexées et reçoivent encore des
+# visiteurs : une 301 leur transmet le référencement acquis, là où une 404 le
+# perdrait et laisserait l'URL en erreur dans l'index pendant des mois.
+#
+# Le drapeau NE est indispensable : sans lui, Apache échappe le « # » de la
+# cible en « %23 » et le navigateur demande une page nommée « #physique » au
+# lieu de sauter à la section.
+#
+# Les pages supprimées le 2026-06-23 (voir l'historique git) :
+#   lusim.php                    → la partie physique du simulateur
+#   contact.php, equipe.php      → sections de même nom
+#   politique-confidentialite.php → renommée en politique-de-confidentialite.php
+#   politique-cookies.php        → fondue dans la politique de confidentialité
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^lusim\.php$                     /#physique [R=301,L,NE]
+    RewriteRule ^contact\.php$                   /#contact [R=301,L,NE]
+    RewriteRule ^equipe\.php$                    /#equipe [R=301,L,NE]
+    RewriteRule ^politique-confidentialite\.php$ /politique-de-confidentialite.php [R=301,L]
+    RewriteRule ^politique-cookies\.php$         /politique-de-confidentialite.php [R=301,L]
+</IfModule>
+
+# ------------------------------------------------------------- Erreur 404 ---
+# Chemin absolu depuis la racine du site : un chemin relatif ferait servir la
+# page par une redirection, qui renverrait un 200 et laisserait les moteurs
+# indexer l'erreur.
+ErrorDocument 404 /404.php

@@ -44,13 +44,16 @@ if ($isHome) {
 
     <title><?= htmlspecialchars($pageTitle) ?></title>
     <meta name="description" content="<?= htmlspecialchars($pageDescription) ?>">
+    <?php if ($noindex): ?>
+    <meta name="robots" content="noindex, follow">
+    <?php else: ?>
+    <?php /* Une page exclue de l'index n'a ni version canonique ni traductions à
+             déclarer : un canonical pointant ailleurs contredirait le noindex, et
+             les hreflang annonceraient des équivalents qui n'en sont pas. */ ?>
     <link rel="canonical" href="<?= htmlspecialchars($canonical) ?>">
     <?php foreach ($alternates as $hreflang => $href): ?>
     <link rel="alternate" hreflang="<?= htmlspecialchars($hreflang) ?>" href="<?= htmlspecialchars($href) ?>">
     <?php endforeach; ?>
-    <?php if ($noindex): ?>
-    <meta name="robots" content="noindex, follow">
-    <?php else: ?>
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <?php endif; ?>
     <meta name="google-site-verification" content="KjI3msHzOdGMSiN_H8r7V6Dy7Gt18m67kyVdILfri4w"/>
