@@ -11,8 +11,8 @@ $canonical = 'https://www.nexsim.fr/';
 /* Logos partenaires : tous les fichiers image du dossier image/partenaires sont affichés. */
 $logoDir = __DIR__ . '/image/partenaires';
 $logos = is_dir($logoDir)
-    ? array_values(array_filter(scandir($logoDir), fn($f) => preg_match('/\.(svg|png|jpe?g|webp|avif)$/i', $f)))
-    : [];
+        ? array_values(array_filter(scandir($logoDir), fn($f) => preg_match('/\.(svg|png|jpe?g|webp|avif)$/i', $f)))
+        : [];
 sort($logos, SORT_NATURAL | SORT_FLAG_CASE);
 $logoAlt = fn(string $file): string => ucfirst(trim(preg_replace('/[-_]+/', ' ', pathinfo($file, PATHINFO_FILENAME))));
 
@@ -24,10 +24,10 @@ $logoAlt = fn(string $file): string => ucfirst(trim(preg_replace('/[-_]+/', ' ',
    une largeur trop généreuse ferait basculer le navigateur sur la déclinaison
    supérieure du srcset pour rien. */
 $illustrationSizes = implode(', ', [
-    '(max-width: 900px) calc(90vw - 24px)',   /* une seule colonne */
-    '(max-width: 1279px) calc(47.5vw - 72px)', /* deux colonnes, gouttière à 5vw */
-    '(max-width: 1595px) calc(50vw - 104px)',  /* gouttière plafonnée à 4rem */
-    '694px',                                   /* conteneur plafonné à 1500 px */
+        '(max-width: 900px) calc(90vw - 24px)',   /* une seule colonne */
+        '(max-width: 1279px) calc(47.5vw - 72px)', /* deux colonnes, gouttière à 5vw */
+        '(max-width: 1595px) calc(50vw - 104px)',  /* gouttière plafonnée à 4rem */
+        '694px',                                   /* conteneur plafonné à 1500 px */
 ]);
 
 $modules = nexsim_modules();
@@ -37,11 +37,11 @@ $defaultModule = nexsim_default_module();
 $renderHotspots = function () use ($modules, $defaultModule) {
     foreach ($modules as $key => $m) {
         printf(
-            '<button type="button" class="hotspot%s" slot="hotspot-%s" data-module="%s" data-position="%s" data-normal="%s" data-orbit="%s" data-visibility-attribute="visible" aria-label="%s"><span class="hotspot-dot"></span><span class="hotspot-label">%s</span></button>' . "\n",
-            $key === $defaultModule ? ' active' : '',
-            $key, $key, $m['position'], $m['normal'], $m['orbit'],
-            htmlspecialchars(t('phys.hotspot.aria', ['module' => $m['label']]), ENT_QUOTES, 'UTF-8'),
-            htmlspecialchars($m['label'], ENT_QUOTES, 'UTF-8')
+                '<button type="button" class="hotspot%s" slot="hotspot-%s" data-module="%s" data-position="%s" data-normal="%s" data-orbit="%s" data-visibility-attribute="visible" aria-label="%s"><span class="hotspot-dot"></span><span class="hotspot-label">%s</span></button>' . "\n",
+                $key === $defaultModule ? ' active' : '',
+                $key, $key, $m['position'], $m['normal'], $m['orbit'],
+                htmlspecialchars(t('phys.hotspot.aria', ['module' => $m['label']]), ENT_QUOTES, 'UTF-8'),
+                htmlspecialchars($m['label'], ENT_QUOTES, 'UTF-8')
         );
     }
 };
@@ -50,85 +50,98 @@ $renderHotspots = function () use ($modules, $defaultModule) {
 $renderChips = function () use ($modules, $defaultModule) {
     foreach ($modules as $key => $m) {
         printf(
-            '<button type="button" class="chip%s" data-module="%s" aria-pressed="%s">%s</button>' . "\n",
-            $key === $defaultModule ? ' active' : '', $key,
-            $key === $defaultModule ? 'true' : 'false',
-            htmlspecialchars($m['label'], ENT_QUOTES, 'UTF-8')
+                '<button type="button" class="chip%s" data-module="%s" aria-pressed="%s">%s</button>' . "\n",
+                $key === $defaultModule ? ' active' : '', $key,
+                $key === $defaultModule ? 'true' : 'false',
+                htmlspecialchars($m['label'], ENT_QUOTES, 'UTF-8')
         );
     }
 };
 
 /* Équipe : les noms sont invariables, seules les fonctions sont traduites. */
 $team = [
-    ['name' => 'Jules FERLIN', 'photo' => 'jules.png', 'alt' => 'Jules Ferlin', 'role' => 'team.jules.role'],
-    ['name' => 'Lucas ROMARY', 'photo' => 'lucas.png', 'alt' => 'Lucas Romary', 'role' => 'team.lucas.role'],
-    ['name' => 'Dr Jean-Sébastien BUVAT', 'photo' => 'jean-sebastien.png', 'alt' => 'Dr Jean-Sébastien Buvat', 'role' => 'team.jean-sebastien.role'],
-    ['name' => 'Laurent FAIVRE', 'photo' => 'laurent.png', 'alt' => 'Laurent Faivre', 'role' => 'team.laurent.role'],
-    ['name' => 'Fabrice LAURI', 'photo' => 'fabrice.png', 'alt' => 'Fabrice Lauri', 'role' => 'team.fabrice.role'],
+        ['name' => 'Jules FERLIN', 'photo' => 'jules.png', 'alt' => 'Jules Ferlin', 'role' => 'team.jules.role'],
+        ['name' => 'Lucas ROMARY', 'photo' => 'lucas.png', 'alt' => 'Lucas Romary', 'role' => 'team.lucas.role'],
+        ['name' => 'Dr Jean-Sébastien BUVAT', 'photo' => 'jean-sebastien.png', 'alt' => 'Dr Jean-Sébastien Buvat', 'role' => 'team.jean-sebastien.role'],
+        ['name' => 'Laurent FAIVRE', 'photo' => 'laurent.png', 'alt' => 'Laurent Faivre', 'role' => 'team.laurent.role'],
+        ['name' => 'Fabrice LAURI', 'photo' => 'fabrice.png', 'alt' => 'Fabrice Lauri', 'role' => 'team.fabrice.role'],
 ];
 
 include __DIR__ . '/partials/head.php';
 ?>
-    <!-- Speculation Rules API -->
-    <script type="speculationrules">
+<!-- Speculation Rules API -->
+<script type="speculationrules">
+    {
+      "prefetch": [
         {
-          "prefetch": [
-            {
-              "source": "document",
-              "where": {
-                "and": [
-                  { "href_matches": "/*" },
-                  { "not": { "href_matches": "/logout" } }
-                ]
-              },
-              "eagerness": "moderate"
-            }
-          ]
+          "source": "document",
+          "where": {
+            "and": [
+              { "href_matches": "/*" },
+              { "not": { "href_matches": "/logout" } }
+            ]
+          },
+          "eagerness": "moderate"
         }
-    </script>
+      ]
+    }
+</script>
 
-    <!-- Données Structurées JSON-LD (Graph) -->
-    <script type="application/ld+json">
+<!-- Données Structurées JSON-LD (Graph) -->
+<script type="application/ld+json">
         <?= json_encode([
             '@context' => 'https://schema.org',
             '@graph' => [
-                [
-                    '@type' => 'Organization',
-                    '@id' => 'https://www.nexsim.fr/#organization',
-                    'name' => 'Nexsim',
-                    'url' => 'https://www.nexsim.fr/',
-                    'logo' => [
-                        '@type' => 'ImageObject',
-                        'url' => 'https://www.nexsim.fr/image/logo_Nexsim_light.svg',
+                    [
+                            '@type' => 'Organization',
+                            '@id' => 'https://www.nexsim.fr/#organization',
+                            'address' => [
+                                    '@type' => 'PostalAddress',
+                                    'streetAddress' => '9 Rue Becquerel',
+                                    'postalCode' => '90000',
+                                    'addressLocality' => 'Belfort',
+                                    'addressCountry' => 'FR',
+                            ],
+                            'contactPoint' => [
+                                    '@type' => 'ContactPoint',
+                                    'email' => 'contact@nexsim.fr',
+                                    'telephone' => '+33 7 81 13 62 62',
+                            ],
+                            'description' => t('jsonld.organization.description'),
+                            'email' => 'contact@nexsim.fr',
+                            'foundingDate' => '2026-06-28',
+                            'logo' => [
+                                    '@type' => 'ImageObject',
+                                    'url' => 'https://www.nexsim.fr/image/logo_Nexsim_light.svg',
+                            ],
+                            'name' => 'Nexsim',
+                            'numberOfEmployees' => [
+                                    '@type' => 'QuantitativeValue',
+                                    'minValue' => 0,
+                                    'maxValue' => 10
+                            ],
+                            'sameAs' => ['https://www.linkedin.com/company/nexsim/'],
+                            'telephone' => '+33 7 81 13 62 62',
+                            'url' => 'https://www.nexsim.fr/',
+                            'vatID' => 'FR62105973325',
                     ],
-                    'address' => [
-                        '@type' => 'PostalAddress',
-                        'streetAddress' => '9 Rue Becquerel',
-                        'postalCode' => '90000',
-                        'addressLocality' => 'Belfort',
-                        'addressCountry' => 'FR',
+                    [
+                            '@type' => 'WebPage',
+                            '@id' => 'https://www.nexsim.fr/#webpage',
+                            'url' => 'https://www.nexsim.fr/',
+                            'name' => t('seo.home.title'),
+                            'inLanguage' => nexsim_lang(),
+                            'about' => ['@id' => 'https://www.nexsim.fr/#lusim'],
                     ],
-                    'sameAs' => ['https://www.linkedin.com/company/nexsim/'],
-                ],
-                [
-                    '@type' => 'Product',
-                    '@id' => 'https://www.nexsim.fr/#product',
-                    'name' => 'LuSIM',
-                    'description' => t('jsonld.product.description'),
-                    'brand' => ['@id' => 'https://www.nexsim.fr/#organization'],
-                    'category' => 'Medical Equipment',
-                ],
-                [
-                    '@type' => 'WebPage',
-                    '@id' => 'https://www.nexsim.fr/#webpage',
-                    'url' => 'https://www.nexsim.fr/',
-                    'name' => t('seo.home.title'),
-                    'inLanguage' => nexsim_lang(),
-                    'about' => ['@id' => 'https://www.nexsim.fr/#product'],
-                ],
             ],
-        ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT | JSON_HEX_TAG) ?>
-    </script>
+    ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT | JSON_HEX_TAG) ?>
+
+
+
+
+
+
+</script>
 </head>
 <?php include __DIR__ . '/partials/header.php'; ?>
 
@@ -144,7 +157,8 @@ include __DIR__ . '/partials/head.php';
         <div class="hero-overlay"></div>
         <div class="container">
             <div class="hero-content">
-                <h1 class="animate-fade-in-up"><?= t('hero.title') ?><br><span class="accent"><?= t('hero.subtitle') ?></span></h1>
+                <h1 class="animate-fade-in-up"><?= t('hero.title') ?><br><span
+                            class="accent"><?= t('hero.subtitle') ?></span></h1>
                 <p class="animate-fade-in-up delay-1"><?= t('hero.lead') ?></p>
                 <div class="hero-actions animate-fade-in-up delay-2">
                     <a href="#contact" class="btn btn-accent"><?= t('hero.cta.demo') ?></a>
@@ -176,21 +190,23 @@ include __DIR__ . '/partials/head.php';
                             <?php $renderChips(); ?>
                         </div>
                         <button type="button" class="btn btn-ghost" data-open-dialog>
-                            <svg width="18" height="18" aria-hidden="true"><use href="#i-expand"/></svg><?= t('phys.expand') ?>
+                            <svg width="18" height="18" aria-hidden="true">
+                                <use href="#i-expand"/>
+                            </svg><?= t('phys.expand') ?>
                         </button>
                     </div>
                     <div class="viewer-stage">
                         <model-viewer
-                            src="./modeles/lusim.glb"
-                            alt="<?= e('phys.viewer.alt') ?>"
-                            loading="lazy"
-                            auto-rotate
-                            auto-rotate-delay="3000"
-                            rotation-per-second="30deg"
-                            camera-controls
-                            touch-action="pan-y"
-                            shadow-intensity="1"
-                            camera-orbit="0deg 60deg 2.5m"
+                                src="./modeles/lusim.glb"
+                                alt="<?= e('phys.viewer.alt') ?>"
+                                loading="lazy"
+                                auto-rotate
+                                auto-rotate-delay="3000"
+                                rotation-per-second="30deg"
+                                camera-controls
+                                touch-action="pan-y"
+                                shadow-intensity="1"
+                                camera-orbit="0deg 60deg 2.5m"
                         >
                             <?php $renderHotspots(); ?>
                         </model-viewer>
@@ -204,7 +220,7 @@ include __DIR__ . '/partials/head.php';
                     <p id="module-desc"><?= t("module.$defaultModule.desc") ?></p>
                     <ul id="module-list" class="module-list">
                         <?php foreach ($modules[$defaultModule]['points'] as $point): ?>
-                        <li><?= htmlspecialchars($point) ?></li>
+                            <li><?= htmlspecialchars($point) ?></li>
                         <?php endforeach; ?>
                     </ul>
                 </aside>
@@ -219,19 +235,21 @@ include __DIR__ . '/partials/head.php';
                             <?php $renderChips(); ?>
                         </div>
                         <button type="button" class="btn btn-ghost" data-close-dialog>
-                            <svg width="18" height="18" aria-hidden="true"><use href="#i-close"/></svg><?= t('phys.close') ?>
+                            <svg width="18" height="18" aria-hidden="true">
+                                <use href="#i-close"/>
+                            </svg><?= t('phys.close') ?>
                         </button>
                     </div>
                     <div class="dialog-body">
                         <model-viewer
-                            data-src="./modeles/lusim.glb"
-                            alt="<?= e('phys.viewer.alt') ?>"
-                            auto-rotate
-                            auto-rotate-delay="3000"
-                            rotation-per-second="30deg"
-                            camera-controls
-                            shadow-intensity="1"
-                            camera-orbit="0deg 60deg 2.5m"
+                                data-src="./modeles/lusim.glb"
+                                alt="<?= e('phys.viewer.alt') ?>"
+                                auto-rotate
+                                auto-rotate-delay="3000"
+                                rotation-per-second="30deg"
+                                camera-controls
+                                shadow-intensity="1"
+                                camera-orbit="0deg 60deg 2.5m"
                         >
                             <?php $renderHotspots(); ?>
                         </model-viewer>
@@ -254,14 +272,16 @@ include __DIR__ . '/partials/head.php';
             <div class="split split-block">
                 <div class="image-content card scroll-fade-in">
                     <?php if (file_exists(__DIR__ . '/image/nexcontrol_light.png')): ?>
-                    <?= nexsim_picture('image/nexcontrol_light.png', t('num.app.img.alt'), ['class' => 'nexcontrol-light', 'sizes' => $illustrationSizes]) ?>
-                    <?= nexsim_picture('image/nexcontrol_dark.png', t('num.app.img.alt'), ['class' => 'nexcontrol-dark', 'sizes' => $illustrationSizes]) ?>
+                        <?= nexsim_picture('image/nexcontrol_light.png', t('num.app.img.alt'), ['class' => 'nexcontrol-light', 'sizes' => $illustrationSizes]) ?>
+                        <?= nexsim_picture('image/nexcontrol_dark.png', t('num.app.img.alt'), ['class' => 'nexcontrol-dark', 'sizes' => $illustrationSizes]) ?>
                     <?php else: ?>
-                    <div class="image-placeholder" role="img" aria-label="<?= e('num.app.placeholder.aria') ?>">
-                        <svg aria-hidden="true"><use href="#i-phone"/></svg>
-                        <span><?= t('num.app.placeholder.label') ?></span>
-                        <small><?= t('num.app.placeholder.hint') ?></small>
-                    </div>
+                        <div class="image-placeholder" role="img" aria-label="<?= e('num.app.placeholder.aria') ?>">
+                            <svg aria-hidden="true">
+                                <use href="#i-phone"/>
+                            </svg>
+                            <span><?= t('num.app.placeholder.label') ?></span>
+                            <small><?= t('num.app.placeholder.hint') ?></small>
+                        </div>
                     <?php endif; ?>
                 </div>
                 <div class="text-content scroll-fade-in">
@@ -270,7 +290,11 @@ include __DIR__ . '/partials/head.php';
                     <p><?= t('num.app.p') ?></p>
                     <ul>
                         <?php foreach (['num.app.li1', 'num.app.li2', 'num.app.li3', 'num.app.li4'] as $key): ?>
-                        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><?= t($key) ?></span></li>
+                            <li>
+                                <svg aria-hidden="true">
+                                    <use href="#i-check"/>
+                                </svg>
+                                <span><?= t($key) ?></span></li>
                         <?php endforeach; ?>
                     </ul>
                     <p class="split-note"><?= t('num.app.note') ?></p>
@@ -285,7 +309,11 @@ include __DIR__ . '/partials/head.php';
                     <p><?= t('num.vr.p') ?></p>
                     <ul>
                         <?php foreach (['num.vr.li1', 'num.vr.li2'] as $key): ?>
-                        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><?= t($key) ?></span></li>
+                            <li>
+                                <svg aria-hidden="true">
+                                    <use href="#i-check"/>
+                                </svg>
+                                <span><?= t($key) ?></span></li>
                         <?php endforeach; ?>
                     </ul>
                     <p class="split-note"><?= t('num.vr.note') ?></p>
@@ -306,11 +334,15 @@ include __DIR__ . '/partials/head.php';
             </div>
             <div class="grid-3 scroll-animated-list">
                 <?php foreach (['training' => 'i-training', 'rent' => 'i-rent', 'buy' => 'i-cart'] as $offer => $icon): ?>
-                <article class="card feature offer">
-                    <div class="feature-icon" aria-hidden="true"><svg><use href="#<?= $icon ?>"/></svg></div>
-                    <h3><?= t("offers.$offer.title") ?></h3>
-                    <p><?= t("offers.$offer.p") ?></p>
-                </article>
+                    <article class="card feature offer">
+                        <div class="feature-icon" aria-hidden="true">
+                            <svg>
+                                <use href="#<?= $icon ?>"/>
+                            </svg>
+                        </div>
+                        <h3><?= t("offers.$offer.title") ?></h3>
+                        <p><?= t("offers.$offer.p") ?></p>
+                    </article>
                 <?php endforeach; ?>
             </div>
         </div>
@@ -329,7 +361,11 @@ include __DIR__ . '/partials/head.php';
                     <p><?= t('peda.p') ?></p>
                     <ul>
                         <?php foreach (['peda.li1', 'peda.li2', 'peda.li3'] as $key): ?>
-                        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><?= t($key) ?></span></li>
+                            <li>
+                                <svg aria-hidden="true">
+                                    <use href="#i-check"/>
+                                </svg>
+                                <span><?= t($key) ?></span></li>
                         <?php endforeach; ?>
                     </ul>
                     <p class="split-tagline"><?= t('peda.tagline') ?></p>
@@ -351,49 +387,50 @@ include __DIR__ . '/partials/head.php';
             </div>
             <div class="team-grid scroll-animated-list">
                 <?php foreach ($team as $member): ?>
-                <div class="card team-member">
-                    <?= nexsim_picture('image/person/' . $member['photo'], $member['alt'], ['class' => 'avatar', 'width' => 104, 'height' => 104]) ?>
-                    <h3><?= htmlspecialchars($member['name']) ?></h3>
-                    <p><?= t($member['role']) ?></p>
-                </div>
+                    <div class="card team-member">
+                        <?= nexsim_picture('image/person/' . $member['photo'], $member['alt'], ['class' => 'avatar', 'width' => 104, 'height' => 104]) ?>
+                        <h3><?= htmlspecialchars($member['name']) ?></h3>
+                        <p><?= t($member['role']) ?></p>
+                    </div>
                 <?php endforeach; ?>
             </div>
         </div>
     </section>
 
     <?php if ($logos): ?>
-    <!-- Section 7 : Partenaires (carrousel alimenté par le dossier image/partenaires) -->
-    <section id="partenaires" class="section">
-        <div class="container">
-            <div class="section-head scroll-fade-in">
-                <span class="eyebrow"><?= t('partners.eyebrow') ?></span>
-                <h2 class="section-title"><?= t('partners.title') ?></h2>
+        <!-- Section 7 : Partenaires (carrousel alimenté par le dossier image/partenaires) -->
+        <section id="partenaires" class="section">
+            <div class="container">
+                <div class="section-head scroll-fade-in">
+                    <span class="eyebrow"><?= t('partners.eyebrow') ?></span>
+                    <h2 class="section-title"><?= t('partners.title') ?></h2>
+                </div>
             </div>
-        </div>
-        <div class="logo-marquee" style="--logo-count: <?= count($logos) ?>;" aria-label="<?= e('partners.aria') ?>">
-            <?php for ($pass = 0; $pass < 2; $pass++): ?>
-            <ul class="logo-track"<?= $pass ? ' aria-hidden="true"' : '' ?>>
-                <?php foreach ($logos as $file): ?>
-                <li class="logo-item">
-                    <?php
-                    /* Calé sur une hauteur CSS fixe : la largeur occupée dépend
-                       du rapport propre à chaque logo (voir .logo-item img). */
-                    $logoSrc = 'image/partenaires/' . $file;
-                    echo nexsim_picture($logoSrc, $pass ? '' : $logoAlt($file), [
-                        'height' => 96,
-                        'sizes' => sprintf(
-                            '(max-width: 900px) %dpx, %dpx',
-                            nexsim_image_display_width($logoSrc, 64, 220),
-                            nexsim_image_display_width($logoSrc, 96, 320)
-                        ),
-                    ]);
-                    ?>
-                </li>
-                <?php endforeach; ?>
-            </ul>
-            <?php endfor; ?>
-        </div>
-    </section>
+            <div class="logo-marquee" style="--logo-count: <?= count($logos) ?>;"
+                 aria-label="<?= e('partners.aria') ?>">
+                <?php for ($pass = 0; $pass < 2; $pass++): ?>
+                    <ul class="logo-track"<?= $pass ? ' aria-hidden="true"' : '' ?>>
+                        <?php foreach ($logos as $file): ?>
+                            <li class="logo-item">
+                                <?php
+                                /* Calé sur une hauteur CSS fixe : la largeur occupée dépend
+                                   du rapport propre à chaque logo (voir .logo-item img). */
+                                $logoSrc = 'image/partenaires/' . $file;
+                                echo nexsim_picture($logoSrc, $pass ? '' : $logoAlt($file), [
+                                        'height' => 96,
+                                        'sizes' => sprintf(
+                                                '(max-width: 900px) %dpx, %dpx',
+                                                nexsim_image_display_width($logoSrc, 64, 220),
+                                                nexsim_image_display_width($logoSrc, 96, 320)
+                                        ),
+                                ]);
+                                ?>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                <?php endfor; ?>
+            </div>
+        </section>
     <?php endif; ?>
 
     <!-- Section 8 : Contact -->
@@ -404,9 +441,12 @@ include __DIR__ . '/partials/head.php';
                 <p><?= t('contact.p') ?></p>
                 <div class="contact-actions">
                     <a href="mailto:contact@nexsim.fr" class="btn btn-dark" title="<?= e('contact.mail.title') ?>">
-                        <svg width="20" height="20" aria-hidden="true"><use href="#i-mail"/></svg><?= t('contact.mail') ?>
+                        <svg width="20" height="20" aria-hidden="true">
+                            <use href="#i-mail"/>
+                        </svg><?= t('contact.mail') ?>
                     </a>
-                    <a href="https://www.linkedin.com/company/nexsim/" class="btn btn-outline" rel="noopener" target="_blank"><?= t('contact.linkedin') ?></a>
+                    <a href="https://www.linkedin.com/company/nexsim/" class="btn btn-outline" rel="noopener"
+                       target="_blank"><?= t('contact.linkedin') ?></a>
                 </div>
             </div>
         </div>
