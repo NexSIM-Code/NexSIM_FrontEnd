@@ -42,6 +42,12 @@ include __DIR__ . '/partials/head.php';
                 <strong>OVH SAS</strong><br>
                 2 rue Kellermann, 59100 Roubaix, France<br>
             </address>
+            <p><?= t('legal.s2.store') ?></p>
+            <address class="legal-address">
+                <strong>Nexsim</strong><br>
+                Crunch Lab, 13 Rue Ernest Thierry-Mieg, 90000 Belfort, France<br>
+            </address>
+            <p><?= t('legal.s2.apps') ?></p>
         </section>
 
         <section>
@@ -56,6 +62,7 @@ include __DIR__ . '/partials/head.php';
             <p><?= t('legal.s4.p1') ?></p>
             <p><?= t('legal.s4.p2') ?></p>
             <p><?= t('legal.s4.p3') ?></p>
+            <p><?= t('legal.s4.p4') ?></p>
         </section>
 
         <section>
