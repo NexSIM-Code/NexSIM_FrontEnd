@@ -233,7 +233,7 @@ return [
     'privacy.s2.store.li2' => '<strong>Audit log.</strong> Date, account, action (login, account management, rescue codes, adding, updating or deleting an application, tablet registration) and IP address. Purpose: security and traceability of actions. Legal basis: legitimate interest.',
     'privacy.s2.store.li3' => '<strong>Application history.</strong> For each application file uploaded: version, date and uploader (name and e-mail address). Purpose: knowing who published each version distributed to the tablets. Legal basis: legitimate interest.',
     'privacy.s2.store.li4' => '<strong>Service e-mails.</strong> Invitations and password reset links, sent to the account\'s address.',
-    'privacy.s2.store.li5' => '<strong>Session cookie.</strong> A single, strictly necessary cookie keeps you logged in; see section 5.',
+    'privacy.s2.store.li5' => '<strong>Cookies.</strong> A strictly necessary session cookie keeps you logged in; a preference cookie remembers the language you chose (French or English). See section 5.',
 
     'privacy.s3.title' => '3. Retention periods',
     'privacy.s3.li1' => 'E-mail exchanges: as long as needed to handle the request, then at most three years from the last contact if no contractual relationship is established.',
@@ -265,7 +265,7 @@ return [
     'privacy.s5.p2' => 'Both cookies are strictly necessary to provide a service you expressly requested: displaying the site in the language and with the theme you selected. They hold nothing but a preference value, with no identifier and no personal data, are issued with the <code>SameSite=Lax</code> attribute and are not accessible to any third party.',
     'privacy.s5.p3' => 'As such they fall within the trackers exempt from consent under Article 82 of the French Data Protection Act and the CNIL guidelines, so no consent banner is displayed. This policy will be updated should trackers subject to consent ever be added.',
     'privacy.s5.p4' => 'You can delete these cookies at any time from your browser settings. Once deleted, the site again displays the language announced by your browser (English if none of ours matches) and the dark theme by default.',
-    'privacy.s5.p5' => 'The NexControl and NexHome applications use no cookie or tracker; when they display the legal pages, those pages set the two preference cookies above within the application. The store.nexsim.fr service uses a single session cookie, strictly necessary for logging in and therefore exempt from consent; the session expires at the latest three hours after login.',
+    'privacy.s5.p5' => 'The NexControl and NexHome applications use no cookie or tracker; when they display the legal pages, those pages set the two preference cookies above within the application. The store.nexsim.fr service uses a session cookie, strictly necessary for logging in (the session expires at the latest three hours after login), and the <code>nexstore_lang</code> preference cookie (chosen language, 12 months): both are exempt from consent.',
 
     'privacy.s6.title' => '6. Your rights',
     'privacy.s6.p1' => 'Under the GDPR you have the rights of access, rectification, erasure, restriction, objection and portability regarding your data, as well as the right to give instructions on what happens to your data after your death.',
