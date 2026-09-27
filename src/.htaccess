@@ -38,7 +38,7 @@
     # Contenus au nom porteur d'une empreinte ou d'une version : le fichier ne
     # changera jamais sous cette URL, un contenu modifié produit une autre URL.
     #   - image/opt/ : empreinte insérée par tools/build-images.mjs
-    #   - fonts/     : version figée d'Open Sans (voir fonts/README.md)
+    #   - fonts/     : version figée de Rubik (voir fonts/README.md)
     #   - ?v=        : empreinte ajoutée par nexsim_asset_url() (animations.js)
     <FilesMatch "\.(avif|webp|woff2)$">
         Header set Cache-Control "public, max-age=31536000, immutable"

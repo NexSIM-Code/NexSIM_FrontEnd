@@ -193,7 +193,7 @@ return [
     'legal.s6.p' => 'This legal notice is governed by French law. In the event of a dispute and failing an amicable settlement, the competent courts shall be those of the jurisdiction of the registered office of Nexsim.',
 
     'legal.s7.title' => '7. Credits',
-    'legal.s7.p' => 'Site design and development: Nexsim. Presentation video by Léonard Jund. Open Sans typeface (SIL Open Font License). 3D viewer: <code>&lt;model-viewer&gt;</code> (Apache 2.0 licence).',
+    'legal.s7.p' => 'Site design and development: Nexsim. Presentation video by Léonard Jund. Rubik typeface (SIL Open Font License). 3D viewer: <code>&lt;model-viewer&gt;</code> (Apache 2.0 licence).',
 
     // ------------------------------------------------------ Privacy policy ---
     'seo.privacy.title' => 'Privacy policy | Nexsim',
@@ -219,7 +219,7 @@ return [
     'privacy.s4.title' => '4. Recipients and processors',
     'privacy.s4.intro' => 'The data is intended solely for authorised staff at Nexsim. It may be processed by our technical service providers within the limits of their assignment:',
     'privacy.s4.li1' => '<strong>Website host</strong>: OVH SAS, for hosting and technical logs.',
-    'privacy.s4.li2' => '<strong>Google Fonts and Google Hosted Libraries</strong>: the Open Sans typeface and the 3D viewer component are loaded from servers operated by Google LLC. During that load, your browser sends your IP address to Google, where it may be processed in the United States under the European Commission\'s standard contractual clauses.',
+    'privacy.s4.li2' => '<strong>Google Hosted Libraries</strong>: the 3D viewer component is loaded from servers operated by Google LLC, and only when a 3D viewer comes close to the visible area of the page. During that load, your browser sends your IP address to Google, where it may be processed in the United States under the European Commission\'s standard contractual clauses. The site\'s typefaces are hosted on our own servers: displaying them triggers no third-party request.',
     'privacy.s4.end' => 'No data is sold or transferred to third parties for commercial purposes.',
 
     'privacy.s5.title' => '5. Cookies and trackers',

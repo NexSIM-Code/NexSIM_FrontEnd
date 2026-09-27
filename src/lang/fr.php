@@ -193,7 +193,7 @@ return [
     'legal.s6.p' => 'Les présentes mentions légales sont soumises au droit français. En cas de litige et à défaut de résolution amiable, les tribunaux compétents seront ceux du ressort du siège social de Nexsim.',
 
     'legal.s7.title' => '7. Crédits',
-    'legal.s7.p' => 'Conception et réalisation du site : Nexsim. Vidéo de présentation réalisée par Léonard Jund. Police de caractères Open Sans (licence SIL Open Font). Visionneuse 3D : <code>&lt;model-viewer&gt;</code> (licence Apache 2.0).',
+    'legal.s7.p' => 'Conception et réalisation du site : Nexsim. Vidéo de présentation réalisée par Léonard Jund. Police de caractères Rubik (licence SIL Open Font). Visionneuse 3D : <code>&lt;model-viewer&gt;</code> (licence Apache 2.0).',
 
     // ------------------------------------------ Politique de confidentialité ---
     'seo.privacy.title' => 'Politique de confidentialité | Nexsim',
@@ -219,7 +219,7 @@ return [
     'privacy.s4.title' => '4. Destinataires et sous-traitants',
     'privacy.s4.intro' => 'Les données sont destinées aux seules personnes habilitées de Nexsim. Elles peuvent être traitées par nos sous-traitants techniques dans la limite de leurs missions :',
     'privacy.s4.li1' => "<strong>Hébergeur du site</strong> : OVH SAS, pour l'hébergement et les journaux techniques.",
-    'privacy.s4.li2' => "<strong>Google Fonts et Google Hosted Libraries</strong> : la police Open Sans et le composant de visualisation 3D sont chargés depuis les serveurs de Google LLC. Lors de ce chargement, votre navigateur transmet votre adresse IP à Google, susceptible d'être traitée aux États-Unis dans le cadre des clauses contractuelles types de la Commission européenne.",
+    'privacy.s4.li2' => "<strong>Google Hosted Libraries</strong> : le composant de visualisation 3D est chargé depuis les serveurs de Google LLC, uniquement lorsqu'une visionneuse 3D approche de la zone visible de la page. Lors de ce chargement, votre navigateur transmet votre adresse IP à Google, susceptible d'être traitée aux États-Unis dans le cadre des clauses contractuelles types de la Commission européenne. Les polices de caractères du site sont hébergées sur nos propres serveurs : leur affichage n'entraîne aucune requête vers un tiers.",
     'privacy.s4.end' => "Aucune donnée n'est vendue ni cédée à des tiers à des fins commerciales.",
 
     'privacy.s5.title' => '5. Cookies et traceurs',
