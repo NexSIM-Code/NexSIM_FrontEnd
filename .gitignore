@@ -1,5 +1,5 @@
 .idea
-
+.DS_Store
 scripts/
 tools/node_modules/
 src/image/opt
