@@ -83,7 +83,7 @@ if ($isHome) {
 
     <!-- Resource hints : la police latine est le seul asset du chemin critique
          (le CSS est intégré au document, cf. includes/assets.php). -->
-    <link rel="preload" as="font" type="font/woff2" href="/fonts/open-sans-latin.woff2" crossorigin>
+    <link rel="preload" as="font" type="font/woff2" href="fonts/rubik-latin.woff2" crossorigin>
     <?php if ($isHome): ?>
     <link rel="preload" as="image" href="videos/poster.jpg">
     <?php endif; ?>
@@ -105,6 +105,6 @@ if ($isHome) {
         } catch (e) {}
     </script>
 
-    <!-- CSS intégré (Open Sans auto-hébergé, déclaré dans css/style.css) -->
+    <!-- CSS intégré (Rubik auto-hébergé, déclaré dans css/style.css) -->
     <style><?= nexsim_inline_css('css/style.css') ?></style>
     <script src="<?= htmlspecialchars(nexsim_asset_url('scripts/animations.js')) ?>" defer></script>

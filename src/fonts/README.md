@@ -1,14 +1,14 @@
 # Polices auto-hébergées
 
-`Open Sans` (fichiers variables, axe `wght` 400–800) servi depuis le site plutôt
+`Rubik` (fichiers variables, axe `wght` 300–900) servi depuis le site plutôt
 que depuis `fonts.googleapis.com` : la feuille de style Google était une requête
 bloquant le rendu (~750 ms mesurés par PageSpeed), suivie d'une connexion
 supplémentaire vers `fonts.gstatic.com` pour les fichiers eux-mêmes.
 
 | Fichier | Sous-ensemble | Couverture |
 | --- | --- | --- |
-| `open-sans-latin.woff2` | latin | français, anglais, allemand courants |
-| `open-sans-latin-ext.woff2` | latin-ext | diacritiques d'Europe centrale |
+| `rubik-latin.woff2` | latin | français, anglais, allemand courants |
+| `rubik-latin-ext.woff2` | latin-ext | diacritiques d'Europe centrale |
 
 Les `@font-face` correspondants sont déclarés en tête de `css/style.css`, avec
 les `unicode-range` d'origine : le navigateur ne télécharge `latin-ext` que si la
@@ -16,13 +16,16 @@ page contient réellement un caractère concerné.
 
 ## Mettre à jour
 
+Depuis la fonte variable d'origine (`fonttools` + `brotli`) :
+
 ```bash
-UA='Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36'
-curl -A "$UA" 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400..800&display=swap'
+LATIN='U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD'
+pyftsubset Rubik-VariableFont_wght.ttf --output-file=rubik-latin.woff2 \
+  --flavor=woff2 --layout-features='*' --name-IDs='*' --notdef-outline \
+  --unicodes="$LATIN"
 ```
 
-Récupérer dans la réponse les URL `woff2` des blocs `/* latin */` et
-`/* latin-ext */`, les télécharger sous les noms ci-dessus, puis reporter les
-`unicode-range` dans `css/style.css` s'ils ont changé.
+Le sous-ensemble `latin-ext` s'obtient de la même façon avec l'`unicode-range`
+correspondant, repris de `css/style.css`.
 
-Open Sans est distribué sous licence SIL Open Font License 1.1.
+Rubik est distribué sous licence SIL Open Font License 1.1.

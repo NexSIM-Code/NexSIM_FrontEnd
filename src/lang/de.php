@@ -193,7 +193,7 @@ return [
     'legal.s6.p' => 'Dieses Impressum unterliegt französischem Recht. Im Streitfall und mangels gütlicher Einigung sind die Gerichte am Sitz von Nexsim zuständig.',
 
     'legal.s7.title' => '7. Credits',
-    'legal.s7.p' => 'Konzeption und Umsetzung der Website: Nexsim. Präsentationsvideo von Léonard Jund. Schriftart Open Sans (SIL Open Font License). 3D-Viewer: <code>&lt;model-viewer&gt;</code> (Apache-2.0-Lizenz).',
+    'legal.s7.p' => 'Konzeption und Umsetzung der Website: Nexsim. Präsentationsvideo von Léonard Jund. Schriftart Rubik (SIL Open Font License). 3D-Viewer: <code>&lt;model-viewer&gt;</code> (Apache-2.0-Lizenz).',
 
     // --------------------------------------------------- Datenschutzerklärung ---
     'seo.privacy.title' => 'Datenschutzerklärung | Nexsim',
@@ -219,7 +219,7 @@ return [
     'privacy.s4.title' => '4. Empfänger und Auftragsverarbeiter',
     'privacy.s4.intro' => 'Die Daten sind ausschließlich für befugte Mitarbeitende von Nexsim bestimmt. Sie können im Rahmen ihres Auftrags von unseren technischen Dienstleistern verarbeitet werden:',
     'privacy.s4.li1' => '<strong>Hoster der Website</strong>: OVH SAS, für das Hosting und die technischen Protokolle.',
-    'privacy.s4.li2' => '<strong>Google Fonts und Google Hosted Libraries</strong>: die Schriftart Open Sans und die 3D-Viewer-Komponente werden von Servern der Google LLC geladen. Dabei übermittelt Ihr Browser Ihre IP-Adresse an Google, wo sie auf Grundlage der Standardvertragsklauseln der Europäischen Kommission auch in den Vereinigten Staaten verarbeitet werden kann.',
+    'privacy.s4.li2' => '<strong>Google Hosted Libraries</strong>: die 3D-Viewer-Komponente wird von Servern der Google LLC geladen, und zwar nur dann, wenn ein 3D-Viewer in die Nähe des sichtbaren Seitenbereichs gelangt. Dabei übermittelt Ihr Browser Ihre IP-Adresse an Google, wo sie auf Grundlage der Standardvertragsklauseln der Europäischen Kommission auch in den Vereinigten Staaten verarbeitet werden kann. Die Schriftarten der Website werden auf unseren eigenen Servern gehostet; ihre Darstellung löst keine Anfrage an Dritte aus.',
     'privacy.s4.end' => 'Es werden keine Daten zu kommerziellen Zwecken verkauft oder an Dritte weitergegeben.',
 
     'privacy.s5.title' => '5. Cookies und Tracker',
