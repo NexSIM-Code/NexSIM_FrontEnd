@@ -37,6 +37,7 @@ largeur supérieure à l'original n'est jamais produite.
 | `contenu` | colonne de `.split`, ~694 px au maximum | 400, 640, 900, 1200, 1440 |
 | `portrait` | pastille de 104 px (`.avatar`) | 104, 208, 312 |
 | `logo` | 96 px de haut, 320 px de large au plus (`.logo-item img`) | 320, 640 |
+| `communication` | aperçus de `communication.php` (~420 px CSS) | 320, 640, 960 |
 
 Les largeurs couvrent les écrans jusqu'à une densité double. Si le CSS de ces
 emplacements change, ajuster les largeurs **et** les attributs `sizes`
@@ -49,3 +50,18 @@ Le carrousel partenaires liste le contenu de `src/image/partenaires/` au moment
 du rendu. Les déclinaisons doivent donc rester hors de ce dossier, sinon chaque
 logo apparaîtrait autant de fois qu'il a de variantes — c'est la raison d'être du
 dossier `image/opt/` séparé.
+
+## Kit de communication
+
+`build-press-kit.mjs` produit les fichiers téléchargeables de la page
+`communication.php` dans `src/image/communication/` : logos NexSIM (SVG, PNG
+512/1024/2048, carré 512 sur fond blanc pour les données structurées), icônes
+NexControl et NexHome, visuels LuSIM et captures NexControl, avec des noms
+explicites (ils comptent pour la recherche d'images). Ce dossier est **suivi par
+git** et déployé tel quel.
+
+```bash
+cd tools
+node build-press-kit.mjs   # après une modification d'un logo ou d'un visuel
+npm run build              # aperçus AVIF/WebP de la page
+```

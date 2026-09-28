@@ -111,9 +111,12 @@ include __DIR__ . '/partials/head.php';
                             'email' => 'contact@nexsim.fr',
                             'foundingDate' => '2026-06-28',
                             'image' => 'https://www.nexsim.fr/videos/poster.jpg',
+                            // Logo matriciel carré : les moteurs de recherche ignorent le SVG ici.
                             'logo' => [
                                     '@type' => 'ImageObject',
-                                    'url' => 'https://www.nexsim.fr/image/logo_Nexsim_light.svg',
+                                    'url' => 'https://www.nexsim.fr/image/communication/nexsim-logo-carre-512.png',
+                                    'width' => 512,
+                                    'height' => 512,
                             ],
                             'name' => 'Nexsim',
                             'numberOfEmployees' => [

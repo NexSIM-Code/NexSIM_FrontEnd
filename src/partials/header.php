@@ -37,11 +37,20 @@ $logoPriority = fn(string $variant): string => $variant === $nexsimTheme
 </svg>
 
 <header class="navbar" role="banner">
-    <div class="logo">
+    <div class="logo" data-logo-menu="logo-menu">
         <a href="<?= $base ?: '#accueil' ?>" aria-label="<?= e('nav.aria.home') ?>">
             <img class="logo-dark" src="image/logo_Nexsim_dark.svg" alt="<?= e('nav.logo.alt') ?>" height="36" width="62"<?= $logoPriority('dark') ?>>
             <img class="logo-light" src="image/logo_Nexsim_light.svg" alt="<?= e('nav.logo.alt') ?>" height="36" width="62"<?= $logoPriority('light') ?>>
         </a>
+        <div id="logo-menu" class="logo-menu card" role="menu" aria-label="<?= e('nav.logo.menu.aria') ?>" hidden>
+            <a role="menuitem" href="image/communication/nexsim-logo-fond-<?= $nexsimTheme === 'light' ? 'clair' : 'sombre' ?>.svg"
+               data-href-dark="image/communication/nexsim-logo-fond-sombre.svg"
+               data-href-light="image/communication/nexsim-logo-fond-clair.svg" download><?= t('nav.logo.menu.svg') ?></a>
+            <a role="menuitem" href="image/communication/nexsim-logo-fond-<?= $nexsimTheme === 'light' ? 'clair' : 'sombre' ?>-1024.png"
+               data-href-dark="image/communication/nexsim-logo-fond-sombre-1024.png"
+               data-href-light="image/communication/nexsim-logo-fond-clair-1024.png" download><?= t('nav.logo.menu.png') ?></a>
+            <a role="menuitem" href="communication.php"><?= t('nav.logo.menu.kit') ?></a>
+        </div>
     </div>
     <nav class="nav-links" aria-label="<?= e('nav.aria.main') ?>">
         <a href="<?= $base ?>#accueil"><?= t('nav.home') ?></a>

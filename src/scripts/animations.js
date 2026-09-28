@@ -260,6 +260,61 @@
         dialog.addEventListener('click', (e) => { if (e.target === dialog) dialog.close(); });
     }
 
+    /* -------------------------------------------------- Menu du logo --- */
+    /* Clic droit (ou appui long) sur le logo de l'en-tête : télécharger le logo
+       dans la version du thème affiché, ou ouvrir le kit de communication. */
+    document.querySelectorAll('[data-logo-menu]').forEach((logo) => {
+        const menu = document.getElementById(logo.dataset.logoMenu);
+        if (!menu) return;
+        const items = Array.from(menu.querySelectorAll('[role="menuitem"]'));
+
+        const close = () => {
+            if (menu.hidden) return;
+            menu.hidden = true;
+            document.removeEventListener('pointerdown', onOutside, true);
+        };
+        const onOutside = (e) => { if (!menu.contains(e.target)) close(); };
+
+        logo.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+            const theme = html.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+            items.forEach((item) => {
+                const href = item.dataset['href' + (theme === 'light' ? 'Light' : 'Dark')];
+                if (href) item.setAttribute('href', href);
+            });
+            const box = logo.getBoundingClientRect();
+            // Clavier (touche Menu) : sous le logo ; souris ou doigt : au pointeur.
+            const x = e.clientX || box.left;
+            const y = e.clientY || box.bottom;
+            menu.style.left = Math.max(8, x - box.left) + 'px';
+            menu.style.top = Math.max(0, y - box.top) + 'px';
+            menu.hidden = false;
+            items[0].focus();
+            document.addEventListener('pointerdown', onOutside, true);
+        });
+        menu.addEventListener('keydown', (e) => {
+            const index = items.indexOf(document.activeElement);
+            if (e.key === 'Escape') { close(); logo.querySelector('a').focus(); }
+            else if (e.key === 'ArrowDown') { e.preventDefault(); items[(index + 1) % items.length].focus(); }
+            else if (e.key === 'ArrowUp') { e.preventDefault(); items[(index - 1 + items.length) % items.length].focus(); }
+        });
+        menu.addEventListener('click', () => setTimeout(close, 0));
+        window.addEventListener('scroll', close, { passive: true });
+        window.addEventListener('blur', close);
+    });
+
+    /* ----------------------------------- Kit : copie des codes couleur --- */
+    document.querySelectorAll('.comm-copy[data-copy]').forEach((button) => {
+        const label = button.textContent;
+        button.addEventListener('click', async () => {
+            try {
+                await navigator.clipboard.writeText(button.dataset.copy);
+                button.textContent = button.dataset.copied || label;
+                setTimeout(() => { button.textContent = label; }, 1500);
+            } catch (e) { /* presse-papiers refusé : le code reste lisible */ }
+        });
+    });
+
     /* ------------------------------ Fallback animations au défilement --- */
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (!reduceMotion && !CSS.supports('(animation-timeline: view()) and (animation-range: entry)')) {

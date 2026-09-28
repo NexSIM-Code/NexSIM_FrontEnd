@@ -41,6 +41,14 @@ const GROUPS = [
         dir: 'image/person',
     },
     {
+        /* Aperçus de la page Communication (grille de cartes, ~420 px CSS au
+           plus) ; les fichiers eux-mêmes restent téléchargeables tels quels. */
+        name: 'communication',
+        widths: [320, 640, 960],
+        quality: { avif: 58, webp: 82 },
+        dir: 'image/communication',
+    },
+    {
         /* Logos partenaires : 96 px de haut et 320 px de large au maximum sur
            desktop (64 / 220 sous 900 px) — 640 px couvre la densité double. */
         name: 'logo',

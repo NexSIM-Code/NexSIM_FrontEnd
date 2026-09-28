@@ -20,6 +20,7 @@ $base = $isHome ? '' : 'index.php';
             <a href="https://www.linkedin.com/company/nexsim/" rel="noopener" target="_blank">LinkedIn</a>
             <a href="mentions-legales.php"><?= t('footer.legal') ?></a>
             <a href="politique-de-confidentialite.php"><?= t('footer.privacy') ?></a>
+            <a href="communication.php"><?= t('footer.communication') ?></a>
             <a href="<?= $base ?>#accueil"><?= t('footer.top') ?></a>
         </div>
 
